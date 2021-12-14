@@ -58,7 +58,7 @@
 .landingPageButton {
   width: 20rem;
   height: 2rem;
-  border: 3px gray outset;
+  border: 5px gray outset;
   background-color: transparent;
 }
 
@@ -135,3 +135,61 @@
 .orderDetails > p {
   font-weight: 800;
 }
+
+#trainingInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#trainingInformation > h2 {
+  margin-bottom: 1rem;;
+}
+
+#trainingSpan {
+  margin-bottom: 1rem;
+}
+
+#trainingSpan > p {
+  font-weight: 500;
+}
+
+#trainingLayoutSpan {
+  display: flex;
+  flex-direction: row;
+}
+
+.pathDiv {
+  border: 3px black solid;
+  width: 25rem;
+  height: 15rem;
+  margin-right: 1.5rem;
+  padding-top: .5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.landingH3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.pathInfoSpan{
+  height:fit-content;
+  width:fit-content;
+  margin-bottom: 1rem;
+}
+
+.pathInfoSpan > p {
+    font-weight: 800;
+    text-align: start;
+}
+
+.pathDiv > button{
+  margin-top: 1rem;
+  align-self: center;
+}
+

@@ -63,36 +63,38 @@ const IndustryLanding = () => {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur suscipit impedit et odit aut alias cum consectetur eveniet porro facere.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur suscipit impedit et odit aut alias cum consectetur eveniet porro facere.</p>
         </span>
-        <div className="pathDiv">
-          <h3 className="landingH3">
-            Data Science Path
-          </h3>
-          <span id='pathInfoSpan'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur suscipit impedit et odit aut alias cum consectetur eveniet porro facere.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur suscipit impedit et odit aut alias cum consectetur eveniet porro facere.</p>
-          </span>
-          <button className="landingPageButton">
-            Course Summary
-          </button>
-          <button className="landingPageButton">
-            Download Syllabus
-          </button>
-        </div>
-        <div className="pathDiv">
-          <h3 className="landingH3">
-            Cloud Engineering Path
-          </h3>
-          <span id='pathInfoSpan'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur suscipit impedit et odit aut alias cum consectetur eveniet porro facere.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur suscipit impedit et odit aut alias cum consectetur eveniet porro facere.</p>
-          </span>
-          <button className="landingPageButton">
-            Course Summary
-          </button>
-          <button className="landingPageButton">
-            Download Syllabus
-          </button>
-        </div>
+        <span id='trainingLayoutSpan'>
+          <div className="pathDiv">
+            <h3 className="landingH3">
+              Data Science Path
+            </h3>
+            <span className='pathInfoSpan'>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </span>
+            <button className="landingPageButton">
+              Course Summary
+            </button>
+            <button className="landingPageButton">
+              Download Syllabus
+            </button>
+          </div>
+          <div className="pathDiv">
+            <h3 className="landingH3">
+              Cloud Engineering Path
+            </h3>
+            <span className='pathInfoSpan'>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </span>
+            <button className="landingPageButton">
+              Course Summary
+            </button>
+            <button className="landingPageButton">
+              Download Syllabus
+            </button>
+          </div>
+        </span>
       </div>
       <div id='pipelineDiv'>
         <h2 className="landingHeading">View our training information</h2>
