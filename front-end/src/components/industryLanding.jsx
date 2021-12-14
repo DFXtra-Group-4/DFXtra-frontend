@@ -116,13 +116,15 @@ const IndustryLanding = () => {
         <h2 className="landingHeading">
           Latest New from Digital Futures
         </h2>
-        <div className="newsDiv">
-          <img></img>
-          <h3 className="landingH3">A news story</h3>
-        </div>
-        <div className="newsDiv">
-          <img></img>
-          <h3 className="landingH3">A news story</h3>
+        <div id="newsContainer">
+          <div className="newsDiv">
+            <img></img>
+            <h3 className="landingH3">A news story</h3>
+          </div>
+          <div className="newsDiv">
+            <img></img>
+            <h3 className="landingH3">A news story</h3>
+          </div>
         </div>
       </div>
     </div>

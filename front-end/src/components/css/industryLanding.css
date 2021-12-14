@@ -227,3 +227,33 @@
   grid-column: 3/4;
   justify-self: flex-end;
 }
+
+#latestNews {
+  border: none;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#newsContainer {
+  display: flex;
+}
+
+.newsDiv {
+  border: 3px black solid;
+  width: 30rem;
+  margin-left: -1.5rem;
+  margin-right: 3rem;
+  margin-top: 2rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.newsDiv > img {
+  height: 70%;
+  width: 90%;
+}
