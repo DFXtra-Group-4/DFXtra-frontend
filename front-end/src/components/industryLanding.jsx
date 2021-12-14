@@ -97,7 +97,7 @@ const IndustryLanding = () => {
         </span>
       </div>
       <div id='pipelineDiv'>
-        <h2 className="landingHeading">View our training information</h2>
+        <h2 className="landingHeading">View our pipeline and statistics</h2>
         <span className="graphSpan">
           <h3 className="landingH3">Demographics</h3>
           <img></img>
@@ -107,9 +107,10 @@ const IndustryLanding = () => {
           <img></img>
         </span>
         <span className="graphSpan">
-          <h3 className="landingH3">Qyakuty and diligence</h3>
+          <h3 className="landingH3">Quality and diligence</h3>
           <img></img>
         </span>
+        <button className='landingPageButton'>Download Data</button>
       </div>
       <div id="latestNews">
         <h2 className="landingHeading">

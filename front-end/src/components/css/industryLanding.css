@@ -193,3 +193,37 @@
   align-self: center;
 }
 
+#pipelineDiv {
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-columns: 2fr 2fr 3fr;
+  row-gap: 2rem;          /* might need to change to space properly*/
+}
+
+#pipelineDiv > h2 {
+  justify-self: flex-start;
+}
+
+#pipelineDiv span:nth-child(2) {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  justify-self: flex-start;
+}
+
+#pipelineDiv span:nth-child(3) {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  justify-self: flex-start;
+}
+
+#pipelineDiv span:nth-child(4) {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  justify-self: flex-start;
+}
+
+#pipelineDiv > button {
+  grid-row: 3/4;
+  grid-column: 3/4;
+  justify-self: flex-end;
+}
