@@ -6,8 +6,17 @@ const IndustryLanding = () => {
     <div id='industryPage'>
       <div id='nav'>
       </div>
+      <div id='spotlight'>
+        <h2 className="landingHeading">Talent Spotlight</h2>
+        <p id='spotlightInfo'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit dolores voluptatum, nihil repellat libero commodi nulla fuga sapiente deleniti sunt!</p>
+        <span id='lowerSpan'>
+          <span id='SFGradImg'></span>
+          <span id='DSGradImg'></span>
+          <button className='landingPageButton'>View spotlight details</button>
+        </span>
+      </div>
       <div id='requirements'>
-        <h2 className="landingHeading"></h2>
+        <h2 className="landingHeading">Requirements</h2>
         <button className="landingPageButton">
           Request immediate resources
         </button>

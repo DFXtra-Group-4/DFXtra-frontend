@@ -1,16 +1,63 @@
 #industryPage {
-  width: 100%;
+  width: 90%;
   padding-left: 5%;
   padding-right: 5%;
   height: 100%;
 }
 
-#nav, #requirements, #orders, #trainingInformation, #pipelineDiv, #latestNews{
+#nav, #spotlight, #requirements, #orders, #trainingInformation, #pipelineDiv, #latestNews{
   border: 3px black solid;
   width: 100%;
   margin-top: 1rem;
+    padding: 1rem;
+
 }
 
 #nav {
   height: 3rem;
+}
+
+#spotlight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
+}
+
+.landingHeading {
+  font-size: 1.5rem;
+  font-weight:400;
+  margin-bottom: .5rem;
+}
+
+#spotlightInfo{
+  margin-bottom: .5rem;
+  font-weight: bolder;
+}
+
+#lowerSpan {
+  height: 5rem;
+  width: 100%;
+  border: 1px black solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#SFGradImg, #DSGradImg {
+  border: 3px black solid;
+  height: 80%;
+  width: 30%;
+}
+
+#DSGradImg {
+  margin-right: 9rem;
+}
+
+.landingPageButton {
+  width: 20rem;
+  height: 2rem;
+  border: 3px gray outset;
+  background-color: transparent;
 }

@@ -1,5 +1,5 @@
 import './App.css';
-import IndustryLanding from './components/industryLanding';
+import IndustryLanding from './components/IndustryLanding';
 
 function App() {
   return (
