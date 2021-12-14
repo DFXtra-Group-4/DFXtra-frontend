@@ -25,32 +25,32 @@ const IndustryLanding = () => {
         </button>
       </div>
       <div id='orders'>
-        <h1 className="landingHeading">Your Orders:</h1>
+        <h2 className="landingHeading">Your Orders:</h2>
+        <h2 className="landingHeading">
+          Immediate Orders:
+        </h2>
         <span id="orderSpan">
-          <h2 className="landingHeading">
-            Immediate Orders:
-          </h2>
-          <div id='orderDetails'>
+          <div className='orderDetails'>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
           </div>
         </span>
+        <h2 className="landingHeading">
+          Future interest:
+        </h2>
         <span id='futureInterestSpan'>
-          <h2 className="landingHeading">
-            Future interest:
-          </h2>
-          <div id='orderDetails'>
+          <div className='orderDetails'>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
           </div>
-          <div id='orderDetails'>
+          <div className='orderDetails'>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
           </div>
-          <div id='orderDetails'>
+          <div className='orderDetails'>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
