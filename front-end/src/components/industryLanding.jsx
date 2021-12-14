@@ -1,11 +1,10 @@
+import './css/industryLanding.css';
 
-
-const industryLanding = () => {
+const IndustryLanding = () => {
 
   return (
     <div id='industryPage'>
       <div id='nav'>
-
       </div>
       <div id='requirements'>
         <h2 className="landingHeading"></h2>
@@ -118,4 +117,4 @@ const industryLanding = () => {
   )
 };
 
-export default industryLanding;
+export default IndustryLanding;
