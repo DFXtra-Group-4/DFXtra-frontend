@@ -96,37 +96,6 @@ const IndustryLanding = () => {
           </div>
         </span>
       </div>
-      <div id='pipelineDiv'>
-        <h2 className="landingHeading">View our pipeline and statistics</h2>
-        <span className="graphSpan">
-          <h3 className="landingH3">Demographics</h3>
-          <img></img>
-        </span>
-        <span className="graphSpan">
-          <h3 className="landingH3">Selection Process</h3>
-          <img></img>
-        </span>
-        <span className="graphSpan">
-          <h3 className="landingH3">Quality and diligence</h3>
-          <img></img>
-        </span>
-        <button className='landingPageButton'>Download Data</button>
-      </div>
-      <div id="latestNews">
-        <h2 className="landingHeading">
-          Latest New from Digital Futures
-        </h2>
-        <div id="newsContainer">
-          <div className="newsDiv">
-            <img></img>
-            <h3 className="landingH3">A news story</h3>
-          </div>
-          <div className="newsDiv">
-            <img></img>
-            <h3 className="landingH3">A news story</h3>
-          </div>
-        </div>
-      </div>
     </div>
   )
 };
