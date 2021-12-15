@@ -117,12 +117,6 @@
   grid-column: 1/2;
 }
 
-#futureInterestSpan {
-  grid-row: 3/4;
-  grid-column: 2/3;
-  display: flex;
-  flex-direction: row;
-}
 
 .orderDetails {
   border: 3px black solid;
@@ -191,69 +185,4 @@
 .pathDiv > button{
   margin-top: 1rem;
   align-self: center;
-}
-
-#pipelineDiv {
-  display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
-  grid-template-columns: 2fr 2fr 3fr;
-  row-gap: 2rem;          /* might need to change to space properly*/
-}
-
-#pipelineDiv > h2 {
-  justify-self: flex-start;
-}
-
-#pipelineDiv span:nth-child(2) {
-  grid-row: 2/3;
-  grid-column: 1/2;
-  justify-self: flex-start;
-}
-
-#pipelineDiv span:nth-child(3) {
-  grid-row: 2/3;
-  grid-column: 2/3;
-  justify-self: flex-start;
-}
-
-#pipelineDiv span:nth-child(4) {
-  grid-row: 2/3;
-  grid-column: 3/4;
-  justify-self: flex-start;
-}
-
-#pipelineDiv > button {
-  grid-row: 3/4;
-  grid-column: 3/4;
-  justify-self: flex-end;
-}
-
-#latestNews {
-  border: none;
-  display:flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-#newsContainer {
-  display: flex;
-}
-
-.newsDiv {
-  border: 3px black solid;
-  width: 30rem;
-  margin-left: -1.5rem;
-  margin-right: 3rem;
-  margin-top: 2rem;
-  height: 15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 1rem;
-}
-
-.newsDiv > img {
-  height: 70%;
-  width: 90%;
 }

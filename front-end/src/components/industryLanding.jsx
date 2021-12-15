@@ -36,26 +36,6 @@ const IndustryLanding = () => {
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
           </div>
         </span>
-        <h2 className="landingHeading">
-          Future interest:
-        </h2>
-        <span id='futureInterestSpan'>
-          <div className='orderDetails'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-          </div>
-          <div className='orderDetails'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-          </div>
-          <div className='orderDetails'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-          </div>
-        </span>
       </div>
       <div id='trainingInformation'>
         <h2 className="landingHeading">View our training information</h2>
