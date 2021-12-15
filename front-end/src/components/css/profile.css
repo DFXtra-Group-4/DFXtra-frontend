@@ -7,6 +7,14 @@ body {
 
 }
 
+#profilePage {
+  width: 90%;
+  padding: 1.5rem;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 100%;
+}
+
 .left {
 
     padding: 20;

@@ -2,7 +2,7 @@ import './css/Navbar.css';
 
 const Navbar = () => {
   return (
-    <div id="nav" style={{ margin: "20px ", padding: "20", width: "86.4%" }} >
+    <div id="nav" style={{ margin: "20px ", padding: "20", width: "90%" }} >
       <p style={{ color: "#fff" }}>DFX</p>
       <ul>
 

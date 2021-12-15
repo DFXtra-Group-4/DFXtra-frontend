@@ -4,7 +4,7 @@ import './css/editprofile.css'
 
 const Profile = ({ data }) => {
     return (
-        <div>
+        <div id='profilePage'>
             <div style={{
                 margin: "100px 100px 20px 20px "
             }}>
