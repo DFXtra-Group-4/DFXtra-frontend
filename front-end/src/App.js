@@ -2,6 +2,7 @@ import './App.css';
 import ScoreCard from './components/ScoreCard';
 import TalentCard from './components/Talent';
 
+import IndustryLanding from './components/IndustryLanding';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       {/* <Route path="/" exact component={TalentCard} />
         { <Route path="/signup" exact component={Score}/> }
        */}
+      <IndustryLanding />
     </div>
     // </Router>
   );
