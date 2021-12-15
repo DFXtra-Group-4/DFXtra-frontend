@@ -1,0 +1,259 @@
+#industryPage {
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 100%;
+}
+
+#nav, #spotlight, #requirements, #orders, #trainingInformation, #pipelineDiv, #latestNews{
+  border: 3px black solid;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1.5rem;
+
+}
+
+#nav {
+  height: 3rem;
+}
+
+#spotlight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
+}
+
+.landingHeading {
+  font-size: 1.5rem;
+  font-weight:400;
+  margin-bottom: .5rem;
+}
+
+#spotlightInfo{
+  margin-bottom: .5rem;
+  font-weight: bolder;
+}
+
+#lowerSpan {
+  height: 5rem;
+  width: 100%;
+  border: 1px black solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#SFGradImg, #DSGradImg {
+  border: 3px black solid;
+  height: 80%;
+  width: 30%;
+}
+
+#DSGradImg {
+  margin-right: 9rem;
+}
+
+.landingPageButton {
+  width: 20rem;
+  height: 2rem;
+  border: 5px gray outset;
+  background-color: transparent;
+}
+
+#requirements{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+#requirements > h2 {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  justify-self: flex-start;
+}
+
+#requirements button:nth-child(2) {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  margin-top: 1rem;
+} 
+
+#requirements button:nth-child(3) {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  margin-top: 1rem;
+} 
+
+#orders {
+  display: grid;
+  grid-template-rows: 1fr 1fr 3fr;
+  grid-template-columns: 1fr 3fr;
+  padding-bottom: 5rem;
+}
+
+#orders > h2:nth-child(1) {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  justify-self: flex-start;
+}
+
+
+#orders > h2:nth-child(2) {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  justify-self: flex-start;
+}
+
+#orders > h2:nth-child(4) {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  justify-self: flex-start;
+}
+
+#orderSpan {
+  grid-row: 3/4;
+  grid-column: 1/2;
+}
+
+#futureInterestSpan {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: row;
+}
+
+.orderDetails {
+  border: 3px black solid;
+  height: 10rem;
+  width: 15rem;
+  margin-right: 1.5rem;
+  padding: .5rem;
+}
+
+.orderDetails > p {
+  font-weight: 800;
+}
+
+#trainingInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#trainingInformation > h2 {
+  margin-bottom: 1rem;;
+}
+
+#trainingSpan {
+  margin-bottom: 1rem;
+}
+
+#trainingSpan > p {
+  font-weight: 500;
+}
+
+#trainingLayoutSpan {
+  display: flex;
+  flex-direction: row;
+}
+
+.pathDiv {
+  border: 3px black solid;
+  width: 25rem;
+  height: 15rem;
+  margin-right: 1.5rem;
+  padding-top: .5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.landingH3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.pathInfoSpan{
+  height:fit-content;
+  width:fit-content;
+  margin-bottom: 1rem;
+}
+
+.pathInfoSpan > p {
+    font-weight: 800;
+    text-align: start;
+}
+
+.pathDiv > button{
+  margin-top: 1rem;
+  align-self: center;
+}
+
+#pipelineDiv {
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-columns: 2fr 2fr 3fr;
+  row-gap: 2rem;          /* might need to change to space properly*/
+}
+
+#pipelineDiv > h2 {
+  justify-self: flex-start;
+}
+
+#pipelineDiv span:nth-child(2) {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  justify-self: flex-start;
+}
+
+#pipelineDiv span:nth-child(3) {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  justify-self: flex-start;
+}
+
+#pipelineDiv span:nth-child(4) {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  justify-self: flex-start;
+}
+
+#pipelineDiv > button {
+  grid-row: 3/4;
+  grid-column: 3/4;
+  justify-self: flex-end;
+}
+
+#latestNews {
+  border: none;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#newsContainer {
+  display: flex;
+}
+
+.newsDiv {
+  border: 3px black solid;
+  width: 30rem;
+  margin-left: -1.5rem;
+  margin-right: 3rem;
+  margin-top: 2rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.newsDiv > img {
+  height: 70%;
+  width: 90%;
+}
