@@ -5,32 +5,6 @@ import './css/editprofile.css'
 const Profile = ({ data }) => {
     return (
         <div>
-            <div id="nav" style={{ margin: "20px ", padding: "20", width: "86.4%" }} >
-                <p style={{ color: "#fff" }}>DFX</p>
-                <ul>
-
-                    <div className="dropdown">
-                        <button className="dropbtn">Menu
-                            <i className="fa fa-caret-down"></i>
-                        </button>
-                        <div className="dropdown-content">
-                            <a href="link">Job board</a>
-                            <a href="link">Industry partners</a>
-
-                        </div></div>
-                    <div className="dropdown">
-                        <button className="dropbtn">Account
-                            <i className="fa fa-caret-down"></i>
-                        </button>
-                        <div className="dropdown-content">
-                            <a href="link">My profile</a>
-                            <a href="link">Edit profile</a>
-                            <a href="link">Log out</a>
-
-                        </div></div>
-
-                </ul>
-            </div>
             <div style={{
                 margin: "100px 100px 20px 20px "
             }}>

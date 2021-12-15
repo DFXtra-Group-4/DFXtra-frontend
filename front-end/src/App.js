@@ -5,6 +5,7 @@ import IndustryLanding from './components/IndustryLanding';
 import ProfileData from './components/ProfileData';
 import EditProfile from './components/editprofile';
 import Registration from './components/Registration';
+import Navbar from './components/Navbar';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,16 +14,20 @@ import {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/talent" exact element={<Talent />} />
-        <Route path="/score" exact element={<ScoreCard />} />
-        <Route path="/profile" exact element={<ProfileData />} />
-        <Route path="/editprofile" exact element={<EditProfile />} />
-        <Route path="/" exact element={<IndustryLanding />} />
-        <Route path="/register" exact element={<Registration />} />
-      </Routes>
-    </Router>
+    <>
+      <Navbar />
+      <Router>
+        <Routes>
+          <Route path="/talent" exact element={<Talent />} />
+          <Route path="/score" exact element={<ScoreCard />} />
+          <Route path="/profile" exact element={<ProfileData />} />
+          <Route path="/editprofile" exact element={<EditProfile />} />
+          <Route path="/" exact element={<IndustryLanding />} />
+          <Route path="/register" exact element={<Registration />} />
+        </Routes>
+      </Router>
+    </>
+
   );
 }
 
