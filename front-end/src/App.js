@@ -1,7 +1,7 @@
 import './App.css';
 import ScoreCard from './components/ScoreCard';
 import Talent from './components/Talent';
-import IndustryLanding from './components/IndustryLanding';
+import IndustryLanding from './components/industryLanding';
 import Profile from './components/profile'
 import EditProfile from './components/editprofile';
 import {

@@ -4,21 +4,29 @@ function EditProfile() {
     return (
         <html>
             <body>
-                <div id="nav" style={{ margin: "20px ", padding: "20", width: "90.5%" }} >
+                <div id="nav" style={{ margin: "20px ", padding: "20", width: "86.4%" }} >
                     <p style={{ color: "#fff" }}>DFX</p>
                     <ul>
-                        <li style={{ textAlign: "right" }}> <a href="link"> Need help? </a></li>
-                        <li style={{ textAlign: "right" }}> <a href="link"> Talk to us </a></li>no
+
                         <div className="dropdown">
                             <button className="dropbtn">Menu
                                 <i className="fa fa-caret-down"></i>
                             </button>
                             <div className="dropdown-content">
                                 <a href="link">Job board</a>
-                                <a href="link">Projects</a>
+                                <a href="link">Industry partners</a>
 
                             </div></div>
-                        <li style={{ textAlign: "right" }}> <a href="link"> JT</a></li>
+                        <div className="dropdown">
+                            <button className="dropbtn">Account
+                                <i className="fa fa-caret-down"></i>
+                            </button>
+                            <div className="dropdown-content">
+                                <a href="link">My profile</a>
+                                <a href="link">Edit profile</a>
+                                <a href="link">Log out</a>
+
+                            </div></div>
 
                     </ul>
                 </div>

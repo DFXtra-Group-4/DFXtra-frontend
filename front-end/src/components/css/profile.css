@@ -6,6 +6,18 @@ body {
     padding: 0;
 
 }
+.footerr {
+	background-color: rgb(6, 20, 80);
+	color: white;
+	text-align: center;
+}
+
+footer .name {
+	color: white;
+}
+
+
+
 
 
 
