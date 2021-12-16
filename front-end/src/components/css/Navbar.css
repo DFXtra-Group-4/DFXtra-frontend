@@ -8,16 +8,13 @@ footer .name {
 	color: white;
 }
 
-
-
-
-
-
 #nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(6, 20, 80);
+    height: 4rem;
+    width: 90%;
 }
 
 #nav p {

@@ -17,48 +17,6 @@ footer .name {
 	color: white;
 }
 
-
-
-
-
-
-#nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(6, 20, 80);
-}
-
-#nav p {
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-#nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-
-}
-
-#nav li {
-    float: left;
-}
-
-#nav li a {
-    display: block;
-    color: rgb(255, 248, 248);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-
-
-
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
