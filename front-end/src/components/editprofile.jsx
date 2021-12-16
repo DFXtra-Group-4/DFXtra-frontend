@@ -12,6 +12,15 @@ function EditProfile({ profileData, updateData }) {
 
     const dataObject = {
         firstName: '',
+        lastName: '',
+        personalEmail: "",
+        workEmail: "",
+        gitHub: "",
+        linkedIn: "",
+        telNo: "",
+        gender: "",
+        personalityType: "",
+        nationality: ""
     }
 
     const onChange = (e) => {
@@ -90,14 +99,14 @@ function EditProfile({ profileData, updateData }) {
                             <table>
                                 <tr><td><label>First Name:</label> </td><td><input type="text" placeholder='Your name' name='firstName' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
                                 <tr><td><label>Last Name:</label> </td><td><input type="text" placeholder='Your name' name='lastName' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
-                                <tr><td><label>Personal email:</label> </td><td><input type="email" placeholder='Your personal email' style={{ width: "200px" }}></input></td></tr>
-                                <tr><td><label>Digital futures email:</label></td><td><input type="email" placeholder='Your personal email' style={{ width: "200px" }}></input></td></tr>
-                                <tr><td> <label>Github:</label> </td><td><input type="text" placeholder='Your github link' style={{ width: "200px" }}></input></td></tr>
+                                <tr><td><label>Personal email:</label> </td><td><input type="email" placeholder='Your personal email' name='personalEmail' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
+                                <tr><td><label>Digital futures email:</label></td><td><input type="email" placeholder='Your personal email' name='workEmail' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
+                                <tr><td> <label>Github:</label> </td><td><input type="text" placeholder='Your github link' name='gitHub' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
 
-                                <tr><td><label>Linked in:</label></td><td> <input type="text" placeholder='Your linked in' style={{ width: "200px" }}></input></td></tr>
-                                <tr><td> <label>Phone:</label> </td><td><input type="number" placeholder='Your phone number' style={{ width: "200px" }}></input></td></tr>
+                                <tr><td><label>Linked in:</label></td><td> <input type="text" placeholder='Your linked in' name='linkedIn' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
+                                <tr><td> <label>Phone:</label> </td><td><input type="number" placeholder='Your phone number' name='telNo' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
                                 <tr><td><label for="gender">Gender:</label></td><td><select style={{ width: "208px" }} name="gender" id="gender">
-                                    <option value="male">Male</option>
+                                    <option value="male" n>Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
 
