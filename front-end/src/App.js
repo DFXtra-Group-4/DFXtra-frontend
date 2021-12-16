@@ -1,10 +1,12 @@
 import './App.css';
 import ScoreCard from './components/ScoreCard';
 import Talent from './components/Talent';
-import IndustryLanding from './components/industryLanding';
-import Profile from './components/profile'
+import IndustryLanding from './components/IndustryLanding';
+import ProfileData from './components/ProfileData';
 import EditProfile from './components/editprofile';
 import Vacancies from './components/vacancies';
+import Registration from './components/Registration';
+import Navbar from './components/Navbar';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,27 +15,21 @@ import {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/talent" exact element={<Talent />} />
-        <Route path="/score" exact element={<ScoreCard />} />
-        <Route path="/profile" exact element={<Profile />} />
-        <Route path="/editprofile" exact element={<EditProfile />} />
-        <Route path="/" exact element={<IndustryLanding />} />
-        <Route path="/vacancies" exact element={<Vacancies />} />
-      </Routes>
-    </Router>
-    // <div className="App">
-    //   <h1>Talent Spotlight</h1>
-    //   <div className='spotlightInfo'> </div><p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia libero ipsam pariatur, exercitationem dignissimos error voluptatem provident optio? Labore, libero. Mollitia quaerat rem officia, quasi accusamus tempore minus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia libero ipsam pariatur, exercitationem dignissimos error voluptatem provident optio? Labore, libero. Mollitia quaerat rem officia, quasi accusamus tempore minus voluptatibus.</p>
-    //   <TalentCard />
-    //   <ScoreCard />
-    //   {/* <Route path="/" exact component={TalentCard} />
-    //     { <Route path="/signup" exact component={Score}/> }
-    //    */}
-    //   <IndustryLanding />
-    // </div>
-    // </Router>
+    <>
+      <Navbar />
+      <Router>
+        <Routes>
+          <Route path="/talent" exact element={<Talent />} />
+          <Route path="/score" exact element={<ScoreCard />} />
+          <Route path="/profile" exact element={<ProfileData />} />
+          <Route path="/editprofile" exact element={<EditProfile />} />
+          <Route path="/" exact element={<IndustryLanding />} />
+          <Route path="/register" exact element={<Registration />} />
+          <Route path="/vacancies" exact element={<Vacancies />} />
+
+        </Routes>
+      </Router>
+    </>
   );
 }
 
