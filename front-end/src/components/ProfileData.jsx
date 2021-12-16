@@ -24,6 +24,16 @@ const ProfileData = () => {
     getData();
   }, []);
 
+
+  const updateData = async () => {
+    try {
+      await axios.put('http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b1/edit');
+    }
+    catch (e) {
+      console.log(e);
+    };
+  };
+
   return (
     <>
       {loading ? <h2> Data is loading...</h2> : <Profile data={profileData} />}

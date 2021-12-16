@@ -1,5 +1,7 @@
-import './css/profile.css'
-import './utils/profile.js'
+import './css/profile.css';
+import './utils/profile.js';
+
+
 function EditProfile() {
     return (
         <html>

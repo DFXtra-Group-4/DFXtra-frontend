@@ -1,14 +1,17 @@
 import './css/editprofile.css'
-
+import { NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 const Profile = ({ data }) => {
+    const { _id } = useParams();
+
     return (
         <div id='profilePage'>
             <div id="profileContainer">
                 <span>
                     <h3>Your profile</h3>
-                    <a>Edit Profile</a>
+                    <NavLink to={`/${data._id}/edit`}>Edit Profile</NavLink>
                 </span>
                 <table >
                     <tr>

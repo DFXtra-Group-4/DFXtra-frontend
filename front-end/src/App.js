@@ -21,8 +21,8 @@ function App() {
         <Routes>
           <Route path="/talent" exact element={<Talent />} />
           <Route path="/score" exact element={<ScoreCard />} />
-          <Route path="/profile" exact element={<ProfileData />} />
-          <Route path="/editprofile" exact element={<EditProfile />} />
+          <Route path="/:_id" exact element={<ProfileData />} />
+          <Route path="/:_id/edit" exact element={<EditProfile />} />
           <Route path="/" exact element={<IndustryLanding />} />
           <Route path="/register" exact element={<Registration />} />
           <Route path="/vacancies" exact element={<Vacancies />} />
