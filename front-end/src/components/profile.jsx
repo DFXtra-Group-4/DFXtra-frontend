@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 
 const Profile = ({ data }, { loading }) => {
     const { _id } = useParams();
-    console.log(data, loading);
 
     return (
         <>
@@ -16,7 +15,7 @@ const Profile = ({ data }, { loading }) => {
                         <div id="profileContainer">
                             <span>
                                 <h3>Your profile</h3>
-                                <NavLink to={`/${data._id}/edit`}>Edit Profile</NavLink>
+                                <NavLink to={`/trainee/${data._id}/edit`}>Edit Profile</NavLink>
                             </span>
                             <table >
                                 <tr>

@@ -17,9 +17,6 @@ import {
 } from 'react-router-dom';
 
 function App() {
-
-  // const { _id } = useParams();
-
   const [profileLoading, setProfileLoading] = useState(true);
   const [profileData, setProfileData] = useState({});
 
@@ -41,17 +38,17 @@ function App() {
     getData();
   }, []);
 
-
-  const updateData = async () => {
+  const updateData = async (data) => {
     try {
-      await axios.put('http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b1/edit');
+      await axios.put('http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b1/edit', data);
     }
     catch (e) {
-      console.log(e);
-    };
-  }
-
-
+      console.log(e)
+    }
+    finally {
+      setProfileData(await getProfileData());
+    }
+  };
 
   return (
     <>
@@ -60,8 +57,8 @@ function App() {
         <Routes>
           <Route path="/talent" exact element={<Talent />} />
           <Route path="/score" exact element={<ScoreCard />} />
-          <Route path="/:_id" exact element={<Profile data={profileData} loading={profileLoading} />} />
-          <Route path="/:_id/edit" exact element={<EditProfile />} />
+          <Route path="/trainee/:_id" exact element={<Profile data={profileData} loading={profileLoading} />} />
+          <Route path="/trainee/:_id/edit" exact element={<EditProfile profileData={profileData} updateData={updateData} />} />
           <Route path="/" exact element={<IndustryLanding />} />
           <Route path="/register" exact element={<Registration />} />
           <Route path="/vacancies" exact element={<Vacancies />} />
