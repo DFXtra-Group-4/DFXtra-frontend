@@ -13,14 +13,14 @@ function EditProfile({ profileData, updateData }) {
     const dataObject = {
         firstName: '',
         lastName: '',
-        personalEmail: "",
-        workEmail: "",
-        gitHub: "",
-        linkedIn: "",
-        telNo: "",
-        gender: "",
-        personalityType: "",
-        nationality: ""
+        // personalEmail: "",
+        // workEmail: "",
+        // gitHub: "",
+        // linkedIn: "",
+        // telNo: "",
+        // gender: "",
+        // personalityType: "",
+        // nationality: ""
     };
 
     const onChange = (e) => {
@@ -100,7 +100,7 @@ function EditProfile({ profileData, updateData }) {
                             <table>
                                 <tr><td><label>First Name:</label> </td><td><input type="text" placeholder='Your name' name='firstName' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
                                 <tr><td><label>Last Name:</label> </td><td><input type="text" placeholder='Your name' name='lastName' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
-                                <tr><td><label>Personal email:</label> </td><td><input type="email" placeholder='Your personal email' name='personalEmail' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
+                                {/* <tr><td><label>Personal email:</label> </td><td><input type="email" placeholder='Your personal email' name='personalEmail' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
                                 <tr><td><label>Digital futures email:</label></td><td><input type="email" placeholder='Your personal email' name='workEmail' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
                                 <tr><td> <label>Github:</label> </td><td><input type="text" placeholder='Your github link' name='gitHub' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
 
@@ -128,7 +128,7 @@ function EditProfile({ profileData, updateData }) {
 
 
                                     <option value="other">Other</option>
-                                </select></td></tr>
+                                </select></td></tr> */}
 
                             </table>
                             <button type='submit' onClick={onSubmit}>Submit</button>

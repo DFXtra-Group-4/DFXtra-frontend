@@ -23,7 +23,7 @@ function App() {
   const getProfileData = async () => {
     try {
       console.log('making GET request...');
-      const res = await axios.get('http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b1');
+      const res = await axios.get('http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b2');
       setProfileLoading(false);
       console.log(res.data);
       return res.data;
@@ -40,7 +40,7 @@ function App() {
 
   const updateData = async (data) => {
     try {
-      await axios.put('http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b1/edit', data);
+      await axios.put('http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b2/edit', data);
     }
     catch (e) {
       console.log(e)
