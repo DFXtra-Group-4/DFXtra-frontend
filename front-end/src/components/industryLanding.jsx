@@ -4,14 +4,38 @@ const IndustryLanding = () => {
 
   return (
     <div id='industryPage'>
-      <div id='nav'>
-      </div>
       <div id='spotlight'>
         <h2 className="landingHeading">Talent Spotlight</h2>
         <p id='spotlightInfo'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit dolores voluptatum, nihil repellat libero commodi nulla fuga sapiente deleniti sunt!</p>
         <span id='lowerSpan'>
-          <span id='SFGradImg'></span>
-          <span id='DSGradImg'></span>
+          <span id='SFGradImg'>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+          </span>
+          <span id='DSGradImg'>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+          </span>
           <button className='landingPageButton'>View spotlight details</button>
         </span>
       </div>
@@ -30,26 +54,6 @@ const IndustryLanding = () => {
           Immediate Orders:
         </h2>
         <span id="orderSpan">
-          <div className='orderDetails'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-          </div>
-        </span>
-        <h2 className="landingHeading">
-          Future interest:
-        </h2>
-        <span id='futureInterestSpan'>
-          <div className='orderDetails'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-          </div>
-          <div className='orderDetails'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
-          </div>
           <div className='orderDetails'>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, accusamus.</p>
@@ -95,37 +99,6 @@ const IndustryLanding = () => {
             </button>
           </div>
         </span>
-      </div>
-      <div id='pipelineDiv'>
-        <h2 className="landingHeading">View our pipeline and statistics</h2>
-        <span className="graphSpan">
-          <h3 className="landingH3">Demographics</h3>
-          <img></img>
-        </span>
-        <span className="graphSpan">
-          <h3 className="landingH3">Selection Process</h3>
-          <img></img>
-        </span>
-        <span className="graphSpan">
-          <h3 className="landingH3">Quality and diligence</h3>
-          <img></img>
-        </span>
-        <button className='landingPageButton'>Download Data</button>
-      </div>
-      <div id="latestNews">
-        <h2 className="landingHeading">
-          Latest New from Digital Futures
-        </h2>
-        <div id="newsContainer">
-          <div className="newsDiv">
-            <img></img>
-            <h3 className="landingH3">A news story</h3>
-          </div>
-          <div className="newsDiv">
-            <img></img>
-            <h3 className="landingH3">A news story</h3>
-          </div>
-        </div>
       </div>
     </div>
   )
