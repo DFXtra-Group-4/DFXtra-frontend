@@ -4,6 +4,7 @@ import Talent from './components/Talent';
 import IndustryLanding from './components/IndustryLanding';
 import ProfileData from './components/ProfileData';
 import EditProfile from './components/editprofile';
+import Vacancies from './components/vacancies';
 import Registration from './components/Registration';
 import Navbar from './components/Navbar';
 import {
@@ -24,10 +25,11 @@ function App() {
           <Route path="/editprofile" exact element={<EditProfile />} />
           <Route path="/" exact element={<IndustryLanding />} />
           <Route path="/register" exact element={<Registration />} />
+          <Route path="/vacancies" exact element={<Vacancies />} />
+
         </Routes>
       </Router>
     </>
-
   );
 }
 
