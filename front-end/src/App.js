@@ -24,9 +24,9 @@ function App() {
           <Route path="/profile" exact element={<ProfileData />} />
           <Route path="/editprofile" exact element={<EditProfile />} />
           <Route path="/" exact element={<IndustryLanding />} />
-          <Route path="/register" exact element={<Registration />} />
+          <Route path="/register" exact element={<Registration registration={true} />} />
+          <Route path="/login" exact element={<Registration registration={false} />} />
           <Route path="/vacancies" exact element={<Vacancies />} />
-
         </Routes>
       </Router>
     </>
