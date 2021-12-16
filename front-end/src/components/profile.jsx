@@ -20,21 +20,21 @@ const Profile = ({ data }, { loading }) => {
                             <table >
                                 <tr>
                                     <td>Name:</td>
-                                    <td>{data.personalDetails?.name.firstName}</td>
+                                    <td>{data.personalDetails?.name.firstName + ' ' + data.personalDetails?.name.lastName}</td>
                                 </tr>
                                 <tr>
                                     <td>Personal email:</td>
-                                    <td>XXXXXXXXX</td>
+                                    <td>{data.personalDetails?.contact.email.email}</td>
                                 </tr>
                                 <tr><td>Digital futures email:
                                 </td>
-                                    <td>YYYYYYYYY</td></tr>
+                                    <td>{data.personalDetails?.contact.email.workEmail}</td></tr>
                                 <tr><td>Github:</td>
-                                    <td>grgsgesgss</td></tr>
+                                    <td>{data.personalDetails?.github}</td></tr>
                                 <tr><td>Linked in:</td>
-                                    <td>fgsgdgdgsdgs</td></tr>
+                                    <td>{data.personalDetails?.linkedIn}</td></tr>
                                 <tr><td>Phone:</td>
-                                    <td>gggdsgdsgds</td></tr>
+                                    <td>{data.personalDetails?.contact.telNo}</td></tr>
                             </table>
                             <div id='innerProfile'>
                                 <h3>Personal story summary</h3>

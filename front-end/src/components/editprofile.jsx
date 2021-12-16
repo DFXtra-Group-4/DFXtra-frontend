@@ -21,9 +21,10 @@ function EditProfile({ profileData, updateData }) {
         gender: "",
         personalityType: "",
         nationality: ""
-    }
+    };
 
     const onChange = (e) => {
+        console.log(e.target);
         dataObject[e.target.name] = e.target.value;
         console.log(e.target.value);
     }
@@ -105,16 +106,13 @@ function EditProfile({ profileData, updateData }) {
 
                                 <tr><td><label>Linked in:</label></td><td> <input type="text" placeholder='Your linked in' name='linkedIn' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
                                 <tr><td> <label>Phone:</label> </td><td><input type="number" placeholder='Your phone number' name='telNo' onChange={onChange} style={{ width: "200px" }}></input></td></tr>
-                                <tr><td><label for="gender">Gender:</label></td><td><select style={{ width: "208px" }} name="gender" id="gender">
+                                <tr><td><label for="gender">Gender:</label></td><td><select style={{ width: "208px" }} name="gender" onChange={onChange} id="gender">
                                     <option value="male" n>Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
-
                                 </select></td></tr>
 
-
-
-                                <tr><td><label for="nationality">Nationality:</label></td><td> <select style={{ width: "208px" }} name="nationality" id="nationality">
+                                <tr><td><label for="nationality">Nationality:</label></td><td> <select style={{ width: "208px" }} name="nationality" onChange={onChange} id="nationality">
                                     <option value="white">White</option>
                                     <option value="black">Black</option>
                                     <option value="asian">Asian</option>
@@ -124,7 +122,7 @@ function EditProfile({ profileData, updateData }) {
 
 
                                 <tr><td><label for="personality">Personality type:</label>
-                                </td><td><select name="personality" id="personality" style={{ width: "208px" }} >
+                                </td><td><select name="personality" id="personality" onChange={onChange} style={{ width: "208px" }} >
                                     <option value="introverted">Introverted</option>
                                     <option value="extroverted">Extroverted</option>
 
