@@ -51,6 +51,7 @@ function App() {
   };
 
   return (
+
     <>
       <Navbar />
       <Router>
@@ -65,6 +66,7 @@ function App() {
         </Routes>
       </Router>
     </>
+
   );
 }
 
