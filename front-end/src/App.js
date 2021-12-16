@@ -4,6 +4,7 @@ import Talent from './components/Talent';
 import IndustryLanding from './components/industryLanding';
 import Profile from './components/profile'
 import EditProfile from './components/editprofile';
+import Vacancies from './components/vacancies';
 import {
   BrowserRouter as Router,
   Route,
@@ -19,6 +20,7 @@ function App() {
         <Route path="/profile" exact element={<Profile />} />
         <Route path="/editprofile" exact element={<EditProfile />} />
         <Route path="/" exact element={<IndustryLanding />} />
+        <Route path="/vacancies" exact element={<Vacancies />} />
       </Routes>
     </Router>
     // <div className="App">
