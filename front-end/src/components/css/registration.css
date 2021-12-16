@@ -59,7 +59,7 @@ input {
   vertical-align: middle;
 }
 
-button {
+.registerSubmit {
   border: 5px gray outset;
   background-color: transparent;
   height: 3rem;

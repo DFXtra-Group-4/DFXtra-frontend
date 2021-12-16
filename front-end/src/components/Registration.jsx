@@ -28,7 +28,7 @@ const Registration = () => {
             <label>Password</label>
             <input type="text"></input>
           </span>
-          <button type='submit'>Create</button>
+          <button className='registerSubmit' type='submit'>Create</button>
         </form>
       </div>
       <div id='registrationStyleDiv'></div>
