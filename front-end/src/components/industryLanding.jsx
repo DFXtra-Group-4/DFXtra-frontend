@@ -4,14 +4,38 @@ const IndustryLanding = () => {
 
   return (
     <div id='industryPage'>
-      <div id='nav'>
-      </div>
       <div id='spotlight'>
         <h2 className="landingHeading">Talent Spotlight</h2>
         <p id='spotlightInfo'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit dolores voluptatum, nihil repellat libero commodi nulla fuga sapiente deleniti sunt!</p>
         <span id='lowerSpan'>
-          <span id='SFGradImg'></span>
-          <span id='DSGradImg'></span>
+          <span id='SFGradImg'>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+          </span>
+          <span id='DSGradImg'>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+            <span className='profileImage'>
+              <img className='spotlightImg'></img>
+            </span>
+          </span>
           <button className='landingPageButton'>View spotlight details</button>
         </span>
       </div>
