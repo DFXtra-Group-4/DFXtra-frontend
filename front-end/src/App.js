@@ -6,6 +6,7 @@ import EditProfile from "./components/editprofile";
 import Vacancies from "./components/vacancies";
 import Registration from "./components/Registration";
 import Navbar from "./components/Navbar";
+
 import Profile from "./components/profile";
 import axios from "axios";
 import { useEffect, useState } from "react";
