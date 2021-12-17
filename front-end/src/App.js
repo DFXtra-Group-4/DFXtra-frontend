@@ -63,7 +63,8 @@ function App() {
           <Route path="/trainee/:_id" exact element={<Profile data={profileData} loading={profileLoading} />} />
           <Route path="/trainee/:_id/edit" exact element={<EditProfile profileData={profileData} updateData={updateData} />} />
           <Route path="/" exact element={<IndustryLanding />} />
-          <Route path="/register" exact element={<Registration />} />
+          <Route path="/register" exact element={<Registration registration={true} />} />
+          <Route path="/login" exact element={<Registration registration={false} />} />
           <Route path="/vacancies" exact element={<Vacancies />} />
         </Routes>
       </Router>
