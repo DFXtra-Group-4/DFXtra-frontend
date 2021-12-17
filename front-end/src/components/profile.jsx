@@ -1,4 +1,4 @@
-import "./css/editprofile.css";
+import "./css/profile.css";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 

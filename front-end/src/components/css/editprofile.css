@@ -1,10 +1,11 @@
 #myProgress {
-	width: 100%;
+	width: 50%;
+	height: 30px;
 	background-color: grey;
 }
 
 #myBar {
-	width: 1%;
+	width: 30%;
 	height: 30px;
 	background-color: green;
 }
@@ -12,53 +13,6 @@
 /* Change the link color to #111 (black) on hover */
 li a:hover {
 	background-color: #111;
-}
-
-.dropdown {
-	float: left;
-	overflow: hidden;
-}
-
-.dropdown .dropbtn {
-	font-size: 16px;
-	border: none;
-	outline: none;
-	color: rgb(255, 248, 248);
-	padding: 14px 16px;
-	background-color: inherit;
-	font-family: inherit;
-	margin: 0;
-}
-
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-	background-color: #000;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: rgb(6, 20, 80);
-	min-width: 115px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
-
-.dropdown-content a {
-	float: none;
-	color: rgb(255, 248, 248);
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	text-align: left;
-}
-
-.dropdown-content a:hover {
-	background-color: #000;
-}
-
-.dropdown:hover .dropdown-content {
-	display: block;
 }
 
 .left {
@@ -74,19 +28,124 @@ li a:hover {
 	display: block;
 	float: right;
 }
+
 .column {
 	float: left;
 	/* width: 33.33%; */
 }
 
 /* Clear floats after the columns */
-.row:after {
+/* .row:after {
 	content: "";
 	display: table;
 	clear: both;
-}
+} */
 td,
 th {
 	text-align: left;
 	padding: 5px;
+}
+
+.editRow {
+	border-style: solid;
+	border-width: 1px;
+	padding: 1.5rem;
+	border-radius: 0.625rem;
+	margin-bottom: 3rem;
+	border: 0px #d4d4d4 solid;
+	background-color: #fff;
+	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+	display: grid;
+	grid-template-columns: 300px 300px auto 200px;
+}
+
+.profileLabelSpan {
+	height: 3rem;
+	width: 40rem;
+	display: inline-block;
+}
+
+.profileLabelSpan > label {
+	width: 10rem;
+}
+
+.personalInformationDiv {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	border-style: solid;
+	border-width: 1px;
+	padding: 1.5rem;
+	border-radius: 0.625rem;
+	margin-bottom: 3rem;
+	border: 0px #d4d4d4 solid;
+	background-color: #fff;
+	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+}
+
+.personalInfoH3 {
+	position: absolute;
+	display: initial;
+}
+
+#personalInfoInputs {
+	height: 30rem;
+	width: 40%;
+	margin-top: 3rem;
+}
+
+.myForm {
+	width: 90%;
+	margin: 0;
+}
+
+#selectDiv {
+	height: 30rem;
+	width: 40%;
+	margin-top: 3rem;
+}
+
+.selectSpan {
+	height: 3rem;
+	width: 40rem;
+	display: inline-block;
+}
+
+#selfieUpload {
+	width: 15rem;
+	height: 15rem;
+	border-radius: 50%;
+	position: absolute;
+	background-color: navy;
+	right: 5rem;
+	top: 5rem;
+}
+
+.selectSpan > select {
+	background-color: #d4d4d4;
+	padding: 5px;
+}
+
+.saveBtn {
+	padding: 15px;
+}
+
+.ggText {
+	color: #303030;
+	font-weight: 600;
+	padding-bottom: 5px;
+	line-height: 1.3;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.personalStory {
+	border-style: solid;
+	border-width: 1px;
+	padding: 1.5rem;
+	border-radius: 0.625rem;
+	margin-bottom: 3rem;
+	border: 0px #d4d4d4 solid;
+	background-color: #fff;
+	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
 }
