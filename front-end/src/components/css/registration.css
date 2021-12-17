@@ -22,13 +22,13 @@
   margin:1rem;
 }
 
-h1 {
+.registerH1 {
   font-size: 3rem;
   margin-bottom: 4rem;
   margin-left: 5rem;
 }
 
-h2 {
+.registerH2 {
   margin-bottom: 3rem;
   margin-left: 5rem;
   font-size: 2rem;

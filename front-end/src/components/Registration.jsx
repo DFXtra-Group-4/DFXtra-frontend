@@ -23,8 +23,8 @@ const Registration = ({ registration }) => {
   return (
     <div id='registration'>
       <div id="registrationContainer">
-        <h1>Digital Futures</h1>
-        <h2>{registration ? 'Create your account' : 'Login'}</h2>
+        <h1 className='registerH1'>Digital Futures</h1>
+        <h2 className='registerH2'>{registration ? 'Create your account' : 'Login'}</h2>
         <form>
           <span className='registrationSpan'>
             <label>Email</label>
