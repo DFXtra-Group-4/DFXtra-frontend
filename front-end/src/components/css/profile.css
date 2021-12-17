@@ -7,6 +7,14 @@ body {
 
 }
 
+.sectionDiv {
+  margin-bottom: 3rem;
+}
+
+#profile {
+  width: 90%;
+}
+
 #profilePage {
   width: 90%;
   padding: 1.5rem;

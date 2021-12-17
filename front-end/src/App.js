@@ -1,4 +1,4 @@
-import './components/css/App.css';
+import './App.css';
 import ScoreCard from './components/ScoreCard';
 import TalentCard from './components/Talent';
 import IndustryLanding from './components/IndustryLanding';
@@ -51,7 +51,7 @@ function App() {
 
   return (
     // <Router>
-    
+
     // </Router>
 
     <>
