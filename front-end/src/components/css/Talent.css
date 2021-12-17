@@ -2,6 +2,15 @@
     flex-direction: column;
     
 }
+
+/* .talentPage {
+    width: 90%;
+  padding: 1.5rem;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 100%;
+} */
+
 .flex-container {
     display: flex;
     padding: 30px;
@@ -10,8 +19,9 @@
     grid-gap: 10px;
     flex-wrap: wrap;
      box-shadow: 0px 0px 5px 0px black;
-     width: 1400px;
-     height: 400px;
+     /* width: 1400px;
+     height: 400px; */
+     width: 90%;
      margin-left: auto;
     margin-right: auto;
     background-color: #EDEDED;
@@ -30,8 +40,9 @@
     grid-gap: 10px;
     flex-wrap: wrap;
     box-shadow: 0px 1px 5px 0px black;
-    width: 1400px;
-    height: 400px;
+    /* width: 1400px;
+    height: 400px; */
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     background-color: #EDEDED;
@@ -54,17 +65,18 @@
     box-shadow: 0px 1px 10px black;
     
 }
+
 .topCard p{
     
     text-align: center;
-    font-size: 16x;
+    font-size: 12px;
     padding:15px 10px 10px 20px;
     text-align: center;
 }
 .topCard button{
     justify-content: center;
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
     align-items:center;
     display: block;
     margin-left: auto;

@@ -1,7 +1,7 @@
 import './App.css';
 import ScoreCard from './components/ScoreCard';
 import TalentCard from './components/Talent';
-import IndustryLanding from './components/IndustryLanding';
+import IndustryLanding from './components/industryLanding';
 import EditProfile from './components/editprofile';
 import Vacancies from './components/vacancies';
 import Registration from './components/Registration';
