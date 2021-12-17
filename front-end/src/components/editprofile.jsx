@@ -131,7 +131,7 @@ function EditProfile({ profileData, updateData }) {
                                         <option value="other">Other</option>
                                     </select></td></tr>
 
-
+                                    <button type='submit' onClick={onSubmit}>submit</button>
                                 </table></form></div><div class="column" style={{ textAlign: "right", width: "10%", marginTop: "20px", marginBottom: "20px" }}>
 
                         </div><img src="images/blank-profile-picture-973460_640.png" alt="profile pic"></img></div></div>
