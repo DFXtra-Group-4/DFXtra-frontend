@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 import "./css/Talent.css";
 import { Link } from "react-router-dom";
+import ScoreCard from "./ScoreCard";
 // import './ScoreCard.js';
 
 function Card() {
 	const [fullname, setFullname] = useState("Full name");
-	const [industry, setIndustry] = useState("Industry");
+	// const [industry, setIndustry] = useState("");
 	const [bio, setBio] = useState(
 		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia libero ipsam pariatur, exercitationem dignissimos error voluptatem provident optio? Labore, libero. Mollitia quaerat rem officia, quasi accusamus tempore minus voluptatibus."
 	);
+	const [isOpen, setIsOpen] = useState(false);
+
+	const togglePopup = () => {
+		setIsOpen(!isOpen);
+	};
+
+	const setOpacity = () => {
+		const title = document.querySelector('.title');
+		title.style.opacity = '50%';
+		const spotlightInfo = document.querySelector('.spotlightInfo');
+		spotlightInfo.style.opacity = '50%';
+		const container = document.querySelector('.container');
+		container.style.opacity = '50%';
+		return true;
+	}
+
 
 	const talentCard = () => {
 		return (
@@ -23,9 +40,9 @@ function Card() {
 						width="100px"
 					/>
 					<h3> {fullname} </h3>
-					<h4>{industry}</h4>
+					{/* <h4>{industry}</h4> */}
 					<p>{bio}</p>
-					<button>View Profile</button>
+					<button onClick={togglePopup}>View Profile</button>
 				</div>
 			</div>
 			// </div>
@@ -34,6 +51,7 @@ function Card() {
 
 	return (
 		<>
+			{isOpen && setOpacity() && <ScoreCard setIsOpen={setIsOpen} />}
 			<div className="title">
 				<h2>Talent Spotlight</h2>
 			</div>

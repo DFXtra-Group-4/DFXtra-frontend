@@ -1,6 +1,7 @@
 import "./css/Navbar.css";
 
 const Navbar = () => {
+
 	return (
 		<div id="nav">
 			<p className="DFX" style={{ color: "#fff" }}>
@@ -13,8 +14,8 @@ const Navbar = () => {
 						<i className="fa fa-caret-down"></i>
 					</button>
 					<div className="dropdown-content">
-						<a href="link">Job board</a>
-						<a href="link">Industry partners</a>
+						<a href="/vacancies">Job board</a>
+						<a href="/">Industry partners</a>
 					</div>
 				</div>
 				<div className="dropdown">
@@ -23,9 +24,9 @@ const Navbar = () => {
 						<i className="fa fa-caret-down"></i>
 					</button>
 					<div className="dropdown-content">
-						<a href="link">My profile</a>
-						<a href="link">Edit profile</a>
-						<a href="link">Log out</a>
+						<a href="/trainee/dc1ac1002b92436dc4c010b1">My profile</a>
+						<a href="/trainee/dc1ac1002b92436dc4c010b1/edit">Edit profile</a>
+						{/* <a href="/">Log out</a> */}
 					</div>
 				</div>
 			</ul>

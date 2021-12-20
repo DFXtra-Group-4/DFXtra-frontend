@@ -49,19 +49,16 @@ function Vacancies() {
 				<div
 					class="columnVacan"
 					style={{
-						borderStyle: "solid",
-						borderWidth: "1px",
-						borderRadius: "3%",
 						padding: "20px",
 						width: "17%"
 					}}
 				>
 					<div class="rowVacancy" style={{ marginBottom: "20px" }}>
-						<div class="columnVacan" style={{ width: "60%" }}>
+						<div style={{ width: "60%" }}>
 							<h3 style={{ marginTop: "10px" }}>Job title</h3>
 							<h3 style={{ marginTop: "10px" }}>Company name</h3>
 						</div>
-						<div class="columnVacan" style={{ textAlign: "right" }}>
+						<div style={{ textAlign: "right" }}>
 							<img
 								src="images/40752.jpg"
 								alt="programmer"
@@ -74,7 +71,7 @@ function Vacancies() {
 					<div style={{ marginTop: "20px", width: "100%" }}>
 						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>Summary, Location </p>
 					</div>
-					<button style={{ marginTop: "10px" }} id="myBtn" onClick={togglePopup}>
+					<button style={{ marginTop: "30px" }} id="myBtn" onClick={togglePopup}>
 						Find out more
 					</button>
 				</div>
@@ -99,12 +96,12 @@ function Vacancies() {
 		return (
 			<>
 				<div class="rowVacancy" style={{ marginBottom: "20px" }}>
-					<div class="columnVacan" style={{ width: "60%" }}>
+					<div style={{ width: "60%" }}>
 						<h3 style={{ marginTop: "10px" }}>Job title</h3>
 						<h3 style={{ marginTop: "10px" }}>Company name</h3>
 						<p style={{ marginTop: "10px" }}>Location</p>
 					</div>
-					<div class="columnVacan" style={{ textAlign: "right" }}>
+					<div c style={{ textAlign: "right" }}>
 						<img
 							src="images/40752.jpg"
 							alt="programmer"

@@ -65,6 +65,14 @@ li a:hover {
 	/* width: 33.33%; */
 }
 
+.columnVacan {
+	border-style: solid;
+	border-radius: 0.625rem;
+	border: 0px #d4d4d4 solid;
+	background-color: #fff;
+	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+}
+
 /* Clear floats after the columns */
 .row:after {
 	content: "";

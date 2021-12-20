@@ -1,6 +1,9 @@
 import "./css/industryLanding.css";
+import { useNavigate } from "react-router-dom";
 
 const IndustryLanding = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div id="industryPage">
 			<div id="spotlight">
@@ -38,7 +41,7 @@ const IndustryLanding = () => {
 							<img className="spotlightImg"></img>
 						</span>
 					</span> */}
-					<button className="landingPageButton">View spotlight details</button>
+					<button className="landingPageButton" onClick={() => navigate('/talent')}>View spotlight details</button>
 				</span>
 			</div>
 			<div id="requirements">
