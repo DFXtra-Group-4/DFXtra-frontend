@@ -59,10 +59,6 @@ const IndustryLanding = () => {
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam,
 							accusamus.
 						</p>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam,
-							accusamus.
-						</p>
 					</div>
 				</span>
 			</div>
