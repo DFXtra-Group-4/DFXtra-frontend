@@ -1,146 +1,140 @@
-html,
-body {
-  font-family: "Clear Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-}
 .footerr {
-  background-color: rgb(6, 20, 80);
-  color: white;
-  text-align: center;
+	background-color: rgb(6, 20, 80);
+	color: white;
+	text-align: center;
 }
 
 footer .name {
-  color: white;
+	color: white;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #111;
+	background-color: #111;
 }
 
 .dropdown {
-  float: left;
-  overflow: hidden;
+	float: left;
+	overflow: hidden;
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: rgb(255, 248, 248);
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+	font-size: 16px;
+	border: none;
+	outline: none;
+	color: rgb(255, 248, 248);
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
 }
 
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: #000;
+	background-color: #000;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgb(6, 20, 80);
-  min-width: 115px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: rgb(6, 20, 80);
+	min-width: 115px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 .dropdown-content a {
-  float: none;
-  color: rgb(255, 248, 248);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+	float: none;
+	color: rgb(255, 248, 248);
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
 }
 
 .dropdown-content a:hover {
-  background-color: #000;
+	background-color: #000;
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
 
 .column {
-  float: left;
-  width: 33.33%;
+	float: left;
+	/* width: 33.33%; */
 }
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+	content: "";
+	display: table;
+	clear: both;
 }
 /* Popup style */
 .popup-box {
-  position: fixed;
-  background: #00000050;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
+	position: fixed;
+	background: #00000050;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
 }
 
 .box {
-  position: relative;
-  width: 30%;
-  margin: 0 auto;
-  height: auto;
-  max-height: 60vh;
-  margin-top: calc(100vh - 85vh - 20px);
-  background: #fff;
-  border-radius: 4px;
-  padding: 20px;
-  border: 1px solid #999;
-  overflow: auto;
+	position: relative;
+	width: 30%;
+	margin: 0 auto;
+	height: auto;
+	max-height: 60vh;
+	margin-top: calc(100vh - 85vh - 20px);
+	background: #fff;
+	border-radius: 4px;
+	padding: 20px;
+	border: 1px solid #999;
+	overflow: auto;
 }
 
 .close-icon {
-  content: "x";
-  cursor: pointer;
-  position: fixed;
-  right: calc(35% - 18px);
-  top: calc(100vh - 84vh - 21px);
-  background: #ededed;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  line-height: 20px;
-  text-align: center;
-  border: 1px solid #999;
-  font-size: 20px;
+	content: "x";
+	cursor: pointer;
+	position: fixed;
+	right: calc(35% - 18px);
+	top: calc(100vh - 84vh - 21px);
+	background: #ededed;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	line-height: 20px;
+	text-align: center;
+	border: 1px solid #999;
+	font-size: 20px;
 }
 
 .vacanciesPage {
-  width: 90%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 90%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .rowVacancies {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 3rem;
-  width: 100%;
-  margin-top: 3rem;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3rem;
+	width: 100%;
+	margin-top: 3rem;
 }
 
 .searchBox {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-gap: 1rem;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	grid-gap: 1rem;
 }
 
 .vacanciesTitle {
-  font-size: 3rem;
+	font-size: 3rem;
 }
