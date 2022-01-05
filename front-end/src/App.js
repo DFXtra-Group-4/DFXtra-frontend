@@ -4,7 +4,7 @@ import TalentCard from "./components/Talent";
 import IndustryLanding from "./components/industryLanding";
 import EditProfile from "./components/editprofile";
 import Vacancies from "./components/vacancies";
-import Registration from "./components/Registration";
+import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 
 import Profile from "./components/profile";
@@ -81,8 +81,8 @@ function App() {
 						element={<EditProfile profileData={profileData} updateData={updateData} />}
 					/>
 					<Route path="/" exact element={<IndustryLanding data={allProfileData} />} />
-					<Route path="/register" exact element={<Registration registration={true} />} />
-					<Route path="/login" exact element={<Registration registration={false} />} />
+					<Route path="/register" exact element={<Login login={true} />} />
+					<Route path="/login" exact element={<Login login={false} />} />
 					<Route path="/vacancies" exact element={<Vacancies />} />
 				</Routes>
 			</Router>
