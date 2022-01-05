@@ -14,7 +14,10 @@ const IndustryLanding = ({ data }) => {
 					voluptatum, nihil repellat libero commodi nulla fuga sapiente deleniti sunt!
 				</p>
 				<span id="lowerSpan">
-					{/* <span id="SFGradImg">
+					<span id="SFGradImg">
+						<span className="profileImage">
+							<img className="spotlightImg"></img>
+						</span>
 						<span className="profileImage">
 							<img className="spotlightImg"></img>
 						</span>
@@ -41,16 +44,19 @@ const IndustryLanding = ({ data }) => {
 						<span className="profileImage">
 							<img className="spotlightImg"></img>
 						</span>
-					</span> */}
+						<span className="profileImage">
+							<img className="spotlightImg"></img>
+						</span>
+					</span>
 					<button className="landingPageButton" onClick={() => navigate('/talent')}>View spotlight details</button>
 				</span>
 			</div>
-			<div id="requirements">
+			{/* <div id="requirements">
 				<h2 className="landingHeading">Requirements</h2>
 				<button className="landingPageButton">Request immediate resources</button>
 				<button className="landingPageButton">Reserve resources in advance</button>
-			</div>
-			<div id="orders">
+			</div> */}
+			{/* <div id="orders">
 				<h2 className="landingHeading">Your Orders:</h2>
 				<h2 className="landingHeading">Immediate Orders:</h2>
 				<span id="orderSpan">
@@ -65,8 +71,8 @@ const IndustryLanding = ({ data }) => {
 						</p>
 					</div>
 				</span>
-			</div>
-			<div id="trainingInformation">
+			</div> */}
+			{/* <div id="trainingInformation">
 				<h2 className="landingHeading">View our training information</h2>
 				<span id="trainingSpan">
 					<p>
@@ -98,7 +104,7 @@ const IndustryLanding = ({ data }) => {
 						<button className="landingPageButton">Download Syllabus</button>
 					</div>
 				</span>
-			</div>
+			</div> */}
 		</div>
 	);
 };

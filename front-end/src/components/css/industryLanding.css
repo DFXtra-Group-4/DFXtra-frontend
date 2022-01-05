@@ -54,9 +54,9 @@
 #SFGradImg,
 #DSGradImg {
 	/* border: 3px black solid; */
-	height: 80%;
+	height: 95%;
 	width: 30%;
-	display: inline-block;
+	position: relative;
 }
 
 #DSGradImg {
@@ -64,21 +64,33 @@
 }
 
 .profileImage {
+	height: 100%;
+	width: 15%;
+	border: 2px white solid;
+	background-color: blue;
 	display: inline-block;
 	border-radius: 50%;
-	width: 5rem;
+	position: absolute;
 }
 
-.profileImage:not(:first-child) {
-	margin-left: -0.75rem;
+#SFGradImg span:nth-of-type(2), #DSGradImg span:nth-of-type(2){
+	left: 90px;
+	top: 0;
 }
 
-.spotlightImg {
-	height: 5rem;
-	width: 5rem;
-	/* border: 3px black solid; */
-	background-color: rgb(31, 31, 168);
-	border-radius: 65%;
+#SFGradImg span:nth-of-type(3), #DSGradImg span:nth-of-type(3){
+	left: 180px;
+	top: 0;
+}
+
+#SFGradImg span:nth-of-type(4), #DSGradImg span:nth-of-type(4){
+	left: 270px;
+	top: 0;
+}
+
+#SFGradImg span:nth-of-type(5), #DSGradImg span:nth-of-type(5){
+	left: 360px;
+	top: 0;
 }
 
 .landingPageButton {
