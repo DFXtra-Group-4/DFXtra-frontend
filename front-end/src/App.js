@@ -19,7 +19,7 @@ function App() {
 	const getProfileData = async () => {
 		try {
 			console.log("making GET request...");
-			const res = await axios.get("http://127.0.0.1:4000/trainee/61d5b252e75bd9374e4c1c6e");
+			const res = await axios.get("http://127.0.0.1:4000/trainee/61d5b51fe75bd9374e4c1c83");
 			setProfileLoading(false);
 			console.log(res.data);
 			return res.data;
@@ -37,7 +37,7 @@ function App() {
 
 	const updateData = async data => {
 		try {
-			await axios.put("http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b2/edit", data);
+			await axios.put("http://127.0.0.1:4000/trainee/61d5b51fe75bd9374e4c1c83/edit", data);
 		} catch (e) {
 			console.log(e);
 		} finally {
@@ -51,7 +51,7 @@ function App() {
 		// </Router>
 
 		<>
-			<Navbar />
+			<Navbar data={profileData} loading={profileLoading} />
 			<Router>
 				<Routes>
 					<Route path="/talent" exact element={<TalentCard />} />
