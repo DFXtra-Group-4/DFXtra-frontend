@@ -16,10 +16,23 @@ function App() {
 	const [profileLoading, setProfileLoading] = useState(true);
 	const [profileData, setProfileData] = useState({});
 
+	const [allProfileData, setAllProfileData] = useState({});
+
+	const getAllProfileData = async () => {
+		try {
+			console.log("making GET request...");
+			const res = await axios.get("http://127.0.0.1:4000/trainees");
+			console.log('allprofile data:...', res.data);
+			return res.data;
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
 	const getProfileData = async () => {
 		try {
 			console.log("making GET request...");
-			const res = await axios.get("http://127.0.0.1:4000/trainee/61d5b252e75bd9374e4c1c6e");
+			const res = await axios.get("http://127.0.0.1:4000/trainee/61d5b44449d8022e22f1594c");
 			setProfileLoading(false);
 			console.log(res.data);
 			return res.data;
@@ -31,13 +44,14 @@ function App() {
 	useEffect(() => {
 		const getData = async () => {
 			setProfileData(await getProfileData());
+			setAllProfileData(await getAllProfileData());
 		};
 		getData();
 	}, []);
 
 	const updateData = async data => {
 		try {
-			await axios.put("http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b2/edit", data);
+			await axios.put("http://127.0.0.1:4000/trainee/61d5b44449d8022e22f1594c/edit", data);
 		} catch (e) {
 			console.log(e);
 		} finally {
@@ -54,8 +68,8 @@ function App() {
 			<Navbar />
 			<Router>
 				<Routes>
-					<Route path="/talent" exact element={<TalentCard />} />
-					<Route path="/score" exact element={<ScoreCard />} />
+					<Route path="/talent" exact element={<TalentCard data={allProfileData} />} />
+					<Route path="/score" exact element={<ScoreCard data={allProfileData} />} />
 					<Route
 						path="/trainee/:_id"
 						exact
@@ -66,7 +80,7 @@ function App() {
 						exact
 						element={<EditProfile profileData={profileData} updateData={updateData} />}
 					/>
-					<Route path="/" exact element={<IndustryLanding />} />
+					<Route path="/" exact element={<IndustryLanding data={allProfileData} />} />
 					<Route path="/register" exact element={<Registration registration={true} />} />
 					<Route path="/login" exact element={<Registration registration={false} />} />
 					<Route path="/vacancies" exact element={<Vacancies />} />

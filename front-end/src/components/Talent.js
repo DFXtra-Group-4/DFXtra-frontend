@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import ScoreCard from "./ScoreCard";
 // import './ScoreCard.js';
 
-function Card() {
+function Card({ data }) {
+	console.log('talentCard data is ...', data);
+
 	const [fullname, setFullname] = useState("Full name");
 	// const [industry, setIndustry] = useState("");
 	const [bio, setBio] = useState(
@@ -28,6 +30,7 @@ function Card() {
 
 
 	const talentCard = () => {
+
 		return (
 			<div className="talentPage">
 				<div className="topCard">

@@ -1,8 +1,9 @@
 import "./css/industryLanding.css";
 import { useNavigate } from "react-router-dom";
 
-const IndustryLanding = () => {
+const IndustryLanding = ({ data }) => {
 	const navigate = useNavigate();
+	console.log('industrydata is ...', data);
 
 	return (
 		<div id="industryPage">
