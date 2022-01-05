@@ -141,7 +141,7 @@ const Profile = ({ data }, { loading }) => {
 									<span className="gText">
 										<u>Scores</u>
 									</span>
-									<p>{data.yourInfo?.scores[1].scoreName} : {data.yourInfo?.scores[1].score}</p>
+									<p>{data.yourInfo?.scores[0].scoreName} : {data.yourInfo?.scores[0].score}</p>
 
 
 

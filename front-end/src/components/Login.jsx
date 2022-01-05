@@ -70,7 +70,7 @@ const Login = ({ login }) => {
 							name="username"
 							value={username}
 							onChange={onChangeUsername}
-							// validations={[ValidationServiceHelpers.required]}
+						// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">
@@ -81,7 +81,7 @@ const Login = ({ login }) => {
 							name="password"
 							value={password}
 							onChange={onChangePassword}
-							// validations={[ValidationServiceHelpers.required]}
+						// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">
