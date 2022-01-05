@@ -19,7 +19,7 @@ function App() {
 	const getProfileData = async () => {
 		try {
 			console.log("making GET request...");
-			const res = await axios.get("http://127.0.0.1:4000/trainee/dc1ac1002b92436dc4c010b2");
+			const res = await axios.get("http://127.0.0.1:4000/trainee/61d5b252e75bd9374e4c1c6e");
 			setProfileLoading(false);
 			console.log(res.data);
 			return res.data;
