@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 const Profile = ({ data }, { loading }) => {
 	const { _id } = useParams();
-
 	return (
 		<>
 			{loading ? (
@@ -60,14 +59,22 @@ const Profile = ({ data }, { loading }) => {
 						</div>
 						<div className="column">
 							<div className="column1">
+								<span className="gText">
+									<u>Personal story summary</u>
+								</span>
 
-								<span className="gText"><u>Personal story summary</u></span>
-
-								<p>Degree in {data.personalStory?.degree.subject} from {data.personalStory?.degree.university}</p>
-								<p>{data.personalStory?.schoolQualifications.length} school qualifications</p>
+								<p>
+									Degree in {data.personalStory?.degree.subject} from{" "}
+									{data.personalStory?.degree.university}
+								</p>
+								<p>
+									{data.personalStory?.schoolQualifications.length} school
+									qualifications
+								</p>
 								<p>{data.personalStory?.workExperience.length} work experiences</p>
-								<p>{data.personalStory?.achievements.length} personal achievements</p>
-
+								<p>
+									{data.personalStory?.achievements.length} personal achievements
+								</p>
 							</div>
 						</div>
 					</div>
@@ -97,12 +104,18 @@ const Profile = ({ data }, { loading }) => {
 						</div>
 						<div className="column">
 							<div className="column1">
-								<span className="gText"><u>Results</u></span>
+								<span className="gText">
+									<u>Results</u>
+								</span>
+								<p></p>
 								<p>
+									{data.yourTraining?.modules[0].moduleName} :{" "}
+									{data.yourTraining?.modules[0].passStatus.pass}
 								</p>
-								<p>{data.yourTraining?.modules[0].moduleName} : {data.yourTraining?.modules[0].passStatus.pass}</p>
-								<p>{data.yourTraining?.modules[1].moduleName} : {data.yourTraining?.modules[1].passStatus.pending}</p>
-
+								<p>
+									{data.yourTraining?.modules[1].moduleName} :{" "}
+									{data.yourTraining?.modules[1].passStatus.pending}
+								</p>
 							</div>
 						</div>
 					</div>
@@ -136,16 +149,17 @@ const Profile = ({ data }, { loading }) => {
 						</div>
 
 						<div className="column">
-							<div className="column1" >
+							<div className="column1">
 								<div className="score">
 									<span className="gText">
 										<u>Scores</u>
 									</span>
-									<p>{data.yourInfo?.scores[0].scoreName} : {data.yourInfo?.scores[0].score}</p>
-
-
-
-								</div></div>
+									<p>
+										{data.yourInfo?.scores[0].scoreName} :{" "}
+										{data.yourInfo?.scores[0].score}
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -4,41 +4,57 @@ import { useNavigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import axios from "axios";
 
 // import AuthService from "../services/auth.service";
 // import ValidationServiceHelpers from "../services/validation.serviceHelpers";
 
-const Login = ({ login }) => {
+const Login = ({ setLogin }) => {
 	const form = useRef();
 	const checkBtn = useRef();
 
-	const [username, setUsername] = useState(``);
-	const [password, setPassword] = useState(``);
+	// const [Email, setEmail] = useState(``);
+	// const [password, setPassword] = useState(``);
 	const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState(``);
 
+	const [user, setUser] = useState({
+		email: "",
+		password: ""
+	});
+
 	let navigate = useNavigate();
 
-	const onChangeUsername = e => {
-		const newUsername = e.target.value;
-		setUsername(newUsername);
+	const onChangeEmail = e => {
+		const newEmail = e.target.value;
+		setUser(prevstate => ({
+			...prevstate,
+			email: newEmail
+		}));
+		console.log(user);
 	};
 
 	const onChangePassword = e => {
 		const newPassword = e.target.value;
-		setPassword(newPassword);
+		setUser(prevstate => ({
+			...prevstate,
+			password: newPassword
+		}));
+		console.log(user);
 	};
 
 	const handleLogin = async e => {
 		e.preventDefault();
-
-		setMessage(``);
-		setLoading(true);
-
-		form.current.validateAll();
+		const res = await axios.post(`http://127.0.0.1:4000/login`, user);
+		console.log(res.data);
+		setLoading(res.data.user ? true : false);
+		setLogin(res.data.user);
+		setMessage(res.data.message);
+		navigate("/");
+		// form.current.validateAll();
 
 		// if (checkBtn.current.context._errors.length === 0) {
-		// 	const login = await AuthService.login(username, password);
+		// 	const login = await AuthService.login(Email, password);
 		// 	if (localStorage.getItem("user")) {
 		// 		navigate(`/profile`);
 		// 		// window.location.reload();
@@ -63,14 +79,14 @@ const Login = ({ login }) => {
 
 				<Form onSubmit={handleLogin} ref={form}>
 					<div className="form-group">
-						<label htmlFor="username">Username</label>
+						<label htmlFor="Email">Email</label>
 						<Input
 							type="text"
 							className="form-control"
-							name="username"
-							value={username}
-							onChange={onChangeUsername}
-						// validations={[ValidationServiceHelpers.required]}
+							name="email"
+							// value={user.email}
+							onChange={onChangeEmail}
+							// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">
@@ -79,9 +95,9 @@ const Login = ({ login }) => {
 							type="password"
 							className="form-control"
 							name="password"
-							value={password}
+							// value={user.password}
 							onChange={onChangePassword}
-						// validations={[ValidationServiceHelpers.required]}
+							// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">

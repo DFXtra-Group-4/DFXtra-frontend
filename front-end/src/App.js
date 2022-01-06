@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
 	const [profileLoading, setProfileLoading] = useState(true);
 	const [profileData, setProfileData] = useState({});
+	const [login, setLogin] = useState({});
 
 	const [allProfileData, setAllProfileData] = useState({});
 
@@ -22,6 +23,7 @@ function App() {
 		try {
 			console.log("making GET request...");
 			const res = await axios.get("http://127.0.0.1:4000/trainees");
+			setProfileLoading(false);
 			console.log("allprofile data:...", res.data);
 			return res.data;
 		} catch (e) {
@@ -32,7 +34,7 @@ function App() {
 	const getProfileData = async () => {
 		try {
 			console.log("making GET request...");
-			const res = await axios.get("http://127.0.0.1:4000/trainee/61d5d555cae7754a90fd79a1");
+			const res = await axios.get(`http://127.0.0.1:4000/trainee/${login.email}`);
 			setProfileLoading(false);
 			console.log(res.data);
 			return res.data;
@@ -43,15 +45,15 @@ function App() {
 
 	useEffect(() => {
 		const getData = async () => {
-			setProfileData(await getProfileData());
 			setAllProfileData(await getAllProfileData());
+			setProfileData(await getProfileData());
 		};
 		getData();
 	}, []);
 
 	const updateData = async data => {
 		try {
-			await axios.put("http://127.0.0.1:4000/trainee/61d5d555cae7754a90fd79a1/edit", data);
+			await axios.put(`http://127.0.0.1:4000/trainee/${login.email}/edit`, data);
 		} catch (e) {
 			console.log(e);
 		} finally {
@@ -60,10 +62,6 @@ function App() {
 	};
 
 	return (
-		// <Router>
-
-		// </Router>
-
 		<>
 			<Navbar data={profileData} loading={profileLoading} />
 			<Router>
@@ -81,8 +79,7 @@ function App() {
 						element={<EditProfile profileData={profileData} updateData={updateData} />}
 					/>
 					<Route path="/" exact element={<IndustryLanding data={allProfileData} />} />
-					<Route path="/register" exact element={<Login login={true} />} />
-					<Route path="/login" exact element={<Login login={false} />} />
+					<Route path="/login" exact element={<Login setLogin={setLogin} />} />
 					<Route path="/vacancies" exact element={<Vacancies />} />
 				</Routes>
 			</Router>
