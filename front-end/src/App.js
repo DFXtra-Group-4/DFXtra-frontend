@@ -8,9 +8,11 @@ import Registration from "./components/Registration";
 import Navbar from "./components/Navbar";
 
 import Profile from "./components/profile";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CompanyProfile from "./components/CompanyProfile";
 
 function App() {
 	const [profileLoading, setProfileLoading] = useState(true);
@@ -70,6 +72,8 @@ function App() {
 					<Route path="/register" exact element={<Registration registration={true} />} />
 					<Route path="/login" exact element={<Registration registration={false} />} />
 					<Route path="/vacancies" exact element={<Vacancies />} />
+					<Route path="/company" exact element= {<CompanyProfile />} />
+					{/* <Route component={companyProfile} path='company' /> */}
 				</Routes>
 			</Router>
 		</>
