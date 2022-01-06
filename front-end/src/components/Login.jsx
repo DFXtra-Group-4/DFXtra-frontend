@@ -9,7 +9,7 @@ import axios from "axios";
 // import AuthService from "../services/auth.service";
 // import ValidationServiceHelpers from "../services/validation.serviceHelpers";
 
-const Login = ({ setLogin }) => {
+const Login = ({ setLogin, setLogout }) => {
 	const form = useRef();
 	const checkBtn = useRef();
 
@@ -50,7 +50,8 @@ const Login = ({ setLogin }) => {
 		setLoading(res.data.user ? true : false);
 		setLogin(res.data.user);
 		setMessage(res.data.message);
-		navigate("/");
+		setLogout(false);
+		navigate("/landing");
 		// form.current.validateAll();
 
 		// if (checkBtn.current.context._errors.length === 0) {

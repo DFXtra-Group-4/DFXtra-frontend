@@ -2,8 +2,15 @@ import "./css/profile.css";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const Profile = ({ data }, { loading }) => {
+const Profile = ({ data, loading }) => {
 	const { _id } = useParams();
+
+	// useEffect(() => {
+	// 	if (window.location.pathname === "/") {
+	// 		navigate("/threats/live");
+	// 	}
+	// }, []);
+
 	return (
 		<>
 			{loading ? (

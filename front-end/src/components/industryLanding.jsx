@@ -1,11 +1,22 @@
 import "./css/industryLanding.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-const IndustryLanding = ({ data }) => {
+const IndustryLanding = ({ data, logout }) => {
 	const navigate = useNavigate();
-	console.log('industrydata is ...', data);
+	console.log("industrydata is ...", data);
+
+	useEffect(() => {
+		if (logout) {
+			navigate("/");
+		}
+	}, []);
 
 	return (
+		// <>
+		// 	{logout ? (
+		// 		navigate("/")
+		// 	) : (
 		<div id="industryPage">
 			<div id="spotlight">
 				<h2 className="landingHeading">Talent Spotlight</h2>
@@ -48,7 +59,9 @@ const IndustryLanding = ({ data }) => {
 							<img className="spotlightImg"></img>
 						</span>
 					</span>
-					<button className="landingPageButton" onClick={() => navigate('/talent')}>View spotlight details</button>
+					<button className="landingPageButton" onClick={() => navigate("/talent")}>
+						View spotlight details
+					</button>
 				</span>
 			</div>
 			{/* <div id="requirements">
@@ -106,6 +119,8 @@ const IndustryLanding = ({ data }) => {
 				</span>
 			</div> */}
 		</div>
+		// )}
+		// </>
 	);
 };
 

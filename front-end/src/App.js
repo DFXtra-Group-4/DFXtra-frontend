@@ -16,6 +16,7 @@ function App() {
 	const [profileLoading, setProfileLoading] = useState(true);
 	const [profileData, setProfileData] = useState({});
 	const [login, setLogin] = useState({});
+	const [logout, setLogout] = useState(true);
 
 	const [allProfileData, setAllProfileData] = useState({});
 
@@ -49,6 +50,7 @@ function App() {
 			setProfileData(await getProfileData());
 		};
 		getData();
+		console.log("logout is..", logout);
 	}, []);
 
 	const updateData = async data => {
@@ -63,24 +65,50 @@ function App() {
 
 	return (
 		<>
-			<Navbar data={profileData} loading={profileLoading} />
+			{console.log("logout before is ", logout)}
+			<Navbar data={profileData} loading={profileLoading} logout={logout} />
 			<Router>
 				<Routes>
-					<Route path="/talent" exact element={<TalentCard data={allProfileData} />} />
-					<Route path="/score" exact element={<ScoreCard data={allProfileData} />} />
 					<Route
-						path="/trainee/:_id"
+						path="/"
 						exact
-						element={<Profile data={profileData} loading={profileLoading} />}
+						element={<Login setLogin={setLogin} setLogout={setLogout} />}
 					/>
-					<Route
-						path="/trainee/:_id/edit"
-						exact
-						element={<EditProfile profileData={profileData} updateData={updateData} />}
-					/>
-					<Route path="/" exact element={<IndustryLanding data={allProfileData} />} />
-					<Route path="/login" exact element={<Login setLogin={setLogin} />} />
-					<Route path="/vacancies" exact element={<Vacancies />} />
+					{!logout && (
+						<>
+							<Route
+								path="/talent"
+								exact
+								element={<TalentCard data={allProfileData} />}
+							/>
+							<Route
+								path="/score"
+								exact
+								element={<ScoreCard data={allProfileData} />}
+							/>
+							<Route
+								path="/trainee/:_id"
+								exact
+								element={<Profile data={profileData} loading={profileLoading} />}
+							/>
+							<Route
+								path="/trainee/:_id/edit"
+								exact
+								element={
+									<EditProfile
+										profileData={profileData}
+										updateData={updateData}
+									/>
+								}
+							/>
+							<Route
+								path="/landing"
+								exact
+								element={<IndustryLanding data={allProfileData} logout={logout} />}
+							/>
+							<Route path="/vacancies" exact element={<Vacancies />} />
+						</>
+					)}
 				</Routes>
 			</Router>
 		</>
