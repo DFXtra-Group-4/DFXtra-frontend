@@ -96,16 +96,18 @@ function EditProfile({ profileData, updateData }) {
               name="personalEmail"
               onChange={onChange}
               defaultValue={dataObject.personalEmail}
+              disabled
             ></input>
           </span>
           <span className="profileLabelSpan">
             <label className="ggText">Digital Futures Email:</label>
             <input
               type="text"
-              placeholder="Your name"
+              placeholder="Your work email"
               name="workEmail"
               onChange={onChange}
               defaultValue={dataObject.workEmail}
+              disabled
             ></input>
           </span>
           <span className="profileLabelSpan">
