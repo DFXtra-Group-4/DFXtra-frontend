@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/ScoreCard.css";
 
-export default function ScoreCard({ setIsOpen, navigateTo, logout }) {
+export default function ScoreCard({ setIsOpen, navigateTo }) {
 	const [fullname, setFullname] = useState("Full name");
 	// const [industry, setIndustry] = useState('Industry');
 	const [bio, setBio] = useState(
@@ -23,7 +23,9 @@ export default function ScoreCard({ setIsOpen, navigateTo, logout }) {
 
 	return (
 		<>
-			{logout && navigateTo('/')}
+			{
+				!(localStorage.getItem('user')) && navigateTo('/')
+			}
 			<div className="scoreCard">
 				<button class='closeScore' onClick={handleClose}>x</button>
 				<div className="headTitle">

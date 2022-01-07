@@ -3,10 +3,9 @@ import "./utils/profile.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function EditProfile({ profileData, updateData, navigateTo, logout }) {
+function EditProfile({ profileData, updateData, navigateTo }) {
 	let navigate = useNavigate();
-	// const [data, setData] = useState({});
-	// console.log('data is ...', profileData);
+
 
 	const dataObject = {
 		firstName: "",
@@ -184,7 +183,7 @@ function EditProfile({ profileData, updateData, navigateTo, logout }) {
 
 	return (
 		<>
-			{logout && navigateTo('/')}
+			{!(localStorage.getItem('user')) && navigateTo('/')}
 			<form onSubmit={onSubmit} className="myForm">
 				{yourProfile()}
 				{personalInformation()}

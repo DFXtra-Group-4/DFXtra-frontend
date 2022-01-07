@@ -2,8 +2,9 @@ import "./css/profile.css";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const Profile = ({ data, loading, logout, navigateTo }) => {
+const Profile = ({ data, loading, navigateTo }) => {
 	const { _id } = useParams();
+	console.log(navigateTo);
 
 	// useEffect(() => {
 	// 	if (window.location.pathname === "/") {
@@ -13,7 +14,9 @@ const Profile = ({ data, loading, logout, navigateTo }) => {
 
 	return (
 		<>
-			{logout && navigateTo('/')}
+			{
+				!(localStorage.getItem('user')) && navigateTo('/')
+			}
 			{loading ? (
 				<h2> Data is loading...</h2>
 			) : (

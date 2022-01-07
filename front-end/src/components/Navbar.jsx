@@ -1,25 +1,14 @@
 import "./css/Navbar.css";
 import { useEffect } from "react";
-const Navbar = ({ logout, data, loading }) => {
-	console.log(logout);
+const Navbar = ({ data, loading }) => {
 
-	// const setNone = () => {
-	// 	const nav = document.querySelector("#nav");
-	// 	//nav.style.visibility = "hidden";
-	// 	console.log(nav);
-	// 	//
-	// 	// document.querySelector("#nav").style.visibility = "hidden";
-	// 	//nav = true;
-	// 	// return true;
-	// };
-
-	// useEffect(() => {
-	// 	setNone();
-	// }, []);
+	const handleLogout = () => {
+		localStorage.clear();
+	};
 
 	return (
 		<>
-			{!logout &&
+			{localStorage.getItem('user') &&
 				!loading &&
 				(
 					<div id="nav">
@@ -45,7 +34,7 @@ const Navbar = ({ logout, data, loading }) => {
 								<div className="dropdown-content">
 									<a href={`/trainee/${data._id}`}>My profile</a>
 									<a href={`/trainee/${data._id}/edit`}>Edit profile</a>
-									<a href="/">Log out</a>
+									<a href="/" onClick={handleLogout}>Log out</a>
 								</div>
 							</div>
 						</ul>

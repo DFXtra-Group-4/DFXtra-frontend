@@ -15,7 +15,7 @@ const Popup = props => {
 	);
 };
 
-function Vacancies() {
+function Vacancies({ navigateTo }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const togglePopup = () => {
@@ -125,15 +125,18 @@ function Vacancies() {
 	};
 
 	return (
-		<div className="vacanciesPage">
-			{VacanciesSearch()}
+		<>
+			{!(localStorage.getItem('user')) && navigateTo('/')}
+			<div className="vacanciesPage">
+				{VacanciesSearch()}
 
-			{VacanciesCardRow()}
-			{VacanciesCardRow()}
-			{VacanciesCardRow()}
+				{VacanciesCardRow()}
+				{VacanciesCardRow()}
+				{VacanciesCardRow()}
 
-			{isOpen && <Popup content={VacanciesPopUp()} handleClose={togglePopup} />}
-		</div>
+				{isOpen && <Popup content={VacanciesPopUp()} handleClose={togglePopup} />}
+			</div>
+		</>
 	);
 }
 export default Vacancies;

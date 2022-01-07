@@ -16,12 +16,11 @@ function App() {
 	const [profileLoading, setProfileLoading] = useState(true);
 	const [profileData, setProfileData] = useState({});
 	const [login, setLogin] = useState({});
-	const [logout, setLogout] = useState(true);
 	const [allProfileData, setAllProfileData] = useState({});
 
 	const navigate = useNavigate();
 
-
+	console.log('app component reloaded');
 	const getAllProfileData = async () => {
 		try {
 			console.log("making GET request...");
@@ -52,20 +51,7 @@ function App() {
 			setProfileData(await getProfileData());
 		};
 		getData();
-		console.log("logout is..", logout);
 	}, []);
-
-
-
-	// useEffect(() => {
-	// 	replace({
-	// 		goTo: '/login',
-	// 		when: !isLoggedIn,
-	// 		onPaths: ['/dashboard/**, 'analytics/**', '/profile/**', '/messages/**'],
-	//   otherwiseGoTo: '/app/dashboard', 
-	// })
-
-	// }, [isLoggedIn])
 
 	const updateData = async data => {
 		try {
@@ -83,53 +69,52 @@ function App() {
 
 	return (
 		<>
-			{console.log("logout before is ", logout)}
-			<Navbar data={profileData} loading={profileLoading} logout={logout} />
-
+			<Navbar data={profileData} loading={profileLoading} />
 			<Routes>
-				<>
-					<Route
-						path="/talent"
-						exact
-						element={<TalentCard data={allProfileData} navigateTo={navigateTo} logout={logout} />}
-					/>
-					<Route
-						path="/score"
-						exact
-						element={<ScoreCard data={allProfileData} navigateTo={navigateTo} logout={logout} />}
-					/>
-					<Route
-						path="/trainee/:_id"
-						exact
-						element={<Profile data={profileData} loading={profileLoading} navigateTo={navigateTo} logout={logout} />}
-					/>
-					<Route
-						path="/trainee/:_id/edit"
-						exact
-						element={
-							<EditProfile
-								profileData={profileData}
-								updateData={updateData}
-								navigateTo={navigateTo}
-								logout={logout}
-							/>
-						}
-					/>
-					<Route
-						path="/landing"
-						exact
-						element={<IndustryLanding data={allProfileData} logout={logout} navigateTo={navigateTo} logout={logout} />}
-					/>
-					<Route path="/vacancies" exact element={<Vacancies />} />
-				</>
+				<Route
+					path="/talent"
+					exact
+					element={<TalentCard data={allProfileData} navigateTo={navigateTo} />}
+				/>
+				<Route
+					path="/score"
+					exact
+					element={<ScoreCard data={allProfileData} navigateTo={navigateTo} />}
+				/>
+				<Route
+					path="/trainee/:_id"
+					exact
+					element={<Profile data={profileData} loading={profileLoading} navigateTo={navigateTo} />}
+				/>
+				<Route
+					path="/trainee/:_id/edit"
+					exact
+					element={
+						<EditProfile
+							profileData={profileData}
+							updateData={updateData}
+							navigateTo={navigateTo}
+
+						/>
+					}
+				/>
+				<Route
+					path="/landing"
+					exact
+					element={<IndustryLanding data={allProfileData} navigateTo={navigateTo} />}
+				/>
+				<Route
+					path="/vacancies"
+					exact element={<Vacancies navigateTo={navigateTo} />} />
 				<Route
 					path="/"
 					exact
-					element={<Login setLogin={setLogin} setLogout={setLogout} logout={logout} />}
-				/>
+					element={<Login setLogin={setLogin} allProfileData={allProfileData} />} />
 			</Routes>
+
 		</>
-	);
+	)
 }
 
 export default App;
+

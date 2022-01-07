@@ -9,7 +9,7 @@ import axios from "axios";
 // import AuthService from "../services/auth.service";
 // import ValidationServiceHelpers from "../services/validation.serviceHelpers";
 
-const Login = ({ setLogin, setLogout, logout }) => {
+const Login = ({ setLogin, allProfileData }) => {
 	const form = useRef();
 	const checkBtn = useRef();
 
@@ -43,6 +43,13 @@ const Login = ({ setLogin, setLogout, logout }) => {
 		console.log(user);
 	};
 
+	const filterProfile = (data) => {
+		const filtered = allProfileData.filter(profiles =>
+			profiles.personalDetails.contact.email.workEmail === data.user.email
+		)
+		return filtered[0]._id;
+	}
+
 	const handleLogin = async e => {
 		e.preventDefault();
 		const res = await axios.post(`http://127.0.0.1:4000/login`, user);
@@ -51,9 +58,11 @@ const Login = ({ setLogin, setLogout, logout }) => {
 		setLoading(res.data.user ? true : false);
 		setLogin(res.data.user);
 		setMessage(res.data.message);
-		setLogout(false);
-		console.log('login set logout to ', logout);
-		navigate("/landing");
+		localStorage.setItem('user', res.data.user);
+
+		if (res.data.user.roles[0] === 'Graduate') {
+			navigate(`/trainee/${filterProfile(res.data)}`);
+		};
 		// form.current.validateAll();
 
 		// if (checkBtn.current.context._errors.length === 0) {

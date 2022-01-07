@@ -2,13 +2,14 @@ import "./css/industryLanding.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-const IndustryLanding = ({ data, logout, navigateTo }) => {
+const IndustryLanding = ({ data, navigateTo }) => {
 	const navigate = useNavigate();
 	console.log("industrydata is ...", data);
+	console.log(localStorage.getItem('user'));
 
 	return (
 		<>
-			{logout ?
+			{!(localStorage.getItem('user')) ?
 				navigateTo('/')
 				: (
 					<div id="industryPage">

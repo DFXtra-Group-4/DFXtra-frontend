@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ScoreCard from "./ScoreCard";
 // import './ScoreCard.js';
 
-function Card({ data, navigateTo, logout }) {
+function Card({ data, navigateTo }) {
 	console.log('talentCard data is ...', data);
 
 	const [fullname, setFullname] = useState("Full name");
@@ -55,7 +55,7 @@ function Card({ data, navigateTo, logout }) {
 	return (
 		<>
 			{
-				logout && navigateTo('/')
+				!(localStorage.getItem('user')) && navigateTo('/')
 			}
 			{isOpen && setOpacity() && <ScoreCard setIsOpen={setIsOpen} />}
 			<div className="title">
