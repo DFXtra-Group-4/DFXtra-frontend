@@ -8,9 +8,11 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 
 import Profile from "./components/profile";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CompanyProfile from "./components/CompanyProfile";
 
 function App() {
 	const [profileLoading, setProfileLoading] = useState(true);
@@ -25,6 +27,19 @@ function App() {
 			console.log("making GET request...");
 			const res = await axios.get("http://127.0.0.1:4000/trainees");
 			setProfileLoading(false);
+			console.log("allprofile data:...", res.data);
+			return res.data;
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
+	const [allProfileData, setAllProfileData] = useState({});
+
+	const getAllProfileData = async () => {
+		try {
+			console.log("making GET request...");
+			const res = await axios.get("http://127.0.0.1:4000/trainees");
 			console.log("allprofile data:...", res.data);
 			return res.data;
 		} catch (e) {
@@ -48,6 +63,7 @@ function App() {
 		const getData = async () => {
 			setAllProfileData(await getAllProfileData());
 			setProfileData(await getProfileData());
+			setAllProfileData(await getAllProfileData());
 		};
 		getData();
 	}, []);
@@ -82,6 +98,8 @@ function App() {
 					<Route path="/" exact element={<IndustryLanding data={allProfileData} />} />
 					<Route path="/login" exact element={<Login setLogin={setLogin} />} />
 					<Route path="/vacancies" exact element={<Vacancies />} />
+					<Route path="/company" exact element= {<CompanyProfile />} />
+					{/* <Route component={companyProfile} path='company' /> */}
 				</Routes>
 			</Router>
 		</>
