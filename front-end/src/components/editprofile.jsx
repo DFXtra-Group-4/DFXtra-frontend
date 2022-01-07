@@ -2,11 +2,11 @@ import "./css/editprofile.css";
 import "./utils/profile.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function EditProfile({ profileData, updateData }) {
 	let navigate = useNavigate();
-	// const [data, setData] = useState({});
-	// console.log('data is ...', profileData);
+
 
 	const dataObject = {
 		firstName: "",
@@ -15,10 +15,24 @@ function EditProfile({ profileData, updateData }) {
 		workEmail: "",
 		gitHub: "",
 		linkedIn: "",
-		telNo: ""
-		// gender: "",
-		// personalityType: "",
-		// nationality: ""
+		telNo: "",
+		gender: "",
+		personalityType: "",
+		nationality: "",
+	};
+	const dataObject2 = {
+		schoolQualifications: {
+			school: "",
+			type: "",
+			subject: "",
+			level: "",
+			grade: "",
+			year: "",
+			weight: "",
+			priority: "",
+			description: ""
+		}
+
 	};
 
 	const onChange = e => {
@@ -33,8 +47,61 @@ function EditProfile({ profileData, updateData }) {
 		updateData(dataObject);
 		navigate(`/trainee/${profileData._id}`, { replace: true });
 	};
+	const onSubmit2 = e => {
+		e.preventDefault();
+		console.log("data sent..", dataObject2);
+		updateData(dataObject2);
+		navigate(`/trainee/${profileData._id}`, { replace: true });
+	};
 
-	useEffect(() => {}, [profileData]);
+	useEffect(() => { }, [profileData]);
+
+	const schoolQualificationsTableRows = () => {
+		return (
+			profileData.personalStory?.schoolQualifications.map(x => (
+				<tr>
+					<td>
+						<p style={{ fontSize: "10pt" }}>{x.school}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.examType}</p>
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.subject}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.grade}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.year}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.weight}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.priority}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.description}</p>
+
+					</td>
+					<td><button style={{ width: "54px" }}>Delete</button></td>
+				</tr>)
+			));
+	}
 
 	const yourProfile = () => {
 		return (
@@ -55,6 +122,7 @@ function EditProfile({ profileData, updateData }) {
 	};
 
 	const personalInformation = () => {
+
 		return (
 			<div className="personalInformationDiv">
 				<div className="personalInfoH3">
@@ -136,7 +204,7 @@ function EditProfile({ profileData, updateData }) {
 							<option value="" disabled selected>
 								Gender
 							</option>
-							<option value="male" n>
+							<option value="male" >
 								Male
 							</option>
 							<option value="female">Female</option>
@@ -177,7 +245,9 @@ function EditProfile({ profileData, updateData }) {
 						</select>
 					</span>
 				</div>
-				{/* <img id="selfieUpload"></img>  /*USER STORY LOWER PRIORITY*/}
+				<div>
+					<img src="images/blank-profile-picture-973460_640.png" alt="profilepic" height="70px" width="70px"></img>
+					<button>Upload picture</button></div>
 			</div>
 		);
 	};
@@ -186,6 +256,7 @@ function EditProfile({ profileData, updateData }) {
 		<form onSubmit={onSubmit} className="myForm">
 			{yourProfile()}
 			{personalInformation()}
+
 			<div>
 				<div className="personalStory">
 					<h2>
@@ -232,64 +303,91 @@ function EditProfile({ profileData, updateData }) {
 									<td>
 										<input
 											type="text"
+											name="university"
+											id="university"
 											placeholder="University name"
 											style={{ width: "120px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
 											placeholder="Subject"
+											name="subject"
+											id="subject"
 											style={{ width: "120px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
+											name="level"
+											id="level"
 											placeholder="Level"
 											style={{ width: "100px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
+											name="grade"
+											id="grade"
 											placeholder="Grade"
 											style={{ width: "70px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="date"
+											name="from"
+											id="from"
 											placeholder="From"
 											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="date"
+											name="to"
+											id="to"
 											placeholder="To"
 											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
+											name="weight"
+											id="weight"
 											placeholder="Weight"
 											style={{ width: "90px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
+											id="priority"
+											name="priority"
 											placeholder="Priority"
 											style={{ width: "90px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
+											name="description"
+											id="description"
 											placeholder="Description"
 											style={{ width: "137px" }}
+											onChange={onChange}
 										></input>
 									</td>
 								</tr>
@@ -299,7 +397,7 @@ function EditProfile({ profileData, updateData }) {
 					<p className="ggText">
 						<u>School qualifications</u>
 					</p>
-					<form>
+					<form onSubmit={onSubmit2} className="myForm">
 						<table style={{ border: "1px solid black" }}>
 							<thead>
 								<tr>
@@ -328,6 +426,9 @@ function EditProfile({ profileData, updateData }) {
 									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
 										Description
 									</th>
+									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+
+									</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -336,35 +437,50 @@ function EditProfile({ profileData, updateData }) {
 										<input
 											type="text"
 											placeholder="School name"
-											style={{ width: "120px" }}
+											name="name"
+											id="id"
+											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
 											placeholder="Exam type"
-											style={{ width: "120px" }}
+											name="type"
+											id="type"
+											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
+											name="subject"
+											id="subject"
 											placeholder="Subject"
-											style={{ width: "120px" }}
+											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
 											placeholder="Grade"
-											style={{ width: "120px" }}
+											name="grade"
+											id="grade"
+											style={{ width: "108px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
 											placeholder="Year"
-											style={{ width: "120px" }}
+											name="year"
+											id="year"
+											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 
@@ -372,24 +488,36 @@ function EditProfile({ profileData, updateData }) {
 										<input
 											type="text"
 											placeholder="Weight"
-											style={{ width: "120px" }}
+											name="weight"
+											id="weight"
+											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
 											placeholder="Priority"
-											style={{ width: "120px" }}
+											name="priority"
+											id="priority"
+											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
 										<input
 											type="text"
 											placeholder="Description"
-											style={{ width: "121px" }}
+											name="description"
+											id="description"
+											style={{ width: "129px" }}
+											onChange={onChange}
 										></input>
 									</td>
+									<td><button type="submit" style={{ width: "54px" }}>Add</button></td>
 								</tr>
+								{schoolQualificationsTableRows()}
+
 							</tbody>
 						</table>
 					</form>
@@ -435,6 +563,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Type"
 											style={{ width: "130px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -442,6 +571,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Company name"
 											style={{ width: "130px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -449,6 +579,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Position"
 											style={{ width: "128px" }}
+											onChange={onChange}
 										></input>
 									</td>
 
@@ -457,6 +588,7 @@ function EditProfile({ profileData, updateData }) {
 											type="date"
 											placeholder="From"
 											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -464,6 +596,7 @@ function EditProfile({ profileData, updateData }) {
 											type="date"
 											placeholder="To"
 											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -471,6 +604,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Weight"
 											style={{ width: "120px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -478,6 +612,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Priority"
 											style={{ width: "120px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -485,6 +620,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Description"
 											style={{ width: "121px" }}
+											onChange={onChange}
 										></input>
 									</td>
 								</tr>
@@ -532,6 +668,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Type"
 											style={{ width: "124px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -539,6 +676,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Issuer"
 											style={{ width: "130px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -546,6 +684,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Award"
 											style={{ width: "128px" }}
+											onChange={onChange}
 										></input>
 									</td>
 
@@ -554,6 +693,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Grade"
 											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -561,6 +701,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Year"
 											style={{ width: "110px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -568,6 +709,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Weight"
 											style={{ width: "120px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -575,6 +717,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Priority"
 											style={{ width: "120px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -582,6 +725,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Description"
 											style={{ width: "121px" }}
+											onChange={onChange}
 										></input>
 									</td>
 								</tr>
@@ -623,6 +767,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Title"
 											style={{ width: "207px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -630,6 +775,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="URL"
 											style={{ width: "200px" }}
+											onChange={onChange}
 										></input>
 									</td>
 
@@ -638,6 +784,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Year"
 											style={{ width: "125px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -645,6 +792,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Weight"
 											style={{ width: "125px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -652,6 +800,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Priority"
 											style={{ width: "125px" }}
+											onChange={onChange}
 										></input>
 									</td>
 									<td>
@@ -659,6 +808,7 @@ function EditProfile({ profileData, updateData }) {
 											type="text"
 											placeholder="Description"
 											style={{ width: "221px" }}
+											onChange={onChange}
 										></input>
 									</td>
 								</tr>
