@@ -9,7 +9,7 @@ import axios from "axios";
 // import AuthService from "../services/auth.service";
 // import ValidationServiceHelpers from "../services/validation.serviceHelpers";
 
-const Login = ({ setLogin, setLogout }) => {
+const Login = ({ setLogin, setLogout, logout }) => {
 	const form = useRef();
 	const checkBtn = useRef();
 
@@ -47,10 +47,12 @@ const Login = ({ setLogin, setLogout }) => {
 		e.preventDefault();
 		const res = await axios.post(`http://127.0.0.1:4000/login`, user);
 		console.log(res.data);
+		console.log(res.status);
 		setLoading(res.data.user ? true : false);
 		setLogin(res.data.user);
 		setMessage(res.data.message);
 		setLogout(false);
+		console.log('login set logout to ', logout);
 		navigate("/landing");
 		// form.current.validateAll();
 
@@ -87,7 +89,7 @@ const Login = ({ setLogin, setLogout }) => {
 							name="email"
 							// value={user.email}
 							onChange={onChangeEmail}
-							// validations={[ValidationServiceHelpers.required]}
+						// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">
@@ -98,7 +100,7 @@ const Login = ({ setLogin, setLogout }) => {
 							name="password"
 							// value={user.password}
 							onChange={onChangePassword}
-							// validations={[ValidationServiceHelpers.required]}
+						// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">

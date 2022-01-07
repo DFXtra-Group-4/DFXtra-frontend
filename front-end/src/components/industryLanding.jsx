@@ -2,74 +2,68 @@ import "./css/industryLanding.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-const IndustryLanding = ({ data, logout }) => {
+const IndustryLanding = ({ data, logout, navigateTo }) => {
 	const navigate = useNavigate();
 	console.log("industrydata is ...", data);
 
-	useEffect(() => {
-		if (logout) {
-			navigate("/");
-		}
-	}, []);
-
 	return (
-		// <>
-		// 	{logout ? (
-		// 		navigate("/")
-		// 	) : (
-		<div id="industryPage">
-			<div id="spotlight">
-				<h2 className="landingHeading">Talent Spotlight</h2>
-				<p id="spotlightInfo">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit dolores
-					voluptatum, nihil repellat libero commodi nulla fuga sapiente deleniti sunt!
-				</p>
-				<span id="lowerSpan">
-					<span id="SFGradImg">
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-					</span>
-					<span id="DSGradImg">
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-						<span className="profileImage">
-							<img className="spotlightImg"></img>
-						</span>
-					</span>
-					<button className="landingPageButton" onClick={() => navigate("/talent")}>
-						View spotlight details
-					</button>
-				</span>
-			</div>
-			{/* <div id="requirements">
+		<>
+			{logout ?
+				navigateTo('/')
+				: (
+					<div id="industryPage">
+						<div id="spotlight">
+							<h2 className="landingHeading">Talent Spotlight</h2>
+							<p id="spotlightInfo">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit dolores
+								voluptatum, nihil repellat libero commodi nulla fuga sapiente deleniti sunt!
+							</p>
+							<span id="lowerSpan">
+								<span id="SFGradImg">
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+								</span>
+								<span id="DSGradImg">
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+									<span className="profileImage">
+										<img className="spotlightImg"></img>
+									</span>
+								</span>
+								<button className="landingPageButton" onClick={() => navigate("/talent")}>
+									View spotlight details
+								</button>
+							</span>
+						</div>
+						{/* <div id="requirements">
 				<h2 className="landingHeading">Requirements</h2>
 				<button className="landingPageButton">Request immediate resources</button>
 				<button className="landingPageButton">Reserve resources in advance</button>
 			</div> */}
-			{/* <div id="orders">
+						{/* <div id="orders">
 				<h2 className="landingHeading">Your Orders:</h2>
 				<h2 className="landingHeading">Immediate Orders:</h2>
 				<span id="orderSpan">
@@ -85,7 +79,7 @@ const IndustryLanding = ({ data, logout }) => {
 					</div>
 				</span>
 			</div> */}
-			{/* <div id="trainingInformation">
+						{/* <div id="trainingInformation">
 				<h2 className="landingHeading">View our training information</h2>
 				<span id="trainingSpan">
 					<p>
@@ -118,9 +112,9 @@ const IndustryLanding = ({ data, logout }) => {
 					</div>
 				</span>
 			</div> */}
-		</div>
-		// )}
-		// </>
+					</div>
+				)}
+		</>
 	);
 };
 

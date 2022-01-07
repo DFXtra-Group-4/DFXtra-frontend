@@ -2,7 +2,7 @@ import "./css/profile.css";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const Profile = ({ data, loading }) => {
+const Profile = ({ data, loading, logout, navigateTo }) => {
 	const { _id } = useParams();
 
 	// useEffect(() => {
@@ -13,6 +13,7 @@ const Profile = ({ data, loading }) => {
 
 	return (
 		<>
+			{logout && navigateTo('/')}
 			{loading ? (
 				<h2> Data is loading...</h2>
 			) : (
@@ -170,7 +171,9 @@ const Profile = ({ data, loading }) => {
 						</div>
 					</div>
 				</div>
-			)}
+			)
+			}
+
 		</>
 	);
 };

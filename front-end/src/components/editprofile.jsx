@@ -3,7 +3,7 @@ import "./utils/profile.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function EditProfile({ profileData, updateData }) {
+function EditProfile({ profileData, updateData, navigateTo, logout }) {
 	let navigate = useNavigate();
 	// const [data, setData] = useState({});
 	// console.log('data is ...', profileData);
@@ -34,7 +34,7 @@ function EditProfile({ profileData, updateData }) {
 		navigate(`/trainee/${profileData._id}`, { replace: true });
 	};
 
-	useEffect(() => {}, [profileData]);
+	useEffect(() => { }, [profileData]);
 
 	const yourProfile = () => {
 		return (
@@ -183,491 +183,494 @@ function EditProfile({ profileData, updateData }) {
 	};
 
 	return (
-		<form onSubmit={onSubmit} className="myForm">
-			{yourProfile()}
-			{personalInformation()}
-			<div>
-				<div className="personalStory">
-					<h2>
-						<u>Personal story</u>
-					</h2>
-					<p className="ggText">
-						<u>Degrees</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										University
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Subject
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Level
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Grade
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										From
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										To
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="University name"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Subject"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Level"
-											style={{ width: "100px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Grade"
-											style={{ width: "70px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="date"
-											placeholder="From"
-											style={{ width: "110px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="date"
-											placeholder="To"
-											style={{ width: "110px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "90px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "90px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "137px" }}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-					<p className="ggText">
-						<u>School qualifications</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										School
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Exam type
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Subject
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Grade
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Year
-									</th>
+		<>
+			{logout && navigateTo('/')}
+			<form onSubmit={onSubmit} className="myForm">
+				{yourProfile()}
+				{personalInformation()}
+				<div>
+					<div className="personalStory">
+						<h2>
+							<u>Personal story</u>
+						</h2>
+						<p className="ggText">
+							<u>Degrees</u>
+						</p>
+						<form>
+							<table style={{ border: "1px solid black" }}>
+								<thead>
+									<tr>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											University
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Subject
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Level
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Grade
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											From
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											To
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Weight
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Priority
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<input
+												type="text"
+												placeholder="University name"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Subject"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Level"
+												style={{ width: "100px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Grade"
+												style={{ width: "70px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="date"
+												placeholder="From"
+												style={{ width: "110px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="date"
+												placeholder="To"
+												style={{ width: "110px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Weight"
+												style={{ width: "90px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Priority"
+												style={{ width: "90px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Description"
+												style={{ width: "137px" }}
+											></input>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+						<p className="ggText">
+							<u>School qualifications</u>
+						</p>
+						<form>
+							<table style={{ border: "1px solid black" }}>
+								<thead>
+									<tr>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											School
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Exam type
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Subject
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Grade
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Year
+										</th>
 
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="School name"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Exam type"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Subject"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Grade"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Year"
-											style={{ width: "120px" }}
-										></input>
-									</td>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Weight
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Priority
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<input
+												type="text"
+												placeholder="School name"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Exam type"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Subject"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Grade"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Year"
+												style={{ width: "120px" }}
+											></input>
+										</td>
 
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "121px" }}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
+										<td>
+											<input
+												type="text"
+												placeholder="Weight"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Priority"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Description"
+												style={{ width: "121px" }}
+											></input>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
 
-					<p className="ggText">
-						<u>Work experience</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Type{" "}
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Company name
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Position
-									</th>
+						<p className="ggText">
+							<u>Work experience</u>
+						</p>
+						<form>
+							<table style={{ border: "1px solid black" }}>
+								<thead>
+									<tr>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Type{" "}
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Company name
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Position
+										</th>
 
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										From
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										To
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="Type"
-											style={{ width: "130px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Company name"
-											style={{ width: "130px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Position"
-											style={{ width: "128px" }}
-										></input>
-									</td>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											From
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											To
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Weight
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Priority
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<input
+												type="text"
+												placeholder="Type"
+												style={{ width: "130px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Company name"
+												style={{ width: "130px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Position"
+												style={{ width: "128px" }}
+											></input>
+										</td>
 
-									<td>
-										<input
-											type="date"
-											placeholder="From"
-											style={{ width: "110px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="date"
-											placeholder="To"
-											style={{ width: "110px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "121px" }}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-					<p className="ggText">
-						<u>Certificates and awards</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Type{" "}
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Issuer
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Award
-									</th>
+										<td>
+											<input
+												type="date"
+												placeholder="From"
+												style={{ width: "110px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="date"
+												placeholder="To"
+												style={{ width: "110px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Weight"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Priority"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Description"
+												style={{ width: "121px" }}
+											></input>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+						<p className="ggText">
+							<u>Certificates and awards</u>
+						</p>
+						<form>
+							<table style={{ border: "1px solid black" }}>
+								<thead>
+									<tr>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Type{" "}
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Issuer
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Award
+										</th>
 
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Grade
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Year
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="Type"
-											style={{ width: "124px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Issuer"
-											style={{ width: "130px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Award"
-											style={{ width: "128px" }}
-										></input>
-									</td>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Grade
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Year
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Weight
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Priority
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<input
+												type="text"
+												placeholder="Type"
+												style={{ width: "124px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Issuer"
+												style={{ width: "130px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Award"
+												style={{ width: "128px" }}
+											></input>
+										</td>
 
-									<td>
-										<input
-											type="text"
-											placeholder="Grade"
-											style={{ width: "110px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Year"
-											style={{ width: "110px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "120px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "121px" }}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-					<p className="ggText">
-						<u>Portfolio</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Title{" "}
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										URL
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Year
-									</th>
+										<td>
+											<input
+												type="text"
+												placeholder="Grade"
+												style={{ width: "110px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Year"
+												style={{ width: "110px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Weight"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Priority"
+												style={{ width: "120px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Description"
+												style={{ width: "121px" }}
+											></input>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+						<p className="ggText">
+							<u>Portfolio</u>
+						</p>
+						<form>
+							<table style={{ border: "1px solid black" }}>
+								<thead>
+									<tr>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Title{" "}
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											URL
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Year
+										</th>
 
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="Title"
-											style={{ width: "207px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="URL"
-											style={{ width: "200px" }}
-										></input>
-									</td>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Weight
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Priority
+										</th>
+										<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+											Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<input
+												type="text"
+												placeholder="Title"
+												style={{ width: "207px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="URL"
+												style={{ width: "200px" }}
+											></input>
+										</td>
 
-									<td>
-										<input
-											type="text"
-											placeholder="Year"
-											style={{ width: "125px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "125px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "125px" }}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "221px" }}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
+										<td>
+											<input
+												type="text"
+												placeholder="Year"
+												style={{ width: "125px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Weight"
+												style={{ width: "125px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Priority"
+												style={{ width: "125px" }}
+											></input>
+										</td>
+										<td>
+											<input
+												type="text"
+												placeholder="Description"
+												style={{ width: "221px" }}
+											></input>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
+		</>
 	);
 }
 export default EditProfile;
