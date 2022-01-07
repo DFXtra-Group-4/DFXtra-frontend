@@ -10,12 +10,12 @@ function EditProfile({ profileData, updateData }) {
 
 	const dataObject = {
 		firstName: "",
-		lastName: ""
-		// personalEmail: "",
-		// workEmail: "",
-		// gitHub: "",
-		// linkedIn: "",
-		// telNo: "",
+		lastName: "",
+		personalEmail: "",
+		workEmail: "",
+		gitHub: "",
+		linkedIn: "",
+		telNo: ""
 		// gender: "",
 		// personalityType: "",
 		// nationality: ""
