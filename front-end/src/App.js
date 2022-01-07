@@ -17,7 +17,8 @@ function App() {
 	const [profileData, setProfileData] = useState({});
 	const [login, setLogin] = useState({});
 
-	const [allProfileData, setAllProfileData] = useState({});
+
+  const [allProfileData, setAllProfileData] = useState({});
 
 	const getAllProfileData = async () => {
 		try {
