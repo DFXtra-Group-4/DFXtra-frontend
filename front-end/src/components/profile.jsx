@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 const Profile = ({ data }, { loading }) => {
 	const { _id } = useParams();
-
 	return (
 		<>
 			{loading ? (
@@ -46,7 +45,7 @@ const Profile = ({ data }, { loading }) => {
 								</tr>
 								<tr>
 									<span className="gText">Github:</span>
-									<td className="gName">{data.personalDetails?.github}</td>
+									<td className="gName">{data.personalDetails?.gitHub}</td>
 								</tr>
 								<tr>
 									<span className="gText">Linked in:</span>
@@ -60,18 +59,22 @@ const Profile = ({ data }, { loading }) => {
 						</div>
 						<div className="column">
 							<div className="column1">
-								<h2>
-									<b>
-										<u>
-											<i>Personal story summary</i>
-										</u>
-									</b>
-								</h2>
-								<p>Degree in XXX from YYY</p>
-								<p>4 school qualifications</p>
-								<p>5 work experiences</p>
-								<p>3 personal achievements</p>
-								<p>etc</p>
+								<span className="gText">
+									<u>Personal story summary</u>
+								</span>
+
+								<p>
+									Degree in {data.personalStory?.degree.subject} from{" "}
+									{data.personalStory?.degree.university}
+								</p>
+								<p>
+									{data.personalStory?.schoolQualifications.length} school
+									qualifications
+								</p>
+								<p>{data.personalStory?.workExperience.length} work experiences</p>
+								<p>
+									{data.personalStory?.achievements.length} personal achievements
+								</p>
 							</div>
 						</div>
 					</div>
@@ -83,31 +86,36 @@ const Profile = ({ data }, { loading }) => {
 							<table>
 								<tr>
 									<span className="gText">Cohort:</span>
-									<td>XXXXXXXXX</td>
+									<td>{data.yourTraining?.cohort}</td>
 								</tr>
 								<tr>
 									<span className="gText">Learning path:</span>
-									<td>XXXXXXXXXX</td>
+									<td>{data.yourTraining?.trainingPath}</td>
 								</tr>
 								<tr>
 									<span className="gText">Trainer:</span>
-									<td>XXXXXX</td>
+									<td>{data.yourTraining?.trainer}</td>
 								</tr>
 								<tr>
 									<span className="gText">Trainer finish date:</span>
-									<td>XXXXXXX</td>
+									<td>{data.yourTraining?.trainingFinishDate}</td>
 								</tr>
 							</table>
 						</div>
 						<div className="column">
 							<div className="column1">
-								<h2>
+								<span className="gText">
 									<u>Results</u>
-								</h2>
-								<p>Module 1 Challenge A PASSED</p>
-								<p>Module 1 Challenge B PASSED</p>
-								<p>Module 2 Challenge C TODO</p>
-								<p>etc</p>
+								</span>
+								<p></p>
+								<p>
+									{data.yourTraining?.modules[0].moduleName} :{" "}
+									{data.yourTraining?.modules[0].passStatus.pass}
+								</p>
+								<p>
+									{data.yourTraining?.modules[1].moduleName} :{" "}
+									{data.yourTraining?.modules[1].passStatus.pending}
+								</p>
 							</div>
 						</div>
 					</div>
@@ -121,31 +129,36 @@ const Profile = ({ data }, { loading }) => {
 							</span>
 							<div class="column2">
 								<div className="badges">
-									<p>Badge A</p>
-									<p>XXXX XX XX</p>
+									<p>{data.yourInfo?.badges[0].badgeName}</p>
+									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
 								</div>
 								<div className="badges">
-									<p>Badge A</p>
-									<p>XXXX XX XX</p>
+									<p>{data.yourInfo?.badges[0].badgeName}</p>
+									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
 								</div>
 
 								<div className="badges">
-									<p>Badge A</p>
-									<p>XXXX XX XX</p>
+									<p>{data.yourInfo?.badges[0].badgeName}</p>
+									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
 								</div>
 								<div className="badges">
-									<p>Badge A</p>
-									<p>XXXX XX XX</p>
+									<p>{data.yourInfo?.badges[0].badgeName}</p>
+									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
 								</div>
 							</div>
 						</div>
 
 						<div className="column">
-							<div className="score">
-								<p className="bold">
-									<u>Scores</u>
-								</p>
-								<textarea className="area" cols="60" rows="8"></textarea>
+							<div className="column1">
+								<div className="score">
+									<span className="gText">
+										<u>Scores</u>
+									</span>
+									<p>
+										{data.yourInfo?.scores[0].scoreName} :{" "}
+										{data.yourInfo?.scores[0].score}
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
