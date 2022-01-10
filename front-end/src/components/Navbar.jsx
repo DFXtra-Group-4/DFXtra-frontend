@@ -14,6 +14,7 @@ const Navbar = ({ data, loading }) => {
 					<div id="nav">
 						<p className="DFX" style={{ color: "#fff" }}>
 							{/* {`DFX Logged in as ${data.personalDetails.contact.email.workEmail}`} */}
+							DFX
 						</p>
 						<ul>
 							<div className="dropdown">
