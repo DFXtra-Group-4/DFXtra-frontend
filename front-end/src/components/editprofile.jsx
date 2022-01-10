@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { options } from "./utils/dropDownOptions.json";
 
-function EditProfile({ profileData, updateData, navigateTo }) {
-	let navigate = useNavigate();
+function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
+  let navigate = useNavigate();
 
   const dataObject = {
     firstName: profileData.personalDetails?.name.firstName,
@@ -33,39 +33,59 @@ function EditProfile({ profileData, updateData, navigateTo }) {
     }
   };
 
+
   const onChange = e => {
-    console.log(e.target);
     dataObject[e.target.name] = e.target.value;
-    console.log(e.target.value);
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log("data sent..", dataObject);
+    // console.log("data sent..", dataObject);
     updateData(dataObject);
     navigate(`/trainee/${profileData._id}`, { replace: true });
   };
 
+  const [schoolQs, setSchoolQs] = useState(dataObject2);
+
+  useEffect(() => { }, [profileData, schoolQs]);
 
   const onChange2 = e => {
-    console.log(e.target);
-    dataObject2.schoolQualifications[e.target.name] = e.target.value;
-    console.log(e.target.value);
+    setSchoolQs((prevState) => (
+      {
+        ...prevState,
+        schoolQualifications: {
+          ...prevState.schoolQualifications,
+          [e.target.name]: e.target.value
+        }
+      }))
+    // console.log(schoolQs)
   }
 
   const onSubmit2 = e => {
     e.preventDefault();
-    // console.log(e);
-    console.log("data sent..", dataObject2);
-    updateData(dataObject2);
+    updateData(schoolQs);
+    setSchoolQs((prevState) => (
+      {
+        ...prevState,
+        schoolQualifications: dataObject2.schoolQualifications
+      }))
+    // console.log(schoolQs);
   };
 
   const onClick = e => {
-    e.preventDefault()
-    console.log(e.target.name);
+    e.preventDefault();
+    const id = profileData.personalStory.schoolQualifications[e.target.name]._id;
+    sendDelRequest({ id: id });
   }
 
-  useEffect(() => { }, [profileData]);
+  const isEnabled = () => {
+    for (const prop in schoolQs.schoolQualifications) {
+      if (schoolQs.schoolQualifications[prop] === "") {
+        return false;
+      }
+    }
+    return true;
+  }
 
 
 
@@ -259,7 +279,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
             <p style={{ fontSize: "10pt" }}>{x.description}</p>
 
           </td>
-          <td><button type="submit" style={{ width: "54px" }} name={"delete_" + index} onClick={onClick}>Delete</button></td>
+          <td><button type="submit" style={{ width: "54px" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td>
         </tr>)
       ));
   }
@@ -313,6 +333,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="id"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.school}
                 ></input>
               </td>
               <td>
@@ -323,6 +344,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="examType"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.examType}
                 ></input>
               </td>
               <td>
@@ -333,6 +355,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   placeholder="Subject"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.subject}
                 ></input>
               </td>
               <td>
@@ -343,6 +366,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="grade"
                   style={{ width: "108px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.grade}
                 ></input>
               </td>
               <td>
@@ -353,6 +377,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="year"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.year}
                 ></input>
               </td>
 
@@ -364,6 +389,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="weight"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.weight}
                 ></input>
               </td>
               <td>
@@ -374,6 +400,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="priority"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.priority}
                 ></input>
               </td>
               <td>
@@ -384,9 +411,14 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="description"
                   style={{ width: "129px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.description}
                 ></input>
               </td>
-              <td><button type="submit" style={{ width: "54px" }} name="update">Add</button></td>
+              {isEnabled() ?
+                <td><button type="submit" style={{ width: "54px" }} name="update" >Add</button></td> :
+                <td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
+              }
+              {/* <td><button type="submit" style={{ width: "54px" }} name="update" >Add</button></td> */}
             </tr>
             {schoolQualificationsTableRows()}
           </tbody>
@@ -397,7 +429,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
 
   return (
     <>
-    	{!(localStorage.getItem('user')) && navigateTo('/')}
+      {!(localStorage.getItem('user')) && navigateTo('/')}
       <form onSubmit={onSubmit} className="myForm">
         {yourProfile()}
         {personalInformation()}
