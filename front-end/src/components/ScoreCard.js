@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./css/ScoreCard.css";
 
-export default function ScoreCard({ setIsOpen, navigateTo }) {
-	const [fullname, setFullname] = useState("Full name");
-	// const [industry, setIndustry] = useState('Industry');
-	const [bio, setBio] = useState(
-		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia libero ipsam pariatur, exercitationem dignissimos error voluptatem provident optio? Labore, libero. Mollitia quaerat rem officia, quasi accusamus tempore minus voluptatibus."
-	);
+
+export default function ScoreCard({ setIsOpen, profileData, navigateTo }) {
+
+
 
 	const handleClose = (e) => {
 		console.log(e.target);
@@ -50,14 +48,72 @@ export default function ScoreCard({ setIsOpen, navigateTo }) {
 				<div className="box3"></div>
 				<button className="cardBtn">Add to basket</button>
 			</div>
-		</>
+
+			<img
+				className="cardImg"
+				src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+				alt=""
+				height="100px"
+				width="100px"
+			/>
+			<div className="fullnameHead">
+				<h1>  {`${profileData.personalDetails.name.firstName}` + " " + `${profileData.personalDetails.name.lastName}`} </h1>
+			</div>
+			<div className="ptags">
+				<p>{profileData.personalDetails.profileHeadline}</p>
+
+			</div>
+			<div className="box1">
+				<h2>Course Details:</h2>
+				<table>
+					<tr>
+						<th>Cohort:</th>
+						<td>{profileData.yourTraining.cohort}</td>
+					</tr>
+					<tr>
+						<th>Trainer:</th>
+						<td>{profileData.yourTraining.trainer}</td>
+					</tr>
+					<tr>
+						<th>Training Finish Date:</th>
+						<td>{profileData.yourTraining.trainingFinishDate}</td>
+					</tr>
+				</table>
+			</div>
+			<div className="box2">
+				<h2>Modules:</h2>
+				<table>
+					<tr>
+						<th>Module Name:</th>
+						<td>{profileData.yourTraining.modules[0].moduleName}</td>
+					</tr>
+
+					<tr>
+						<th>Result:</th>
+						<td>{profileData.yourTraining.modules[0].passStatus.pass}</td>
+					</tr>
+
+				</table>
+			</div>
+			<div className="box3">
+				<h2>Scores:</h2>
+				<table>
+					<tr>
+						<th>Score Name:</th>
+						<td>{profileData.yourInfo.scores[0].scoreName}</td>
+					</tr>
+
+					<tr>
+						<th>Score:</th>
+						<td>{profileData.yourInfo.scores[0].score}</td>
+					</tr>
+
+				</table>
+			</div>
+
+		</div>
 	);
 
-	{/* // return (
-	// 	<div className="container">
-	// 		<div class="flex-containerScore">{scoreCard()}</div>
-	// 	</div> */}
 
 
-	// );
 }
