@@ -5,16 +5,12 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import axios from "axios";
-
-// import AuthService from "../services/auth.service";
-// import ValidationServiceHelpers from "../services/validation.serviceHelpers";
+import validateInputs from "./utils/inputValidations";
 
 const Login = ({ setLogin, allProfileData }) => {
 	const form = useRef();
 	const checkBtn = useRef();
 
-	// const [Email, setEmail] = useState(``);
-	// const [password, setPassword] = useState(``);
 	const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState(``);
 
@@ -43,41 +39,48 @@ const Login = ({ setLogin, allProfileData }) => {
 		console.log(user);
 	};
 
-	const filterProfile = (data) => {
-		const filtered = allProfileData.filter(profiles =>
-			profiles.personalDetails.contact.email.workEmail === data.user.email
-		)
+	const filterProfile = data => {
+		const filtered = allProfileData.filter(
+			profiles => profiles.personalDetails.contact.email.workEmail === data.user.email
+		);
 		return filtered[0]._id;
-	}
+	};
+
+	const login = async user => {
+		try {
+			const res = await axios.post(`http://127.0.0.1:4000/login`, user);
+			const data = await res.data;
+			localStorage.setItem(`user`, JSON.stringify(res.data.user));
+
+			return data;
+		} catch (error) {
+			return { error: error.response.data.message };
+		}
+	};
 
 	const handleLogin = async e => {
 		e.preventDefault();
-		const res = await axios.post(`http://127.0.0.1:4000/login`, user);
-		console.log(res.data);
-		console.log(res.status);
-		setLoading(res.data.user ? true : false);
-		setLogin(res.data.user);
-		setMessage(res.data.message);
-		localStorage.setItem('user', res.data.user);
+		setMessage("");
+		setLoading(true);
 
-		if (res.data.user.roles[0] === 'Graduate') {
-			navigate(`/trainee/${filterProfile(res.data)}`);
-		};
-		// form.current.validateAll();
+		form.current.validateAll();
 
-		// if (checkBtn.current.context._errors.length === 0) {
-		// 	const login = await AuthService.login(Email, password);
-		// 	if (localStorage.getItem("user")) {
-		// 		navigate(`/profile`);
-		// 		// window.location.reload();
-		// 	} else {
-		// 		console.dir(login);
-		// 		setMessage(login.error);
-		// 		setLoading(false);
-		// 	}
-		// } else {
-		// 	setLoading(false);
-		// }
+		if (checkBtn.current.context._errors.length === 0) {
+			const loggedInUser = await login(user);
+
+			if (localStorage.getItem("user") && loggedInUser.user.roles[0] === "Graduate") {
+				setLogin(loggedInUser.user);
+				setMessage(loggedInUser.message);
+				alert(loggedInUser.message); // Just for testing purpose
+				navigate(`/trainee/${filterProfile(loggedInUser)}`);
+			} else {
+				setMessage(loggedInUser.error);
+				setLoading(false);
+				alert(loggedInUser.error); // Just for testing purpose
+			}
+		} else {
+			setLoading(false);
+		}
 	};
 
 	return (
@@ -96,9 +99,9 @@ const Login = ({ setLogin, allProfileData }) => {
 							type="text"
 							className="form-control"
 							name="email"
-							// value={user.email}
+							value={user.email}
 							onChange={onChangeEmail}
-						// validations={[ValidationServiceHelpers.required]}
+							validations={[validateInputs.required, validateInputs.validEmail]}
 						/>
 					</div>
 					<div className="form-group">
@@ -107,9 +110,8 @@ const Login = ({ setLogin, allProfileData }) => {
 							type="password"
 							className="form-control"
 							name="password"
-							// value={user.password}
+							value={user.password}
 							onChange={onChangePassword}
-						// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">

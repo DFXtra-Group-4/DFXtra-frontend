@@ -23,7 +23,7 @@ function App() {
 
 	const navigate = useNavigate();
 
-	console.log('app component reloaded');
+	console.log("app component reloaded");
 	const getAllProfileData = async () => {
 		try {
 			console.log("making GET request...");
@@ -36,44 +36,38 @@ function App() {
 		}
 	};
 
-  const getProfileData = async () => {
-    try {
-      console.log("making GET request...");
-      const res = await axios.get(
-        `http://127.0.0.1:4000/trainee/${login.email}`
-      );
-      setProfileLoading(false);
-      console.log(res.data);
-      return res.data;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+	const getProfileData = async () => {
+		try {
+			console.log("making GET request...");
+			const res = await axios.get(`http://127.0.0.1:4000/trainee/${login.email}`);
+			setProfileLoading(false);
+			console.log(res.data);
+			return res.data;
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
-  useEffect(() => {
-    const getData = async () => {
-      setAllProfileData(await getAllProfileData());
-      setProfileData(await getProfileData());
-      setAllProfileData(await getAllProfileData());
-    };
-    getData();
-  }, []);
+	useEffect(() => {
+		const getData = async () => {
+			setAllProfileData(await getAllProfileData());
+			setProfileData(await getProfileData());
+			setAllProfileData(await getAllProfileData());
+		};
+		getData();
+	}, []);
 
-  const updateData = async (data) => {
-    try {
-      await axios.put(
-        `http://127.0.0.1:4000/trainee/${login.email}/edit`,
-        data
-      );
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setProfileData(await getProfileData());
-    }
-  };
+	const updateData = async data => {
+		try {
+			await axios.put(`http://127.0.0.1:4000/trainee/${login.email}/edit`, data);
+		} catch (e) {
+			console.log(e);
+		} finally {
+			setProfileData(await getProfileData());
+		}
+	};
 
-
-	const navigateTo = (string) => {
+	const navigateTo = string => {
 		navigate(string);
 	};
 
@@ -94,7 +88,13 @@ function App() {
 				<Route
 					path="/trainee/:_id"
 					exact
-					element={<Profile data={profileData} loading={profileLoading} navigateTo={navigateTo} />}
+					element={
+						<Profile
+							data={profileData}
+							loading={profileLoading}
+							navigateTo={navigateTo}
+						/>
+					}
 				/>
 				<Route
 					path="/trainee/:_id/edit"
@@ -104,7 +104,6 @@ function App() {
 							profileData={profileData}
 							updateData={updateData}
 							navigateTo={navigateTo}
-
 						/>
 					}
 				/>
@@ -113,20 +112,17 @@ function App() {
 					exact
 					element={<IndustryLanding data={allProfileData} navigateTo={navigateTo} />}
 				/>
-				<Route
-					path="/vacancies"
-					exact element={<Vacancies navigateTo={navigateTo} />} />
-        <Route path="/company" exact element={<CompanyProfile />} />
+				<Route path="/vacancies" exact element={<Vacancies navigateTo={navigateTo} />} />
+				<Route path="/company" exact element={<CompanyProfile />} />
 
 				<Route
 					path="/"
 					exact
-					element={<Login setLogin={setLogin} allProfileData={allProfileData} />} />
+					element={<Login setLogin={setLogin} allProfileData={allProfileData} />}
+				/>
 			</Routes>
-
 		</>
-	)
+	);
 }
 
 export default App;
-
