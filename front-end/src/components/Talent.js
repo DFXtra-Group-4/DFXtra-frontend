@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import ScoreCard from "./ScoreCard";
 
 
-function Card({ allProfileData }) {
+
+
+function Card({ allProfileData, navigateTo }) {
 	console.log('talentCard data is ...', allProfileData);
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -91,7 +93,12 @@ function Card({ allProfileData }) {
 
 	return (
 		<>
+
+			{
+				!(localStorage.getItem('user')) && navigateTo('/')
+			}
 			{isOpen && setOpacity() && <ScoreCard setIsOpen={setIsOpen} profileData={profileData} />}
+
 			<div className="title">
 				<h2 style={{ marginLeft: "0px", marginBottom: "20px", paddingBottom: "20px" }}>Talent Spotlight</h2>
 			</div>

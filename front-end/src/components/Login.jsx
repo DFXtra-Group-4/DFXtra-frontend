@@ -9,7 +9,7 @@ import axios from "axios";
 // import AuthService from "../services/auth.service";
 // import ValidationServiceHelpers from "../services/validation.serviceHelpers";
 
-const Login = ({ setLogin }) => {
+const Login = ({ setLogin, allProfileData }) => {
 	const form = useRef();
 	const checkBtn = useRef();
 
@@ -43,14 +43,26 @@ const Login = ({ setLogin }) => {
 		console.log(user);
 	};
 
+	const filterProfile = (data) => {
+		const filtered = allProfileData.filter(profiles =>
+			profiles.personalDetails.contact.email.workEmail === data.user.email
+		)
+		return filtered[0]._id;
+	}
+
 	const handleLogin = async e => {
 		e.preventDefault();
 		const res = await axios.post(`http://127.0.0.1:4000/login`, user);
 		console.log(res.data);
+		console.log(res.status);
 		setLoading(res.data.user ? true : false);
 		setLogin(res.data.user);
 		setMessage(res.data.message);
-		navigate("/");
+		localStorage.setItem('user', res.data.user);
+
+		if (res.data.user.roles[0] === 'Graduate') {
+			navigate(`/trainee/${filterProfile(res.data)}`);
+		};
 		// form.current.validateAll();
 
 		// if (checkBtn.current.context._errors.length === 0) {
@@ -69,59 +81,65 @@ const Login = ({ setLogin }) => {
 	};
 
 	return (
-		<div className="col-md-12">
-			<div className="card card-container">
-				<img
-					src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-					alt="profile-img"
-					className="profile-img-card"
-				/>
+		<>
+			<div id="nav"><p className="DFX" style={{ color: "#fff" }}>
+				{'DFX'}
+			</p></div>
+			<div className="col-md-12">
+				<div className="card card-container">
+					<h1>Sign in to DFX</h1>
+					<img
+						src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+						alt="profile-img"
+						className="profile-img-card"
+					/>
 
-				<Form onSubmit={handleLogin} ref={form}>
-					<div className="form-group">
-						<label htmlFor="Email">Email</label>
-						<Input
-							type="text"
-							className="form-control"
-							name="email"
-							// value={user.email}
-							onChange={onChangeEmail}
+					<Form className='loginForm' onSubmit={handleLogin} ref={form}>
+						<div className="form-group fg1">
+							<label htmlFor="Email">Email</label>
+							<Input
+								type="text"
+								className="form-control"
+								name="email"
+								// value={user.email}
+								onChange={onChangeEmail}
 							// validations={[ValidationServiceHelpers.required]}
-						/>
-					</div>
-					<div className="form-group">
-						<label htmlFor="password">Password</label>
-						<Input
-							type="password"
-							className="form-control"
-							name="password"
-							// value={user.password}
-							onChange={onChangePassword}
-							// validations={[ValidationServiceHelpers.required]}
-						/>
-					</div>
-					<div className="form-group">
-						<button
-							className="btn btn-primary btn-block"
-							disabled={loading}
-							type="submit"
-						>
-							{loading && <span className="spinner-border spinner-border-sm"></span>}
-							<span>Login</span>
-						</button>
-					</div>
-
-					{message && (
-						<div className="form-group">
-							<div className="alert alert-danger" role="alert">
-								{message}
-							</div>
+							/>
 						</div>
-					)}
-					<CheckButton style={{ display: "none" }} ref={checkBtn} />
-				</Form>
+						<div className="form-group fg1">
+							<label htmlFor="password">Password</label>
+							<Input
+								type="password"
+								className="form-control"
+								name="password"
+								// value={user.password}
+								onChange={onChangePassword}
+							// validations={[ValidationServiceHelpers.required]}
+							/>
+						</div>
+						<div className="form-group fg1">
+							<button
+								className="btn btn-primary btn-block"
+								disabled={loading}
+								type="submit"
+							>
+								{loading && <span className="spinner-border spinner-border-sm"></span>}
+								<span>Submit</span>
+							</button>
+						</div>
+
+						{message && (
+							<div className="form-group fg1">
+								<div className="alert alert-danger" role="alert">
+									{message}
+								</div>
+							</div>
+						)}
+						<CheckButton style={{ display: "none" }} ref={checkBtn} />
+					</Form>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

@@ -1,0 +1,92 @@
+/* .companyProfile.compRow {
+	border-style: solid;
+	border-width: 1px;
+	padding: 1.5rem;
+	border-radius: 0.625rem;
+	margin-bottom: 3rem;
+	border: 0px #d4d4d4 solid;
+	background-color: #fff;
+	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+}
+
+.compColumn {
+	float: left;
+	width: 46%;
+	height: 300px;
+	text-align: left;
+} 
+
+ */
+
+.logo {
+	width: 300px;
+	height: 200px;
+	float: left;
+	
+	
+
+}
+.companyHeader {
+	font-size: xx-large;
+	left: 0px;
+	position: relative;
+	
+	
+	
+	
+	
+}
+
+.compField {
+	font-style: italic;
+	color:dimgray
+}
+
+.image {
+    border: 10px;
+}
+
+.row {
+	border-style: solid;
+	border-width: 1px;
+	padding: 1.5rem;
+	border-radius: 0.625rem;
+	margin-bottom: 3rem;
+	border: 0px #d4d4d4 solid;
+	background-color: #fff;
+	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+}
+
+.badges {
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+	margin: 10px;
+	margin-top: 26px;
+	text-align: center;
+}
+
+.column {
+	float: left;
+	width: 46%;
+	height: 300px;
+	text-align: left;
+	/* padding-left: 10px; */
+}
+
+.roleCards {
+	flex-direction: row;
+}
+
+.smallImage {
+	border-radius: 50%;
+	align-items: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	width:50%;
+}
+.compDesc {
+	font-size: xx-small;
+}
