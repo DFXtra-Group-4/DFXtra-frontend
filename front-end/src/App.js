@@ -8,9 +8,12 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 
 import Profile from "./components/profile";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import CompanyProfile from "./components/CompanyProfile";
 
 function App() {
 	const [profileLoading, setProfileLoading] = useState(true);
@@ -33,35 +36,42 @@ function App() {
 		}
 	};
 
-	const getProfileData = async () => {
-		try {
-			console.log("making GET request...");
-			const res = await axios.get(`http://127.0.0.1:4000/trainee/${login.email}`);
-			setProfileLoading(false);
-			console.log(res.data);
-			return res.data;
-		} catch (e) {
-			console.log(e);
-		}
-	};
+  const getProfileData = async () => {
+    try {
+      console.log("making GET request...");
+      const res = await axios.get(
+        `http://127.0.0.1:4000/trainee/${login.email}`
+      );
+      setProfileLoading(false);
+      console.log(res.data);
+      return res.data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-	useEffect(() => {
-		const getData = async () => {
-			setAllProfileData(await getAllProfileData());
-			setProfileData(await getProfileData());
-		};
-		getData();
-	}, []);
+  useEffect(() => {
+    const getData = async () => {
+      setAllProfileData(await getAllProfileData());
+      setProfileData(await getProfileData());
+      setAllProfileData(await getAllProfileData());
+    };
+    getData();
+  }, []);
 
-	const updateData = async data => {
-		try {
-			await axios.put(`http://127.0.0.1:4000/trainee/${login.email}/edit`, data);
-		} catch (e) {
-			console.log(e);
-		} finally {
-			setProfileData(await getProfileData());
-		}
-	};
+  const updateData = async (data) => {
+    try {
+      await axios.put(
+        `http://127.0.0.1:4000/trainee/${login.email}/edit`,
+        data
+      );
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setProfileData(await getProfileData());
+    }
+  };
+
 
 	const navigateTo = (string) => {
 		navigate(string);
@@ -106,6 +116,8 @@ function App() {
 				<Route
 					path="/vacancies"
 					exact element={<Vacancies navigateTo={navigateTo} />} />
+        <Route path="/company" exact element={<CompanyProfile />} />
+
 				<Route
 					path="/"
 					exact
