@@ -6,7 +6,7 @@ import { options } from "./utils/dropDownOptions.json";
 
 function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
   let navigate = useNavigate();
-
+  
   const dataObject = {
     firstName: profileData.personalDetails?.name.firstName,
     lastName: profileData.personalDetails?.name.lastName,
