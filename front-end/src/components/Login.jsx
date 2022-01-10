@@ -81,59 +81,65 @@ const Login = ({ setLogin, allProfileData }) => {
 	};
 
 	return (
-		<div className="col-md-12">
-			<div className="card card-container">
-				<img
-					src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-					alt="profile-img"
-					className="profile-img-card"
-				/>
+		<>
+			<div id="nav"><p className="DFX" style={{ color: "#fff" }}>
+				{'DFX'}
+			</p></div>
+			<div className="col-md-12">
+				<div className="card card-container">
+					<h1>Sign in to DFX</h1>
+					<img
+						src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+						alt="profile-img"
+						className="profile-img-card"
+					/>
 
-				<Form onSubmit={handleLogin} ref={form}>
-					<div className="form-group">
-						<label htmlFor="Email">Email</label>
-						<Input
-							type="text"
-							className="form-control"
-							name="email"
-							// value={user.email}
-							onChange={onChangeEmail}
-						// validations={[ValidationServiceHelpers.required]}
-						/>
-					</div>
-					<div className="form-group">
-						<label htmlFor="password">Password</label>
-						<Input
-							type="password"
-							className="form-control"
-							name="password"
-							// value={user.password}
-							onChange={onChangePassword}
-						// validations={[ValidationServiceHelpers.required]}
-						/>
-					</div>
-					<div className="form-group">
-						<button
-							className="btn btn-primary btn-block"
-							disabled={loading}
-							type="submit"
-						>
-							{loading && <span className="spinner-border spinner-border-sm"></span>}
-							<span>Login</span>
-						</button>
-					</div>
-
-					{message && (
-						<div className="form-group">
-							<div className="alert alert-danger" role="alert">
-								{message}
-							</div>
+					<Form className='loginForm' onSubmit={handleLogin} ref={form}>
+						<div className="form-group fg1">
+							<label htmlFor="Email">Email</label>
+							<Input
+								type="text"
+								className="form-control"
+								name="email"
+								// value={user.email}
+								onChange={onChangeEmail}
+							// validations={[ValidationServiceHelpers.required]}
+							/>
 						</div>
-					)}
-					<CheckButton style={{ display: "none" }} ref={checkBtn} />
-				</Form>
+						<div className="form-group fg1">
+							<label htmlFor="password">Password</label>
+							<Input
+								type="password"
+								className="form-control"
+								name="password"
+								// value={user.password}
+								onChange={onChangePassword}
+							// validations={[ValidationServiceHelpers.required]}
+							/>
+						</div>
+						<div className="form-group fg1">
+							<button
+								className="btn btn-primary btn-block"
+								disabled={loading}
+								type="submit"
+							>
+								{loading && <span className="spinner-border spinner-border-sm"></span>}
+								<span>Submit</span>
+							</button>
+						</div>
+
+						{message && (
+							<div className="form-group fg1">
+								<div className="alert alert-danger" role="alert">
+									{message}
+								</div>
+							</div>
+						)}
+						<CheckButton style={{ display: "none" }} ref={checkBtn} />
+					</Form>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
