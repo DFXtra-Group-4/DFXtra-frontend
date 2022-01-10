@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom";
 import PostData from './company.json';
 import React, {Component} from 'react';
 import Company from "./company.json";
-// import companyDetails from './company.json';
-// import companyObj from "./companyObj";
+
 
 export default function companyPage({companyDetails}) {
 
@@ -19,49 +18,51 @@ export default function companyPage({companyDetails}) {
     <div id="companyProfile">
         <div className="row">
             <div className="column">
-            {/* <div className="compRow">
-            <div className="compColumn"> */}
-                {/* <b>Company Name</b> */}
-                {/* {Company.map((companyObj, index)=>{
-                    return <b>{companyObj.companyProfile?.companyName}</b>
-                })} */}
-                {/* {Company.map(companyDetails => (
-                    <li key={companyDetails.id}>{companyDetails.companyName}</li>
-                ))} */}
-
-                {/* <td className="gName">
-                {data.companyPage?.companyName}
-                </td> */}
-                {/* <p className="companiesInfo" > 
-                {companyDetails[0].companyName} </p>
-                <p className="companiesInfo" > 
-                {companyDetails[0].companySize}
-                </p> */}
+            
                 
 
 
                 {}
-                <h2>
-                    <i>Company Profile</i>
-                    <b>
-                        {/* <u>Company Name</u> */}
-                        {/* <a href="https://www.tsbcareers.co.uk/" className="companyWebsite">className="Company Profile"</a> */}
-                        <a href="https://www.tsbcareers.co.uk/" class="company-Profile">Company website</a>
-                        {/* ADDING JSON */}
-                        {/* <tr>
-									<span className="gText">companyProfile</span>
-									<td className="gName">{vacancies.companyProfile.companyName}</td>
-								</tr> */}
+               
 
-                        
-                        <img
-						className="image1"
-						src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-                        // src="https://upload.wikimedia.org/wikipedia/en/archive/b/b9/20130819104932%21TSB_logo_2013.svg"
+                <h2>
+                    {/* <i>Company Profile</i> */}
+                    <b>
+                    <img
+						className="logo"
+						src={Company.companyDetails[0].logo}
+                        // "
 						alt=""
 						height="100px"
 						width="100px"
+                        
 					/>
+
+                        <div className="companyHeader">
+                       
+                       <h1>{Company.companyDetails[0].companyName}</h1>
+                       </div>
+                       <div className="compField">
+                       <i>{Company.companyDetails[0].field}</i>
+                       </div>
+                       <h2>
+                        <a href= {Company.companyDetails[0].companyWebsite} class="company-Profile">Company website</a> 
+                        </h2>
+                        <h3>Company size: {Company.companyDetails[0].companySize}</h3>
+
+                        <h3>Salary: {Company.companyDetails[0].salary}</h3>
+                                
+                                <h3>Location: {Company.companyDetails[0].vacancies[0].location} </h3>
+
+                               
+                        
+                        
+                    
+                        
+                        
+
+                        
+                        
                     </b>
                 </h2>
             
@@ -76,15 +77,29 @@ export default function companyPage({companyDetails}) {
 						<div className="column">
 							<h2>
 								<u>About the company</u>
-                                <h3>Company size: {Company.companyDetails[0].companySize}</h3>
+                                <p>{Company.companyDetails[0].about}</p>
                                 
-                                <h3>Location: {Company.companyDetails[0].vacancies[0].location} </h3>
 							</h2>
-							
+							<div className="roleCards">
+                            {/* <img className="smallImage" src={Company.companyDetails[0].logo}></img> */}
+                            </div>
+
+
+
+
+    {/* copied from vacancies card and adapted */}
+                           
+			
+
+
+
+
+
+
 						</div>
 						{/* <div className="compColumn"> */}
                         <div className="column">
-							<p>{Company.companyDetails[0].about}</p>
+							{/* <p>{Company.companyDetails[0].about}</p> */}
                            
 						</div>
                         </div>
@@ -93,9 +108,48 @@ export default function companyPage({companyDetails}) {
                         <div className="row">
 						<div className="column">
 							<h2>
-								<u>Roles Available</u>
+                            
+								<u>Roles Available: {Company.companyDetails[0].rolesAvailable}</u>
+
+                                <div
+					class="columnVacan"
+					style={{
+						padding: "20px",
+						width: "17%"
+					}}
+				>
+					<div class="rowVacancy" style={{ marginBottom: "20px" }}>
+						<div style={{ width: "60%" }}>
+							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[0].jobTitle}</h3>
+							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].companyName}</h3>
+                            <div className="compDesc">
+                            <i style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[0].jobDescription}</i>
+                            </div>
+						</div>
+						<div style={{ textAlign: "right" }}>
+							<img
+								src={Company.companyDetails[0].logo}
+
+								alt="programmer"
+								height="70px"
+								width="70px"
+								style={{ marginLeft: "10px" }}
+							></img>
+						</div>
+					</div>
+					<div style={{ marginTop: "20px", width: "100%" }}>
+						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{Company.companyDetails[0].vacancies[0].location}</p>
+					</div>
+					
+					
+				</div>
+
+                            
+                        
 							</h2>
-							<h3>3</h3>
+
+                       
+							
 					</div>
 
                     
