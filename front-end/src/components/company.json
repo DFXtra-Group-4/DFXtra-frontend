@@ -13,12 +13,14 @@
 		"companyWebsite": "https://www.tsbcareers.co.uk/",
 		"vacancies": [
 			{
+				"companyName": "TSB Bank",
 				"vacancyType": "software",
 				"jobTitle": "Software Engineer",
 				"location": "London, England",
 				"jobDescription": "Design, build and test data solutions across TSB’s ODS Platforms whilst following best practice to leverage platform processing power, creating reusable code and aligning to development standards."
 			},
 			{
+				"companyName": "TSB Bank",
 				"vacancyType": "dataScience",
 				"jobTitle": "Data Scientist",
 				"location": "London",
@@ -40,13 +42,14 @@
 		"companyWebsite": "https://www.sky.com/",
 		"vacancies": [
 			{
+				"companyName": "Sky",
 				"vacancyType": "software",
 				"jobTitle": "Software Engineer",
 				"location": "Manchester, Remote",
 				"jobDescription": "Join a talented team of Agile Developers who will be responsible for software/application development and to develop automation framework for testing and deployment. Highly uptime SLA oriented team and process driven who build fault tolerant systems. We work in a fast paced, multi-disciplined technology environment, engaging in new applications and languages."
 			},
-
 			{
+				"companyName": "Sky",
 				"vacancyType": "dataScience",
 				"jobTitle": "Data Scientist",
 				"location": "Manchester",
@@ -69,13 +72,14 @@
 		"companyWebsite": "https://www2.deloitte.com/",
 		"vacancies": [
 			{
+				"companyName": "Deloitte",
 				"vacancyType": "software",
 				"jobTitle": "Software Engineer",
 				"location": "London, Remote",
 				"jobDescription": "As a Software Engineer in Products and Solutions you will be part of the team that builds and maintains one of our products or early stage concepts. We are big on Continuous Delivery and DevOps."
 			},
-
 			{
+				"companyName": "Deloitte",
 				"vacancyType": "dataScience",
 				"jobTitle": "Data Scientist",
 				"location": "Manchester, Remote",
@@ -97,13 +101,14 @@
 		"companyWebsite": "https://tfl.gov.uk/corporate/careers/",
 		"vacancies": [
 			{
+				"companyName": "TFL- Transport for London",
 				"vacancyType": "software",
 				"jobTitle": "Software Engineer",
 				"location": "London, Remote",
 				"jobDescription": "Design and implement a high-performance Microsoft C# component to process 24 million Oyster & Contactless transactions per day."
 			},
-
 			{
+				"companyName": "TFL- Transport for London",
 				"vacancyType": "dataScience",
 				"jobTitle": "Data Scientist",
 				"location": "London, Remote",
@@ -112,3 +117,4 @@
 		]
 	}
 ]
+
