@@ -12,18 +12,23 @@ import Profile from "./components/profile";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import CompanyProfile from "./components/CompanyProfile";
 
 function App() {
-	const [profileLoading, setProfileLoading] = useState(true);
-	const [profileData, setProfileData] = useState({});
-	const [login, setLogin] = useState({});
-	const [allProfileData, setAllProfileData] = useState({});
+  const [profileLoading, setProfileLoading] = useState(true);
+  const [profileData, setProfileData] = useState({});
+  const [login, setLogin] = useState({});
+  const [allProfileData, setAllProfileData] = useState({});
 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	const getAllProfileData = async () => {
+  const getAllProfileData = async () => {
 		try {
 			console.log("making GET request...");
 			const res = await axios.get("http://127.0.0.1:4000/trainees");
@@ -66,6 +71,21 @@ function App() {
 		}
 	};
 
+  const [delRequest, setDelRequest] = useState({});
+  const sendDelRequest = async (id) => {
+    try {
+      await axios.put(
+        `http://127.0.0.1:4000/trainee/${login.email}/edit/delete`,
+        id
+      );
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setDelRequest({ id: id });
+      setProfileData(await getProfileData());
+    }
+  };
+
 	const navigateTo = string => {
 		navigate(string);
 	};
@@ -104,6 +124,7 @@ function App() {
 							profileData={profileData}
 							updateData={updateData}
 							navigateTo={navigateTo}
+              sendDelRequest={sendDelRequest}
 						/>
 					}
 				/>
