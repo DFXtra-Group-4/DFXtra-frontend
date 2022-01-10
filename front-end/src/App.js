@@ -23,7 +23,6 @@ function App() {
 
 	const navigate = useNavigate();
 
-	console.log("app component reloaded");
 	const getAllProfileData = async () => {
 		try {
 			console.log("making GET request...");
@@ -74,6 +73,7 @@ function App() {
 	return (
 		<>
 			<Navbar data={profileData} loading={profileLoading} />
+
 			<Routes>
 				<Route
 					path="/talent"
