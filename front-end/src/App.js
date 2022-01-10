@@ -18,7 +18,7 @@ function App() {
 	const [login, setLogin] = useState({});
 
 
-  const [allProfileData, setAllProfileData] = useState({});
+	const [allProfileData, setAllProfileData] = useState([]);
 
 	const getAllProfileData = async () => {
 		try {
@@ -67,7 +67,7 @@ function App() {
 			<Navbar data={profileData} loading={profileLoading} />
 			<Router>
 				<Routes>
-					<Route path="/talent" exact element={<TalentCard data={allProfileData} />} />
+					<Route path="/talent" exact element={<TalentCard allProfileData={allProfileData} />} />
 					<Route path="/score" exact element={<ScoreCard data={allProfileData} />} />
 					<Route
 						path="/trainee/:_id"
