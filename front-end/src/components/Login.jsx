@@ -9,7 +9,7 @@ import axios from "axios";
 // import AuthService from "../services/auth.service";
 // import ValidationServiceHelpers from "../services/validation.serviceHelpers";
 
-const Login = ({ setLogin }) => {
+const Login = ({ setLogin, allProfileData }) => {
 	const form = useRef();
 	const checkBtn = useRef();
 
@@ -43,14 +43,26 @@ const Login = ({ setLogin }) => {
 		console.log(user);
 	};
 
+	const filterProfile = (data) => {
+		const filtered = allProfileData.filter(profiles =>
+			profiles.personalDetails.contact.email.workEmail === data.user.email
+		)
+		return filtered[0]._id;
+	}
+
 	const handleLogin = async e => {
 		e.preventDefault();
 		const res = await axios.post(`http://127.0.0.1:4000/login`, user);
 		console.log(res.data);
+		console.log(res.status);
 		setLoading(res.data.user ? true : false);
 		setLogin(res.data.user);
 		setMessage(res.data.message);
-		navigate("/");
+		localStorage.setItem('user', res.data.user);
+
+		if (res.data.user.roles[0] === 'Graduate') {
+			navigate(`/trainee/${filterProfile(res.data)}`);
+		};
 		// form.current.validateAll();
 
 		// if (checkBtn.current.context._errors.length === 0) {
@@ -86,7 +98,7 @@ const Login = ({ setLogin }) => {
 							name="email"
 							// value={user.email}
 							onChange={onChangeEmail}
-							// validations={[ValidationServiceHelpers.required]}
+						// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">
@@ -97,7 +109,7 @@ const Login = ({ setLogin }) => {
 							name="password"
 							// value={user.password}
 							onChange={onChangePassword}
-							// validations={[ValidationServiceHelpers.required]}
+						// validations={[ValidationServiceHelpers.required]}
 						/>
 					</div>
 					<div className="form-group">

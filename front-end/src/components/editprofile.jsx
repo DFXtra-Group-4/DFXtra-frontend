@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { options } from "./utils/dropDownOptions.json";
 
-function EditProfile({ profileData, updateData }) {
-  let navigate = useNavigate();
+function EditProfile({ profileData, updateData, navigateTo }) {
+	let navigate = useNavigate();
 
   const dataObject = {
     firstName: profileData.personalDetails?.name.firstName,
@@ -397,6 +397,7 @@ function EditProfile({ profileData, updateData }) {
 
   return (
     <>
+    	{!(localStorage.getItem('user')) && navigateTo('/')}
       <form onSubmit={onSubmit} className="myForm">
         {yourProfile()}
         {personalInformation()}
