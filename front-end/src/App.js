@@ -12,143 +12,117 @@ import Profile from "./components/profile";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import CompanyProfile from "./components/CompanyProfile";
 
 function App() {
-  const onRefresh = JSON.parse(localStorage.getItem("user"));
-  const [profileData, setProfileData] = useState({});
-  const [login, setLogin] = useState(onRefresh);
-  const [allProfileData, setAllProfileData] = useState([]);
+	const [profileData, setProfileData] = useState({});
+	const [login, setLogin] = useState();
+	const [allProfileData, setAllProfileData] = useState([]);
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const getAllProfileData = async () => {
-    try {
-      const res = await axios.get("http://127.0.0.1:4000/trainees");
-      return res.data;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+	const getAllProfileData = async () => {
+		try {
+			const res = await axios.get("http://127.0.0.1:4000/trainees");
+			return res.data;
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
-  const getProfileData = async () => {
-    try {
-      const res = await axios.get(
-        `http://127.0.0.1:4000/trainee/${login.email}`
-      );
-      return res.data;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+	const getProfileData = async () => {
+		try {
+			const res = await axios.get(`http://127.0.0.1:4000/trainee/${login.email}`);
+			return res.data;
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
-  useEffect(() => {
-    const getData = async () => {
-      setAllProfileData(await getAllProfileData());
-      setProfileData(await getProfileData());
-    };
-    getData();
-  }, [login]);
+	useEffect(() => {
+		const getData = async () => {
+			setAllProfileData(await getAllProfileData());
+			setProfileData(await getProfileData());
+			setLogin(JSON.parse(localStorage.getItem("user")));
+		};
+		getData();
+	}, [login]);
 
-  const updateData = async (data) => {
-    try {
-      await axios.put(
-        `http://127.0.0.1:4000/trainee/${login.email}/edit`,
-        data
-      );
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setProfileData(await getProfileData());
-    }
-  };
+	const updateData = async data => {
+		try {
+			await axios.put(`http://127.0.0.1:4000/trainee/${login.email}/edit`, data);
+		} catch (e) {
+			console.log(e);
+		} finally {
+			setProfileData(await getProfileData());
+		}
+	};
 
-  const [delRequest, setDelRequest] = useState({});
-  const sendDelRequest = async (id) => {
-    try {
-      await axios.put(
-        `http://127.0.0.1:4000/trainee/${login.email}/edit/delete`,
-        id
-      );
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setDelRequest({ id: id });
-      setProfileData(await getProfileData());
-    }
-  };
+	const [delRequest, setDelRequest] = useState({});
+	const sendDelRequest = async id => {
+		try {
+			await axios.put(`http://127.0.0.1:4000/trainee/${login.email}/edit/delete`, id);
+		} catch (e) {
+			console.log(e);
+		} finally {
+			setDelRequest({ id: id });
+			setProfileData(await getProfileData());
+		}
+	};
 
-  const navigateTo = (string) => {
-    navigate(string);
-  };
+	const navigateTo = string => {
+		navigate(string);
+	};
 
-  return (
-    <>
-      <Navbar data={profileData} />
+	return (
+		<>
+			<Navbar data={profileData} />
 
-      <Routes>
-        <Route
-          path="/talent"
-          exact
-          element={
-            <TalentCard
-              allProfileData={allProfileData}
-              navigateTo={navigateTo}
-            />
-          }
-        />
-        <Route
-          path="/score"
-          exact
-          element={<ScoreCard data={allProfileData} navigateTo={navigateTo} />}
-        />
-        <Route
-          path="/trainee/:_id"
-          exact
-          element={<Profile data={profileData} navigateTo={navigateTo} />}
-        />
-        <Route
-          path="/trainee/:_id/edit"
-          exact
-          element={
-            <EditProfile
-              profileData={profileData}
-              updateData={updateData}
-              navigateTo={navigateTo}
-              sendDelRequest={sendDelRequest}
-            />
-          }
-        />
-        <Route
-          path="/landing"
-          exact
-          element={
-            <IndustryLanding data={allProfileData} navigateTo={navigateTo} />
-          }
-        />
-        <Route
-          path="/vacancies"
-          exact
-          element={<Vacancies navigateTo={navigateTo} />}
-        />
-        <Route path="/company" exact element={<CompanyProfile />} />
+			<Routes>
+				<Route
+					path="/talent"
+					exact
+					element={<TalentCard allProfileData={allProfileData} navigateTo={navigateTo} />}
+				/>
+				<Route
+					path="/score"
+					exact
+					element={<ScoreCard data={allProfileData} navigateTo={navigateTo} />}
+				/>
+				<Route
+					path="/trainee/:_id"
+					exact
+					element={<Profile data={profileData} navigateTo={navigateTo} />}
+				/>
+				<Route
+					path="/trainee/:_id/edit"
+					exact
+					element={
+						<EditProfile
+							profileData={profileData}
+							updateData={updateData}
+							navigateTo={navigateTo}
+							sendDelRequest={sendDelRequest}
+						/>
+					}
+				/>
+				<Route
+					path="/landing"
+					exact
+					element={<IndustryLanding data={allProfileData} navigateTo={navigateTo} />}
+				/>
+				<Route path="/vacancies" exact element={<Vacancies navigateTo={navigateTo} />} />
+				<Route path="/company" exact element={<CompanyProfile />} />
 
-        <Route
-          path="/"
-          exact
-          element={
-            <Login setLogin={setLogin} allProfileData={allProfileData} />
-          }
-        />
-      </Routes>
-    </>
-  );
+				<Route
+					path="/"
+					exact
+					element={<Login setLogin={setLogin} allProfileData={allProfileData} />}
+				/>
+			</Routes>
+		</>
+	);
 }
 
 export default App;
