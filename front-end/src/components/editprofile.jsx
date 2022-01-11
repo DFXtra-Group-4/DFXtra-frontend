@@ -3,9 +3,10 @@ import "./utils/profile.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { options } from "./utils/dropDownOptions.json";
+import validateInputs from "./utils/inputValidations";
 
-function EditProfile({ profileData, updateData, navigateTo }) {
-	let navigate = useNavigate();
+function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
+  let navigate = useNavigate();
 
   const dataObject = {
     firstName: profileData.personalDetails?.name.firstName,
@@ -18,6 +19,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
     gender: profileData.personalDetails?.gender,
     personalityType: profileData.personalDetails?.personalityType,
     nationality: profileData.personalDetails?.nationality,
+    profileHeadline: profileData.personalDetails?.profileHeadline,
   };
 
   const dataObject2 = {
@@ -33,39 +35,59 @@ function EditProfile({ profileData, updateData, navigateTo }) {
     }
   };
 
+
   const onChange = e => {
-    console.log(e.target);
     dataObject[e.target.name] = e.target.value;
-    console.log(e.target.value);
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log("data sent..", dataObject);
+    // console.log("data sent..", dataObject);
     updateData(dataObject);
     navigate(`/trainee/${profileData._id}`, { replace: true });
   };
 
+  const [schoolQs, setSchoolQs] = useState(dataObject2);
+
+  useEffect(() => { }, [profileData, schoolQs]);
 
   const onChange2 = e => {
-    console.log(e.target);
-    dataObject2.schoolQualifications[e.target.name] = e.target.value;
-    console.log(e.target.value);
+    setSchoolQs((prevState) => (
+      {
+        ...prevState,
+        schoolQualifications: {
+          ...prevState.schoolQualifications,
+          [e.target.name]: e.target.value
+        }
+      }))
+    // console.log(schoolQs)
   }
 
   const onSubmit2 = e => {
     e.preventDefault();
-    // console.log(e);
-    console.log("data sent..", dataObject2);
-    updateData(dataObject2);
+    updateData(schoolQs);
+    setSchoolQs((prevState) => (
+      {
+        ...prevState,
+        schoolQualifications: dataObject2.schoolQualifications
+      }))
+    // console.log(schoolQs);
   };
 
   const onClick = e => {
-    e.preventDefault()
-    console.log(e.target.name);
+    e.preventDefault();
+    const id = profileData.personalStory.schoolQualifications[e.target.name]._id;
+    sendDelRequest({ id: id });
   }
 
-  useEffect(() => { }, [profileData]);
+  const isEnabled = () => {
+    for (const prop in schoolQs.schoolQualifications) {
+      if (schoolQs.schoolQualifications[prop] === "") {
+        return false;
+      }
+    }
+    return true;
+  }
 
 
 
@@ -75,7 +97,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
         <h2>
           <h3>Your profile</h3>
         </h2>
-        <h2>Profile completion</h2>
+        <h2></h2>
         <div id="myProgress">
           <div id="myBar"></div>
         </div>
@@ -107,6 +129,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
               name="firstName"
               onChange={onChange}
               defaultValue={dataObject.firstName}
+              validations={[validateInputs.required]}
             ></input>
           </span>
           <span className="profileLabelSpan">
@@ -171,9 +194,21 @@ function EditProfile({ profileData, updateData, navigateTo }) {
               defaultValue={dataObject.telNo}
             ></input>
           </span>
+          <span className="profileLabelSpan">
+            <label className="ggText" style={{ position: "absolute" }}>Profile Headline:</label>
+            <textarea
+              style={{ marginLeft: "12rem", marginTop: "1.2rem", width: "15rem" }}
+              type="text"
+              placeholder="Enter profile headline description"
+              name="profileHeadline"
+              onChange={onChange}
+              defaultValue={dataObject.profileHeadline}
+            ></textarea>
+          </span>
         </div>
         <div id="selectDiv">
           <span className="selectSpan">
+            <label className="ggText">Gender:</label>
             <select
               style={{ width: "208px" }}
               name="gender"
@@ -186,6 +221,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
             </select>
           </span>
           <span className="selectSpan">
+            <label className="ggText">Nationality:</label>
             <select
               style={{ width: "208px" }}
               name="nationality"
@@ -199,6 +235,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
             </select>
           </span>
           <span className="selectSpan">
+            <label className="ggText">Personality Type:</label>
             <select
               name="personalityType"
               id="personalityType"
@@ -259,7 +296,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
             <p style={{ fontSize: "10pt" }}>{x.description}</p>
 
           </td>
-          <td><button type="submit" style={{ width: "54px" }} name={"delete_" + index} onClick={onClick}>Delete</button></td>
+          <td><button type="submit" style={{ width: "54px" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td>
         </tr>)
       ));
   }
@@ -313,6 +350,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="id"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.school}
                 ></input>
               </td>
               <td>
@@ -323,6 +361,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="examType"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.examType}
                 ></input>
               </td>
               <td>
@@ -333,6 +372,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   placeholder="Subject"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.subject}
                 ></input>
               </td>
               <td>
@@ -343,6 +383,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="grade"
                   style={{ width: "108px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.grade}
                 ></input>
               </td>
               <td>
@@ -353,6 +394,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="year"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.year}
                 ></input>
               </td>
 
@@ -364,6 +406,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="weight"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.weight}
                 ></input>
               </td>
               <td>
@@ -374,6 +417,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="priority"
                   style={{ width: "110px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.priority}
                 ></input>
               </td>
               <td>
@@ -384,9 +428,14 @@ function EditProfile({ profileData, updateData, navigateTo }) {
                   id="description"
                   style={{ width: "129px" }}
                   onChange={onChange2}
+                  value={schoolQs.schoolQualifications.description}
                 ></input>
               </td>
-              <td><button type="submit" style={{ width: "54px" }} name="update">Add</button></td>
+              {isEnabled() ?
+                <td><button type="submit" style={{ width: "54px" }} name="update" >Add</button></td> :
+                <td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
+              }
+              {/* <td><button type="submit" style={{ width: "54px" }} name="update" >Add</button></td> */}
             </tr>
             {schoolQualificationsTableRows()}
           </tbody>
@@ -397,7 +446,7 @@ function EditProfile({ profileData, updateData, navigateTo }) {
 
   return (
     <>
-    	{!(localStorage.getItem('user')) && navigateTo('/')}
+      {!(localStorage.getItem('user')) && navigateTo('/')}
       <form onSubmit={onSubmit} className="myForm">
         {yourProfile()}
         {personalInformation()}

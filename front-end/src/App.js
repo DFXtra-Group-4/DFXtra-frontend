@@ -16,75 +16,74 @@ import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-route
 import CompanyProfile from "./components/CompanyProfile";
 
 function App() {
-	const [profileLoading, setProfileLoading] = useState(true);
 	const [profileData, setProfileData] = useState({});
-	const [login, setLogin] = useState({});
-	const [allProfileData, setAllProfileData] = useState({});
+	const onRefresh = JSON.parse(localStorage.getItem("user"));
+	const [login, setLogin] = useState(onRefresh);
+	const [allProfileData, setAllProfileData] = useState([]);
 
 	const navigate = useNavigate();
 
-	console.log('app component reloaded');
 	const getAllProfileData = async () => {
 		try {
-			console.log("making GET request...");
 			const res = await axios.get("http://127.0.0.1:4000/trainees");
-			setProfileLoading(false);
-			console.log("allprofile data:...", res.data);
 			return res.data;
 		} catch (e) {
 			console.log(e);
 		}
 	};
 
-  const getProfileData = async () => {
-    try {
-      console.log("making GET request...");
-      const res = await axios.get(
-        `http://127.0.0.1:4000/trainee/${login.email}`
-      );
-      setProfileLoading(false);
-      console.log(res.data);
-      return res.data;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+	const getProfileData = async () => {
+		try {
+			const res = await axios.get(`http://127.0.0.1:4000/trainee/${login.email}`);
+			return res.data;
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
-  useEffect(() => {
-    const getData = async () => {
-      setAllProfileData(await getAllProfileData());
-      setProfileData(await getProfileData());
-      setAllProfileData(await getAllProfileData());
-    };
-    getData();
-  }, []);
+	useEffect(() => {
+		const getData = async () => {
+			setAllProfileData(await getAllProfileData());
+			setProfileData(await getProfileData());
+		};
+		getData();
+	}, [login]);
 
-  const updateData = async (data) => {
-    try {
-      await axios.put(
-        `http://127.0.0.1:4000/trainee/${login.email}/edit`,
-        data
-      );
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setProfileData(await getProfileData());
-    }
-  };
+	const updateData = async data => {
+		try {
+			await axios.put(`http://127.0.0.1:4000/trainee/${login.email}/edit`, data);
+		} catch (e) {
+			console.log(e);
+		} finally {
+			setProfileData(await getProfileData());
+		}
+	};
 
+	const [delRequest, setDelRequest] = useState({});
+	const sendDelRequest = async id => {
+		try {
+			await axios.put(`http://127.0.0.1:4000/trainee/${login.email}/edit/delete`, id);
+		} catch (e) {
+			console.log(e);
+		} finally {
+			setDelRequest({ id: id });
+			setProfileData(await getProfileData());
+		}
+	};
 
-	const navigateTo = (string) => {
+	const navigateTo = string => {
 		navigate(string);
 	};
 
 	return (
 		<>
-			<Navbar data={profileData} loading={profileLoading} />
+			<Navbar data={profileData} />
+
 			<Routes>
 				<Route
 					path="/talent"
 					exact
-					element={<TalentCard data={allProfileData} navigateTo={navigateTo} />}
+					element={<TalentCard allProfileData={allProfileData} navigateTo={navigateTo} />}
 				/>
 				<Route
 					path="/score"
@@ -94,7 +93,7 @@ function App() {
 				<Route
 					path="/trainee/:_id"
 					exact
-					element={<Profile data={profileData} loading={profileLoading} navigateTo={navigateTo} />}
+					element={<Profile data={profileData} navigateTo={navigateTo} />}
 				/>
 				<Route
 					path="/trainee/:_id/edit"
@@ -104,7 +103,7 @@ function App() {
 							profileData={profileData}
 							updateData={updateData}
 							navigateTo={navigateTo}
-
+							sendDelRequest={sendDelRequest}
 						/>
 					}
 				/>
@@ -113,20 +112,17 @@ function App() {
 					exact
 					element={<IndustryLanding data={allProfileData} navigateTo={navigateTo} />}
 				/>
-				<Route
-					path="/vacancies"
-					exact element={<Vacancies navigateTo={navigateTo} />} />
-        <Route path="/company" exact element={<CompanyProfile />} />
+				<Route path="/vacancies" exact element={<Vacancies navigateTo={navigateTo} />} />
+				<Route path="/company" exact element={<CompanyProfile />} />
 
 				<Route
 					path="/"
 					exact
-					element={<Login setLogin={setLogin} allProfileData={allProfileData} />} />
+					element={<Login setLogin={setLogin} allProfileData={allProfileData} />}
+				/>
 			</Routes>
-
 		</>
-	)
+	);
 }
 
 export default App;
-

@@ -60,11 +60,72 @@ input {
 
 .registerSubmit {
 	border: 5px gray outset;
-	background-color: transparent;
+	background-color: #007aff;
 	height: 3rem;
 	width: 12rem;
 	font-size: 1.5rem;
 	position: absolute;
 	bottom: -5rem;
 	right: -2rem;
+}
+
+.col-md-12 {
+	margin-top: 50px;
+}
+
+.btn {
+	background-color: #007aff;
+	width: 150px;
+	height: 50px;
+	border-radius: 40px;
+	border: none;
+	font-size: 1rem;
+	color: white;
+}
+
+.btn:hover {
+	background-color: #1100ff;
+}
+
+.card-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.card-container > h1 {
+	font-size: 3rem;
+	font-weight: 500;
+	margin-bottom: 20px;
+	color: rgb(43, 42, 65)
+}
+
+
+.loginForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.fg1 {
+	margin: 3px;
+}
+
+.fg1 > button {
+	margin: 10px;
+}
+
+.fg1 > label {
+	margin-bottom: 3px;
+}
+
+.fg1 > div > input {
+	border: 1px solid gray ;
+}
+
+.fg1 > div > input:focus {
+	outline: none;
+	border: 1px solid rgb(30, 8, 236) ;
 }
