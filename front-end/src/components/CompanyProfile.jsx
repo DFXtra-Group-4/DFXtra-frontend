@@ -54,8 +54,7 @@ export default function companyPage({companyDetails}) {
             </div>
         </div>
 
-        {/* <div className="compRow">
-						<div className="compColumn"> */}
+       
         
                         <div className="row">
 						<div className="column">
@@ -65,25 +64,13 @@ export default function companyPage({companyDetails}) {
                                 
 							</h2>
 							<div className="roleCards">
-                            {/* <img className="smallImage" src={Company.companyDetails[0].logo}></img> */}
+                           
                             </div>
 
-
-
-
-    {/* copied from vacancies card and adapted */}
-                           
-			
-
 						</div>
-						{/* <div className="compColumn"> */}
-                        {/* <div className="column"> */}
-							{/* <p>{Company.companyDetails[0].about}</p> */}
-                           
-						{/* </div> */}
+						
                         </div>
-                        {/* <div className="compRow">
-						<div className="compColumn"> */}
+                        
                         <div className="row3">
                         <u>Roles Available: {Company.companyDetails[0].rolesAvailable}</u>
 
@@ -174,65 +161,11 @@ export default function companyPage({companyDetails}) {
 
                 </div>
 
-
-
-
-
-
                 </div>
                 
-
-                {/* <div
-					class="rowVacancy"
-					style={{
-						padding: "20px",
-						width: "17%"
-					}}
-				>
-
-					<div class="rowVacancy" style={{ marginBottom: "20px" }}>
-						<div style={{ width: "60%" }}>
-							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[0].jobTitle}</h3>
-							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].companyName}</h3>
-                            <div className="compDesc">
-                            <i style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[1].jobDescription}</i>
-                            </div>
-						</div>
-						<div style={{ textAlign: "right" }}>
-							<img
-								src={Company.companyDetails[0].logo}
-
-								alt="programmer"
-								height="70px"
-								width="70px"
-								style={{ marginLeft: "10px" }}
-							></img>
-						</div>
-					</div>
-
-                
-
-					<div style={{ marginTop: "20px", width: "100%" }}>
-						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{Company.companyDetails[1].vacancies[0].location}</p>
-					</div>
-                    
-                    					
-					
-				
-                
-                
-                </div>                  */}
-                 
-							
-
-                       
-							
-					
-
-                    
     
     </div>
-    // </div>
+    
     )
 
     
