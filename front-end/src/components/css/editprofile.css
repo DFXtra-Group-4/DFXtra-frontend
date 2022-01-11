@@ -1,37 +1,39 @@
 #myProgress {
-	width: 50%;
-	height: 30px;
-	background-color: #d4d4d4;
+  width: 50%;
+  height: 30px;
+  /* background-color: #d4d4d4; */
+  background-color: #ffffff;
 }
 
 #myBar {
-	width: 30%;
-	height: 30px;
-	background-color: rgb(6, 20, 80);;
+  width: 30%;
+  height: 30px;
+  /* background-color: rgb(6, 20, 80); */
+  background-color: rgb(255, 255, 255);
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-	background-color: #111;
+  background-color: #111;
 }
 
 .left {
-	padding: 20;
-	width: 50%;
-	display: block;
-	float: left;
+  padding: 20;
+  width: 50%;
+  display: block;
+  float: left;
 }
 
 .right {
-	padding: 20;
-	width: 50%;
-	display: block;
-	float: right;
+  padding: 20;
+  width: 50%;
+  display: block;
+  float: right;
 }
 
 .column {
-	float: left;
-	/* width: 33.33%; */
+  float: left;
+  /* width: 33.33%; */
 }
 
 /* Clear floats after the columns */
@@ -42,110 +44,113 @@ li a:hover {
 } */
 td,
 th {
-	text-align: left;
-	padding: 5px;
+  text-align: left;
+  padding: 5px;
 }
 
 .editRow {
-	border-style: solid;
-	border-width: 1px;
-	padding: 1.5rem;
-	border-radius: 0.625rem;
-	margin-bottom: 3rem;
-	border: 0px #d4d4d4 solid;
-	background-color: #fff;
-	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
-	display: grid;
-	grid-template-columns: 300px 300px auto 200px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1.5rem;
+  border-radius: 0.625rem;
+  margin-bottom: 3rem;
+  border: 0px #d4d4d4 solid;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
+    rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+  display: grid;
+  grid-template-columns: 300px 300px auto 200px;
 }
 
 .profileLabelSpan {
-	height: 3rem;
-	width: 40rem;
-	display: inline-block;
+  height: 3rem;
+  width: 40rem;
+  display: inline-block;
 }
 
 .profileLabelSpan > label {
-	width: 10rem;
+  width: 10rem;
 }
 
 .personalInformationDiv {
-	display: flex;
-	flex-direction: row;
-	position: relative;
-	border-style: solid;
-	padding: 1.5rem;
-	border-radius: 0.625rem;
-	margin-bottom: 3rem;
-	border: 0px #d4d4d4 solid;
-	background-color: #fff;
-	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  border-style: solid;
+  padding: 1.5rem;
+  border-radius: 0.625rem;
+  margin-bottom: 3rem;
+  border: 0px #d4d4d4 solid;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
+    rgb(0 0 0 / 5%) 0px 4px 6px -2px;
 }
 
 .personalInfoH3 {
-	position: absolute;
-	display: initial;
+  position: absolute;
+  display: initial;
 }
 
 #personalInfoInputs {
-	height: 30rem;
-	width: 40%;
-	margin-top: 3rem;
+  height: 30rem;
+  width: 40%;
+  margin-top: 3rem;
 }
 
 .myForm {
-	width: 90%;
-	margin: 0;
+  width: 90%;
+  margin: 0;
 }
 
 #selectDiv {
-	height: 30rem;
-	width: 40%;
-	margin-top: 3.9rem;
-	margin-left:100px;
+  height: 30rem;
+  width: 40%;
+  margin-top: 3.9rem;
+  margin-left: 100px;
 }
 
 .selectSpan {
-	height: 3rem;
-	width: 40rem;
-	display: inline-block;
+  height: 3rem;
+  width: 40rem;
+  display: inline-block;
 }
 
 #selfieUpload {
-	width: 15rem;
-	height: 15rem;
-	border-radius: 50%;
-	position: absolute;
-	background-color: navy;
-	right: 5rem;
-	top: 5rem;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  position: absolute;
+  background-color: navy;
+  right: 5rem;
+  top: 5rem;
 }
 
 .selectSpan > select {
-	background-color: #d4d4d4;
-	padding: 5px;
+  background-color: #d4d4d4;
+  padding: 5px;
 }
 
 .saveBtn {
-	padding: 15px;
+  padding: 15px;
 }
 
 .ggText {
-	color: #303030;
-	font-weight: 600;
-	padding-bottom: 5px;
-	line-height: 1.3;
-	margin-bottom: 20px;
-	margin-top: 20px;
+  color: #303030;
+  font-weight: 600;
+  padding-bottom: 5px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .personalStory {
-	border-style: solid;
-	border-width: 1px;
-	padding: 1.5rem;
-	border-radius: 0.625rem;
-	margin-bottom: 3rem;
-	border: 0px #d4d4d4 solid;
-	background-color: #fff;
-	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1.5rem;
+  border-radius: 0.625rem;
+  margin-bottom: 3rem;
+  border: 0px #d4d4d4 solid;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
+    rgb(0 0 0 / 5%) 0px 4px 6px -2px;
 }

@@ -3,10 +3,11 @@ import "./utils/profile.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { options } from "./utils/dropDownOptions.json";
+import validateInputs from "./utils/inputValidations";
 
 function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
   let navigate = useNavigate();
-  
+
   const dataObject = {
     firstName: profileData.personalDetails?.name.firstName,
     lastName: profileData.personalDetails?.name.lastName,
@@ -18,6 +19,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
     gender: profileData.personalDetails?.gender,
     personalityType: profileData.personalDetails?.personalityType,
     nationality: profileData.personalDetails?.nationality,
+    profileHeadline: profileData.personalDetails?.profileHeadline,
   };
 
   const dataObject2 = {
@@ -95,7 +97,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
         <h2>
           <h3>Your profile</h3>
         </h2>
-        <h2>Profile completion</h2>
+        <h2></h2>
         <div id="myProgress">
           <div id="myBar"></div>
         </div>
@@ -127,6 +129,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
               name="firstName"
               onChange={onChange}
               defaultValue={dataObject.firstName}
+              validations={[validateInputs.required]}
             ></input>
           </span>
           <span className="profileLabelSpan">
@@ -191,9 +194,21 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
               defaultValue={dataObject.telNo}
             ></input>
           </span>
+          <span className="profileLabelSpan">
+            <label className="ggText" style={{ position: "absolute" }}>Profile Headline:</label>
+            <textarea
+              style={{ marginLeft: "12rem", marginTop: "1.2rem", width: "15rem" }}
+              type="text"
+              placeholder="Enter profile headline description"
+              name="profileHeadline"
+              onChange={onChange}
+              defaultValue={dataObject.profileHeadline}
+            ></textarea>
+          </span>
         </div>
         <div id="selectDiv">
           <span className="selectSpan">
+            <label className="ggText">Gender:</label>
             <select
               style={{ width: "208px" }}
               name="gender"
@@ -206,6 +221,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
             </select>
           </span>
           <span className="selectSpan">
+            <label className="ggText">Nationality:</label>
             <select
               style={{ width: "208px" }}
               name="nationality"
@@ -219,6 +235,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
             </select>
           </span>
           <span className="selectSpan">
+            <label className="ggText">Personality Type:</label>
             <select
               name="personalityType"
               id="personalityType"
