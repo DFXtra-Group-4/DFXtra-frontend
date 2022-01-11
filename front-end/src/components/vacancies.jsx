@@ -60,27 +60,6 @@ function Vacancies({ navigateTo }) {
 	// 	})
 	// }
 
-	const VacanciesSearch = () => {
-		return (
-			<>
-				<div className="searchBox" text-align="center">
-					<h2
-						className="vacanciesTitle"
-						style={{ textAlign: "center", fontWeight: "bold", fontStyle: "italic" }}
-					>
-						<u>Vacancies</u>
-					</h2>
-					<input
-						type="text"
-						placeholder="Search for a job"
-						style={{ width: "100%" }}
-					></input>
-					<button style={{ display: "inline" }}>Search</button>
-				</div>
-			</>
-		);
-	};
-
 	const VacanciesCardRow = (data, number) => {
 		let vacancies = [];
 		if (number === 1) {
@@ -178,8 +157,12 @@ function Vacancies({ navigateTo }) {
 				<h2>Page loading...</h2>
 				:
 				<div className="vacanciesPage">
-					{VacanciesSearch()}
-
+					<h2
+						className="vacanciesTitle"
+						style={{ textAlign: "center", fontWeight: "bold", fontStyle: "italic" }}
+					>
+						<u>Vacancies</u>
+					</h2>
 					{VacanciesCardRow(allCompanyData, 1)}
 					{VacanciesCardRow(allCompanyData, 2)}
 
