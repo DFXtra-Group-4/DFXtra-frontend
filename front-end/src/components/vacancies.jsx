@@ -26,6 +26,8 @@ function Vacancies({ navigateTo }) {
 	const togglePopup = () => {
 		setIsOpen(!isOpen);
 	};
+	const [searchBarValue, setSearchBarValue] = useState("");
+
 
 	const getCompanyData = async () => {
 		try {
@@ -48,6 +50,44 @@ function Vacancies({ navigateTo }) {
 		setPageLoading(false);
 	}, []);
 
+	const filterVacancies = () => {
+		const vacancyHTMLElements = document.querySelectorAll('.columnVacan');
+		if ("software engineering".includes(searchBarValue).toLowerCase()) {
+			vacancyHTMLElements.forEach(element => {
+				if (element.getAttribute('name') === 'Software Engineer') {
+					element.style.visiblity = 'hidden';
+				}
+			})
+		}
+	}
+
+	// const searchStudents = async () => {
+	// 	console.log("data filter is ", dataFilter);
+	// 	console.log("software filter is ", softwareFilter);
+	// 	console.log("search is ", searchBarValue);
+
+	// 	if (searchBarValue.length === 0) {
+	// 		setDataFilter(true);
+	// 		setSoftwareFilter(true);
+	// 	} else if (
+	// 		"software Engineering".includes(searchBarValue) &&
+	// 		searchBarValue.length > 0
+	// 	) {
+	// 		setDataFilter(false);
+	// 		setSoftwareFilter(true);
+	// 	} else if (
+	// 		"data science".includes(searchBarValue) &&
+	// 		searchBarValue.length > 0
+	// 	) {
+	// 		setDataFilter(true);
+	// 		setSoftwareFilter(false);
+	// 	}
+	// };
+
+
+	// useEffect(() => {
+	// 	searchStudents();
+	// }, [dataFilter, softwareFilter, searchBarValue]);
 	// may need similar function for company profile data load
 	// const filtered = () => {
 	// 	Company.companyDetails.forEach(object => {
@@ -74,6 +114,9 @@ function Vacancies({ navigateTo }) {
 						type="text"
 						placeholder="Search for a job"
 						style={{ width: "100%" }}
+						onChange={(e) => {
+							setSearchBarValue(e.target.value);
+						}}
 					></input>
 					<button style={{ display: "inline" }}>Search</button>
 				</div>
@@ -107,6 +150,7 @@ function Vacancies({ navigateTo }) {
 				{!vacancyObject ? <h2>Loading..</h2> :
 					<div
 						class="columnVacan"
+						name={vacancyObject.jobTitle}
 						style={{
 							padding: "20px",
 							width: "17%"
