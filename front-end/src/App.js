@@ -20,6 +20,8 @@ function App() {
 	const onRefresh = JSON.parse(localStorage.getItem("user"));
 	const [login, setLogin] = useState(onRefresh);
 	const [allProfileData, setAllProfileData] = useState([]);
+	const [allCompanyData, setAllCompanyData] = useState({});
+
 
 	const navigate = useNavigate();
 
@@ -41,10 +43,24 @@ function App() {
 		}
 	};
 
+	const getCompanyData = async () => {
+		try {
+			console.log("making GET request...");
+			const res = await axios.get(
+				`http://127.0.0.1:4000/vacancies`
+			);
+			console.log('company data is...', res.data);
+			return res.data;
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
 	useEffect(() => {
 		const getData = async () => {
 			setAllProfileData(await getAllProfileData());
 			setProfileData(await getProfileData());
+			setAllCompanyData(await getCompanyData());
 		};
 		getData();
 	}, [login]);
@@ -112,8 +128,8 @@ function App() {
 					exact
 					element={<IndustryLanding data={allProfileData} navigateTo={navigateTo} />}
 				/>
-				<Route path="/vacancies" exact element={<Vacancies navigateTo={navigateTo} />} />
-				<Route path="/company" exact element={<CompanyProfile />} />
+				<Route path="/vacancies" exact element={<Vacancies navigateTo={navigateTo} allCompanyData={allCompanyData} />} />
+				<Route path="/company/:companyName" exact element={<CompanyProfile allCompanyData={allCompanyData} />} />
 
 				<Route
 					path="/"
