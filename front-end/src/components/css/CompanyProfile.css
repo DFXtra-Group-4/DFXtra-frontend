@@ -57,6 +57,10 @@
 	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
 }
 
+#companyProfile .row:nth-of-type(3){
+	display: flex;
+}
+
 .badges {
 	border-style: solid;
 	border-width: 1px;
@@ -110,6 +114,7 @@ background-color: #fff;
 		border: 0px #d4d4d4 solid;
 		background-color: #fff;
 		box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+		margin-left: 4rem;
 	}
 
 	.compRight {
@@ -119,6 +124,8 @@ background-color: #fff;
 		border: 0px #d4d4d4 solid;
 		background-color: #fff;
 		box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+				margin-left: 4rem;
+
 	}
 
 .flexComp {

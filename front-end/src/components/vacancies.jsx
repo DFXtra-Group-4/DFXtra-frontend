@@ -18,33 +18,33 @@ const Popup = props => {
 	);
 };
 
-function Vacancies({ navigateTo }) {
+function Vacancies({ allCompanyData, navigateTo }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [popupData, setPopupData] = useState({});
-	const [allCompanyData, setAllCompanyData] = useState({});
+	// const [allCompanyData, setAllCompanyData] = useState({});
 	const [pageLoading, setPageLoading] = useState(true);
 	const togglePopup = () => {
 		setIsOpen(!isOpen);
 	};
 
-	const getCompanyData = async () => {
-		try {
-			console.log("making GET request...");
-			const res = await axios.get(
-				`http://127.0.0.1:4000/vacancies`
-			);
-			console.log('company data is...', res.data);
-			return res.data;
-		} catch (e) {
-			console.log(e);
-		}
-	}
+	// const getCompanyData = async () => {
+	// 	try {
+	// 		console.log("making GET request...");
+	// 		const res = await axios.get(
+	// 			`http://127.0.0.1:4000/vacancies`
+	// 		);
+	// 		console.log('company data is...', res.data);
+	// 		return res.data;
+	// 	} catch (e) {
+	// 		console.log(e);
+	// 	}
+	// }
 
 	useEffect(() => {
-		const getData = async () => {
-			setAllCompanyData(await getCompanyData());
-		};
-		getData();
+		// const getData = async () => {
+		// 	setAllCompanyData(await getCompanyData());
+		// };
+		// getData();
 		setPageLoading(false);
 	}, []);
 
@@ -94,7 +94,7 @@ function Vacancies({ navigateTo }) {
 						<div class="rowVacancy" style={{ marginBottom: "20px" }}>
 							<div style={{ width: "60%" }}>
 								<h3 style={{ marginTop: "10px" }}>{vacancyObject.jobTitle}</h3>
-								<h3 style={{ marginTop: "10px" }}>{vacancyObject.companyName}</h3>
+								<a style={{ marginTop: "10px" }} onClick={() => { navigateTo(`/company/${vacancyObject.companyName}`) }}>{vacancyObject.companyName}</a>
 							</div>
 							<div style={{ textAlign: "right" }}>
 								<img
@@ -153,7 +153,7 @@ function Vacancies({ navigateTo }) {
 	return (
 		<>
 			{!(localStorage.getItem('user')) && navigateTo('/')}
-			{pageLoading ?
+			{!(allCompanyData) ?
 				<h2>Page loading...</h2>
 				:
 				<div className="vacanciesPage">
