@@ -1,121 +1,120 @@
-[
-	{
-		"userType": "IndustryPartner",
-		"companyName": "TSB Bank",
-		"field": "Retail banking company",
-		"companySize": 957,
-		"address": "Oxford St, London",
-		"email": "TSB@industry.com",
-		"about": "TSB Bank plc is a retail and commercial bank in the United Kingdom and a subsidiary of Sabadell Group. TSB Bank operates a network of 536 branches across England, Scotland and Wales but has not had a presence in Northern Ireland since 1991. TSB in its present form launched on 9 September 2013.",
-		"salary": "£27,000",
-		"logo": "https://upload.wikimedia.org/wikipedia/en/archive/b/b9/20130819104932%21TSB_logo_2013.svg",
-		"rolesAvailable": 4,
-		"companyWebsite": "https://www.tsbcareers.co.uk/",
-		"vacancies": [
-			{
-				"companyName": "TSB Bank",
-				"vacancyType": "software",
-				"jobTitle": "Software Engineer",
-				"location": "London, England",
-				"jobDescription": "Design, build and test data solutions across TSB’s ODS Platforms whilst following best practice to leverage platform processing power, creating reusable code and aligning to development standards."
-			},
-			{
-				"companyName": "TSB Bank",
-				"vacancyType": "dataScience",
-				"jobTitle": "Data Scientist",
-				"location": "London",
-				"jobDescription": "Proven experience of undertaking complex analysis and user experience based design within a digital or technology context."
-			}
-		]
-	},
-	{
-		"userType": "IndustryPartner",
-		"companyName": "Sky",
-		"field": "Broadcaster and telecommunications company",
-		"companySize": 14036,
-		"address": "Bond St, Manchester",
-		"email": "Sky@industry.com",
-		"about": "Sky UK Limited is a British broadcaster and telecommunications company that provides television and broadband Internet services, fixed line and mobile telephone services to consumers and businesses.",
-		"salary": "£27,000",
-		"logo": "https://static.skyassets.com/contentstack/assets/bltdc2476c7b6b194dd/blt556529d1b8bf298d/5edfe30f98e62f38ec84dadd/2020_Sky_Logo.png?downsize=640:*&output-format=jpg",
-		"rolesAvailable": 2,
-		"companyWebsite": "https://www.sky.com/",
-		"vacancies": [
-			{
-				"companyName": "Sky",
-				"vacancyType": "software",
-				"jobTitle": "Software Engineer",
-				"location": "Manchester, Remote",
-				"jobDescription": "Join a talented team of Agile Developers who will be responsible for software/application development and to develop automation framework for testing and deployment. Highly uptime SLA oriented team and process driven who build fault tolerant systems. We work in a fast paced, multi-disciplined technology environment, engaging in new applications and languages."
-			},
-			{
-				"companyName": "Sky",
-				"vacancyType": "dataScience",
-				"jobTitle": "Data Scientist",
-				"location": "Manchester",
-				"jobDescription": "As a Data Scientist your responsibility will be to join the dots between infrastructure technology and development of software and analytics capabilities to model and manage Sky's network and to produce automation tooling to aid strategic planning and operational readiness."
-			}
-		]
-	},
-
-
-	{
-		"userType": "IndustryPartner",
-		"companyName": "Deloitte",
-		"field": "Professional services network",
-		"companySize": 136036,
-		"address": "New Street Square, London",
-		"email": "Deloitte@industry.com",
-		"about": "Deloitte is a leading global provider of audit and assurance, consulting, financial advisory, risk advisory, tax, and related services.",
-		"salary": "£27,000",
-		"logo": "https://www2.deloitte.com/content/dam/Deloitte/uk/Images/promo_images/Profiles/deloitte-uk-profile.jpg",
-		"rolesAvailable": 2,
-		"companyWebsite": "https://www2.deloitte.com/",
-		"vacancies": [
-			{
-				"companyName": "Deloitte",
-				"vacancyType": "software",
-				"jobTitle": "Software Engineer",
-				"location": "London, Remote",
-				"jobDescription": "As a Software Engineer in Products and Solutions you will be part of the team that builds and maintains one of our products or early stage concepts. We are big on Continuous Delivery and DevOps."
-			},
-			{
-				"companyName": "Deloitte",
-				"vacancyType": "dataScience",
-				"jobTitle": "Data Scientist",
-				"location": "Manchester, Remote",
-				"jobDescription": "Within Deloitte's Analytics and Cognitive service offering, we imagine, deliver and run innovative solutions to help our clients solve complex challenges and maximize the value of their data"
-			}
-		]
-	},
-	{
-		"userType": "IndustryPartner",
-		"companyName": "TFL- Transport for London",
-		"field": "Transport network",
-		"companySize": 136036,
-		"address": "Marble Arch, London",
-		"email": "tfl@industry.com",
-		"about": "Transport for London is a local government body responsible for most of the transport network.",
-		"salary": "£27,000",
-		"logo": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0009/1794/brand.gif?itok=aAfJCnZQ",
-		"rolesAvailable": 4,
-		"companyWebsite": "https://tfl.gov.uk/corporate/careers/",
-		"vacancies": [
-			{
-				"companyName": "TFL- Transport for London",
-				"vacancyType": "software",
-				"jobTitle": "Software Engineer",
-				"location": "London, Remote",
-				"jobDescription": "Design and implement a high-performance Microsoft C# component to process 24 million Oyster & Contactless transactions per day."
-			},
-			{
-				"companyName": "TFL- Transport for London",
-				"vacancyType": "dataScience",
-				"jobTitle": "Data Scientist",
-				"location": "London, Remote",
-				"jobDescription": "To use a data analytics approach to help to develop new data analysis methods and algorithms which can be implemented by the team."
-			}
-		]
-	}
-]
-
+{
+	"companyDetails": [
+		{
+			"userType": "IndustryPartner",
+			"companyName": "TSB Bank",
+			"field": "Retail banking company",
+			"companySize": 957,
+			"address": "Oxford St, London",
+			"email": "TSB@industry.com",
+			"about": "TSB Bank plc is a retail and commercial bank in the United Kingdom and a subsidiary of Sabadell Group. TSB Bank operates a network of 536 branches across England, Scotland and Wales but has not had a presence in Northern Ireland since 1991. TSB in its present form launched on 9 September 2013.",
+			"salary": "£27,000",
+			"logo": "https://upload.wikimedia.org/wikipedia/en/archive/b/b9/20130819104932%21TSB_logo_2013.svg",
+			"rolesAvailable": 4,
+			"companyWebsite": "https://www.tsbcareers.co.uk/",
+			"vacancies": [
+				{
+					"companyName": "TSB Bank",
+					"vacancyType": "software",
+					"jobTitle": "Software Engineer",
+					"location": "London, England",
+					"jobDescription": "Design, build and test data solutions across TSB’s ODS Platforms whilst following best practice to leverage platform processing power, creating reusable code and aligning to development standards."
+				},
+				{
+					"companyName": "TSB Bank",
+					"vacancyType": "dataScience",
+					"jobTitle": "Data Scientist",
+					"location": "London",
+					"jobDescription": "Proven experience of undertaking complex analysis and user experience based design within a digital or technology context."
+				}
+			]
+		},
+		{
+			"userType": "IndustryPartner",
+			"companyName": "Sky",
+			"field": "Broadcaster and telecommunications company",
+			"companySize": 14036,
+			"address": "Bond St, Manchester",
+			"email": "Sky@industry.com",
+			"about": "Sky UK Limited is a British broadcaster and telecommunications company that provides television and broadband Internet services, fixed line and mobile telephone services to consumers and businesses.",
+			"salary": "£27,000",
+			"logo": "https://static.skyassets.com/contentstack/assets/bltdc2476c7b6b194dd/blt556529d1b8bf298d/5edfe30f98e62f38ec84dadd/2020_Sky_Logo.png?downsize=640:*&output-format=jpg",
+			"rolesAvailable": 2,
+			"companyWebsite": "https://www.sky.com/",
+			"vacancies": [
+				{
+					"companyName": "Sky",
+					"vacancyType": "software",
+					"jobTitle": "Software Engineer",
+					"location": "Manchester, Remote",
+					"jobDescription": "Join a talented team of Agile Developers who will be responsible for software/application development and to develop automation framework for testing and deployment. Highly uptime SLA oriented team and process driven who build fault tolerant systems. We work in a fast paced, multi-disciplined technology environment, engaging in new applications and languages."
+				},
+				{
+					"companyName": "Sky",
+					"vacancyType": "dataScience",
+					"jobTitle": "Data Scientist",
+					"location": "Manchester",
+					"jobDescription": "As a Data Scientist your responsibility will be to join the dots between infrastructure technology and development of software and analytics capabilities to model and manage Sky's network and to produce automation tooling to aid strategic planning and operational readiness."
+				}
+			]
+		},
+		{
+			"userType": "IndustryPartner",
+			"companyName": "Deloitte",
+			"field": "Professional services network",
+			"companySize": 136036,
+			"address": "New Street Square, London",
+			"email": "Deloitte@industry.com",
+			"about": "Deloitte is a leading global provider of audit and assurance, consulting, financial advisory, risk advisory, tax, and related services.",
+			"salary": "£27,000",
+			"logo": "https://www2.deloitte.com/content/dam/Deloitte/uk/Images/promo_images/Profiles/deloitte-uk-profile.jpg",
+			"rolesAvailable": 2,
+			"companyWebsite": "https://www2.deloitte.com/",
+			"vacancies": [
+				{
+					"companyName": "Deloitte",
+					"vacancyType": "software",
+					"jobTitle": "Software Engineer",
+					"location": "London, Remote",
+					"jobDescription": "As a Software Engineer in Products and Solutions you will be part of the team that builds and maintains one of our products or early stage concepts. We are big on Continuous Delivery and DevOps."
+				},
+				{
+					"companyName": "Deloitte",
+					"vacancyType": "dataScience",
+					"jobTitle": "Data Scientist",
+					"location": "Manchester, Remote",
+					"jobDescription": "Within Deloitte's Analytics and Cognitive service offering, we imagine, deliver and run innovative solutions to help our clients solve complex challenges and maximize the value of their data"
+				}
+			]
+		},
+		{
+			"userType": "IndustryPartner",
+			"companyName": "TFL- Transport for London",
+			"field": "Transport network",
+			"companySize": 136036,
+			"address": "Marble Arch, London",
+			"email": "tfl@industry.com",
+			"about": "Transport for London is a local government body responsible for most of the transport network.",
+			"salary": "£27,000",
+			"logo": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0009/1794/brand.gif?itok=aAfJCnZQ",
+			"rolesAvailable": 4,
+			"companyWebsite": "https://tfl.gov.uk/corporate/careers/",
+			"vacancies": [
+				{
+					"companyName": "TFL- Transport for London",
+					"vacancyType": "software",
+					"jobTitle": "Software Engineer",
+					"location": "London, Remote",
+					"jobDescription": "Design and implement a high-performance Microsoft C# component to process 24 million Oyster & Contactless transactions per day."
+				},
+				{
+					"companyName": "TFL- Transport for London",
+					"vacancyType": "dataScience",
+					"jobTitle": "Data Scientist",
+					"location": "London, Remote",
+					"jobDescription": "To use a data analytics approach to help to develop new data analysis methods and algorithms which can be implemented by the team."
+				}
+			]
+		}
+	]
+}
