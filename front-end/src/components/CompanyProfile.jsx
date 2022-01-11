@@ -8,186 +8,192 @@ import Company from "./company.json";
 
 export default function CompanyPage({ allCompanyData }) {
 
-	const { companyName } = useParams();
-	console.log(companyName);
-	console.log('company data is ...', allCompanyData)
-	const filterFunction = () => {
-		if (allCompanyData) {
-			const filtered = allCompanyData.filter(companyData => companyData.companyName === companyName);
-			console.log(filtered);
-			return filtered[0];
-		}
-	}
+  const { companyName } = useParams();
+  console.log(companyName);
+  // console.log('company data is ...', Object.keys(allCompanyData).length > 0)
+  const filterFunction = () => {
+    if (Object.keys(allCompanyData).length > 0) {
+      console.log("allcompany data..", allCompanyData);
+      const filtered = allCompanyData.filter(
+        (companyData) => { return companyData.companyName === companyName }
+      );
+      console.log('filtered is...', filtered);
+      return filtered[0];
+    }
+    else {
+      return [];
+    }
+  }
 
-	useEffect(() => {
-		filterFunction();
-	}, [allCompanyData]);
+  useEffect(() => {
+    // filterFunction();
+  }, [allCompanyData]);
 
-	return (
-		(filterFunction() &&
-			<div id="companyProfile">
-				<div className="row">
-					<div className="column">
+  return (
+    ((filterFunction().length === 0 || typeof (filterFunction()) === undefined) ? <h2>Loading</h2> :
+      <div id="companyProfile">
+        <div className="row">
+          <div className="column">
 
-						{ }
-
-
-						<h2>
-
-							<b>
-								<img
-									className="logo"
-									src={filterFunction().logo}
-
-									alt=""
-									height="100px"
-									width="100px"
-
-								/>
-
-								<div className="companyHeader">
-
-									<h1>{filterFunction().companyName}</h1>
-								</div>
-								<div className="compField">
-									<i>{filterFunction().field}</i>
-								</div>
-								<h2>
-									<a href={filterFunction().companyWebsite} class="company-Profile">Company website</a>
-								</h2>
-								<h3>Company size: {filterFunction().companySize}</h3>
-
-								<h3>Salary: {filterFunction().salary}</h3>
-
-								<h3>Location: {filterFunction().vacancies[0].location} </h3>
+            { }
 
 
-							</b>
-						</h2>
+            <h2>
+
+              <b>
+                <img
+                  className="logo"
+                  src={filterFunction().logo}
+
+                  alt=""
+                  height="100px"
+                  width="100px"
+
+                />
+
+                <div className="companyHeader">
+
+                  <h1>{filterFunction().companyName}</h1>
+                </div>
+                <div className="compField">
+                  <i>{filterFunction().field}</i>
+                </div>
+                <h2>
+                  <a href={filterFunction().companyWebsite} class="company-Profile">Company website</a>
+                </h2>
+                <h3>Company size: {filterFunction().companySize}</h3>
+
+                <h3>Salary: {filterFunction().salary}</h3>
+
+                <h3>Location: {filterFunction().vacancies[0].location} </h3>
 
 
-					</div>
-				</div>
+              </b>
+            </h2>
 
-				{/* <div className="compRow">
+
+          </div>
+        </div>
+
+        {/* <div className="compRow">
 						<div className="compColumn"> */}
 
-				<div className="row">
-					<div className="column">
-						<h2>
-							<u>About the company</u>
-							<p>{filterFunction().about}</p>
+        <div className="row">
+          <div className="column">
+            <h2>
+              <u>About the company</u>
+              <p>{filterFunction().about}</p>
 
-						</h2>
-						<div className="roleCards">
-							{/* <img className="smallImage" src={filterFunction().logo}></img> */}
-						</div>
-
-
-
-
-						{/* copied from vacancies card and adapted */}
+            </h2>
+            <div className="roleCards">
+              {/* <img className="smallImage" src={filterFunction().logo}></img> */}
+            </div>
 
 
 
-					</div>
-					{/* <div className="compColumn"> */}
-					{/* <div className="column"> */}
-					{/* <p>{filterFunction().about}</p> */}
 
-					{/* </div> */}
-				</div>
-				{/* <div className="compRow">
+            {/* copied from vacancies card and adapted */}
+
+
+
+          </div>
+          {/* <div className="compColumn"> */}
+          {/* <div className="column"> */}
+          {/* <p>{filterFunction().about}</p> */}
+
+          {/* </div> */}
+        </div>
+        {/* <div className="compRow">
 						<div className="compColumn"> */}
-				<div className="row">
-					<u>Roles Available: {filterFunction().rolesAvailable}</u>
-					<div
-						class="compLeft"
-						style={{
-							padding: "20px",
-							width: "17%"
-						}}
-					>
-						<div class="rowComp" style={{ marginBottom: "20px" }}>
-							<div style={{ width: "60%" }}>
-								<div style={{ textAlign: "right" }}>
-									<img
-										src={filterFunction().logo}
+        <div className="row">
+          <u>Roles Available: {filterFunction().rolesAvailable}</u>
+          <div
+            class="compLeft"
+            style={{
+              padding: "20px",
+              width: "17%"
+            }}
+          >
+            <div class="rowComp" style={{ marginBottom: "20px" }}>
+              <div style={{ width: "60%" }}>
+                <div style={{ textAlign: "right" }}>
+                  <img
+                    src={filterFunction().logo}
 
-										alt="programmer"
-										height="70px"
-										width="70px"
-										style={{ marginLeft: "px" }}
-									></img>
-								</div>
-								<h3 style={{ marginTop: "10px" }}>{filterFunction().vacancies[0].jobTitle}</h3>
-								{/* <h3 style={{ marginTop: "10px" }}>{filterFunction().companyName}</h3> */}
-								<div className="compDesc">
-									<i style={{ marginTop: "10px" }}>{filterFunction().vacancies[0].jobDescription}</i>
-								</div>
-							</div>
+                    alt="programmer"
+                    height="70px"
+                    width="70px"
+                    style={{ marginLeft: "px" }}
+                  ></img>
+                </div>
+                <h3 style={{ marginTop: "10px" }}>{filterFunction().vacancies[0].jobTitle}</h3>
+                {/* <h3 style={{ marginTop: "10px" }}>{filterFunction().companyName}</h3> */}
+                <div className="compDesc">
+                  <i style={{ marginTop: "10px" }}>{filterFunction().vacancies[0].jobDescription}</i>
+                </div>
+              </div>
 
-						</div>
-
-
-
-						<div style={{ marginTop: "20px", width: "100%" }}>
-							<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{filterFunction().vacancies[0].location}</p>
-						</div>
+            </div>
 
 
 
-					</div>
-
-
-					<div
-						class="compRight"
-						style={{
-							padding: "20px",
-							width: "17%"
-						}}
-					>
-						<div class="rowComp" style={{ marginBottom: "20px" }}>
-							<div style={{ width: "60%" }}>
-								<div style={{ textAlign: "right" }}>
-									<img
-										src={filterFunction().logo}
-
-										alt="programmer"
-										height="70px"
-										width="70px"
-										style={{ marginLeft: "px" }}
-									></img>
-								</div>
-								<h3 style={{ marginTop: "10px" }}>{filterFunction().vacancies[1].jobTitle}</h3>
-								{/* <h3 style={{ marginTop: "10px" }}>{filterFunction().companyName}</h3> */}
-								<div className="compDesc">
-									<i style={{ marginTop: "10px" }}>{filterFunction().vacancies[1].jobDescription}</i>
-								</div>
-							</div>
-
-						</div>
+            <div style={{ marginTop: "20px", width: "100%" }}>
+              <p style={{ marginTop: "0px", lineHeight: "16pt" }}>{filterFunction().vacancies[0].location}</p>
+            </div>
 
 
 
-						<div style={{ marginTop: "20px", width: "100%" }}>
-							<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{filterFunction().vacancies[1].location}</p>
-						</div>
+          </div>
+
+
+          <div
+            class="compRight"
+            style={{
+              padding: "20px",
+              width: "17%"
+            }}
+          >
+            <div class="rowComp" style={{ marginBottom: "20px" }}>
+              <div style={{ width: "60%" }}>
+                <div style={{ textAlign: "right" }}>
+                  <img
+                    src={filterFunction().logo}
+
+                    alt="programmer"
+                    height="70px"
+                    width="70px"
+                    style={{ marginLeft: "px" }}
+                  ></img>
+                </div>
+                <h3 style={{ marginTop: "10px" }}>{filterFunction().vacancies[1].jobTitle}</h3>
+                {/* <h3 style={{ marginTop: "10px" }}>{filterFunction().companyName}</h3> */}
+                <div className="compDesc">
+                  <i style={{ marginTop: "10px" }}>{filterFunction().vacancies[1].jobDescription}</i>
+                </div>
+              </div>
+
+            </div>
 
 
 
-					</div>
+            <div style={{ marginTop: "20px", width: "100%" }}>
+              <p style={{ marginTop: "0px", lineHeight: "16pt" }}>{filterFunction().vacancies[1].location}</p>
+            </div>
 
 
+
+          </div>
 
 
 
 
 
-				</div>
 
 
-				{/* <div
+        </div>
+
+
+        {/* <div
 					class="rowVacancy"
 					style={{
 						padding: "20px",
@@ -236,10 +242,10 @@ export default function CompanyPage({ allCompanyData }) {
 
 
 
-			</div>
-		)
-		// </div>
-	)
+      </div>
+    )
+    // </div>
+  )
 
 
 }
