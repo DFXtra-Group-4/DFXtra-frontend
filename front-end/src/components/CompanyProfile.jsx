@@ -8,30 +8,22 @@ import Company from "./company.json";
 
 export default function companyPage({companyDetails}) {
 
-
-
-
-// const CompanyProfile = ({data}, { loading}) => {
-//     const {_id }  = useParams();
     return (
         
     <div id="companyProfile">
         <div className="row">
             <div className="column">
-            
-                
-
-
+     
                 {}
                
 
                 <h2>
-                    {/* <i>Company Profile</i> */}
+                    
                     <b>
                     <img
 						className="logo"
 						src={Company.companyDetails[0].logo}
-                        // "
+                        
 						alt=""
 						height="100px"
 						width="100px"
@@ -54,14 +46,6 @@ export default function companyPage({companyDetails}) {
                                 
                                 <h3>Location: {Company.companyDetails[0].vacancies[0].location} </h3>
 
-                               
-                        
-                        
-                    
-                        
-                        
-
-                        
                         
                     </b>
                 </h2>
@@ -91,39 +75,127 @@ export default function companyPage({companyDetails}) {
                            
 			
 
-
-
-
-
-
 						</div>
 						{/* <div className="compColumn"> */}
-                        <div className="column">
+                        {/* <div className="column"> */}
 							{/* <p>{Company.companyDetails[0].about}</p> */}
                            
-						</div>
+						{/* </div> */}
                         </div>
                         {/* <div className="compRow">
 						<div className="compColumn"> */}
-                        <div className="row">
-						<div className="column">
-							<h2>
-                            
-								<u>Roles Available: {Company.companyDetails[0].rolesAvailable}</u>
+                        <div className="row3">
+                        <u>Roles Available: {Company.companyDetails[0].rolesAvailable}</u>
 
+
+                        
+						<div className="column3">
+							
+                            
+								
+
+                   
                                 <div
-					class="columnVacan"
+					class="compLeft"
 					style={{
 						padding: "20px",
 						width: "17%"
 					}}
 				>
+					<div class="rowComp" style={{ marginBottom: "20px" }}>
+						<div style={{ width: "60%" }}>
+                        <div style={{ textAlign: "right" }}>
+							<img
+								src={Company.companyDetails[0].logo}
+
+								alt="programmer"
+								height="70px"
+								width="70px"
+								style={{ marginLeft: "px" }}
+							></img>
+						</div>
+							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[0].jobTitle}</h3>
+							{/* <h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].companyName}</h3> */}
+                            <div className="compDesc">
+                            <i style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[0].jobDescription}</i>
+                            </div>
+						</div>
+						
+					</div>
+
+                
+
+					<div style={{ marginTop: "20px", width: "100%" }}>
+						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{Company.companyDetails[0].vacancies[0].location}</p>
+					</div>
+                    
+                    					
+					
+				</div>
+
+
+                <div
+					class="compRight"
+					style={{
+						padding: "20px",
+						width: "17%"
+					}}
+				>
+					<div class="rowComp" style={{ marginBottom: "20px" }}>
+						<div style={{ width: "60%" }}>
+                        <div style={{ textAlign: "right" }}>
+							<img
+								src={Company.companyDetails[0].logo}
+
+								alt="programmer"
+								height="70px"
+								width="70px"
+								style={{ marginLeft: "px" }}
+							></img>
+						</div>
+							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[1].jobTitle}</h3>
+							{/* <h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].companyName}</h3> */}
+                            <div className="compDesc">
+                            <i style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[1].jobDescription}</i>
+                            </div>
+						</div>
+						
+					</div>
+
+                
+
+					<div style={{ marginTop: "20px", width: "100%" }}>
+						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{Company.companyDetails[0].vacancies[1].location}</p>
+					</div>
+                    
+                    					
+					
+				</div>
+
+                </div>
+
+
+
+
+
+
+                </div>
+                
+
+                {/* <div
+					class="rowVacancy"
+					style={{
+						padding: "20px",
+						width: "17%"
+					}}
+				>
+
 					<div class="rowVacancy" style={{ marginBottom: "20px" }}>
 						<div style={{ width: "60%" }}>
 							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[0].jobTitle}</h3>
 							<h3 style={{ marginTop: "10px" }}>{Company.companyDetails[0].companyName}</h3>
                             <div className="compDesc">
-                            <i style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[0].jobDescription}</i>
+                            <i style={{ marginTop: "10px" }}>{Company.companyDetails[0].vacancies[1].jobDescription}</i>
                             </div>
 						</div>
 						<div style={{ textAlign: "right" }}>
@@ -137,26 +209,32 @@ export default function companyPage({companyDetails}) {
 							></img>
 						</div>
 					</div>
-					<div style={{ marginTop: "20px", width: "100%" }}>
-						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{Company.companyDetails[0].vacancies[0].location}</p>
-					</div>
-					
-					
-				</div>
 
-                            
-                        
-							</h2>
+                
+
+					<div style={{ marginTop: "20px", width: "100%" }}>
+						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{Company.companyDetails[1].vacancies[0].location}</p>
+					</div>
+                    
+                    					
+					
+				
+                
+                
+                </div>                  */}
+                 
+							
 
                        
 							
-					</div>
+					
 
                     
     
     </div>
-    </div>
+    // </div>
     )
+
+    
 }
-// }
-// export default CompanyProfile;
+
