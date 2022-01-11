@@ -17,7 +17,8 @@ import CompanyProfile from "./components/CompanyProfile";
 
 function App() {
 	const [profileData, setProfileData] = useState({});
-	const [login, setLogin] = useState();
+	const onRefresh = JSON.parse(localStorage.getItem("user"));
+	const [login, setLogin] = useState(onRefresh);
 	const [allProfileData, setAllProfileData] = useState([]);
 
 	const navigate = useNavigate();
@@ -44,7 +45,6 @@ function App() {
 		const getData = async () => {
 			setAllProfileData(await getAllProfileData());
 			setProfileData(await getProfileData());
-			setLogin(JSON.parse(localStorage.getItem("user")));
 		};
 		getData();
 	}, [login]);
