@@ -45,7 +45,7 @@ const Navbar = ({ data, navigateTo }) => {
                         navigateTo(`/company/${e.target.textContent}`);
                       }}
                     >
-                      TFL- Transport for London
+                      Transport for London
                     </a>
                     <a
                       onClick={(e) => {
