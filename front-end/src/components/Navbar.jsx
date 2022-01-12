@@ -45,7 +45,7 @@ const Navbar = ({ data, navigateTo }) => {
                         navigateTo(`/company/${e.target.textContent}`);
                       }}
                     >
-                      TFL- Transport for London
+                      Transport for London
                     </a>
                     <a
                       onClick={(e) => {
@@ -74,8 +74,9 @@ const Navbar = ({ data, navigateTo }) => {
                     <a href="/vacancies">Job board</a>
                   )}
                   {/* <a href="/landing">Industry partners</a> */}
-                  {!(role.roles[0] === "Industry")}
-                  <a href="/talent">Talent Spotlight</a>
+                  {(role.roles[0] === "Industry") &&
+                    <a href="/talent">Talent Spotlight</a>
+                  }
                 </div>
               </div>
               <div className="dropdown">

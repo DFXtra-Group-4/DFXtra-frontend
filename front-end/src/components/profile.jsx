@@ -2,10 +2,11 @@ import "./css/profile.css";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import javaImg from "../images/javaBadge.jpg"
+import pythonImg from "../images/python.jpg"
 
 const Profile = ({ data, navigateTo }) => {
-	//   const { _id } = useParams();
-
+	console.log('profiledata', data);
 	return (
 		<>
 			{
@@ -130,74 +131,48 @@ const Profile = ({ data, navigateTo }) => {
 								<u>Badges</u>
 							</span>
 							<div class="column2">
-								<div className="badges" style={{ marginLeft: "0px", padding: "20px", marginBottom: "10px" }}>
+								{(data) && data.yourTraining?.cohort === 'Software Engineering-1' &&
 
-									<img
-										src="../images/40752.jpg"
-										alt="programmer"
-										height="70px"
-										width="70px"
-										style={{ marginBottom: "0px" }}
-									/>
+									<div className="badges" style={{ marginLeft: "0px", padding: "20px", marginBottom: "10px" }}>
 
-
-									<p style={{
-										color: "#303030",
-										fontWeight: " 600"
+										<img id="java"
+											src={javaImg}
+											alt="programmer"
+											height="70px"
+											width="70px"
+											style={{ marginBottom: "0px" }}
+										/>
 
 
-									}}><u>Programming</u></p>
-									<p>Java, javascript, html, css, react, node js.</p>
-								</div>
-								<div className="badges" style={{ padding: "20px", marginBottom: "10px", marginLeft: "0" }}>
-									<img
-										src="../images/40752.jpg"
-										alt="programmer"
-										height="70px"
-										width="70px"
-										style={{ marginBottom: "0px" }}
-									/>
-									<p style={{
-										color: "#303030",
-										fontWeight: " 600"
+										<p style={{
+											color: "#303030",
+											fontWeight: " 600"
 
 
-									}}><u>Databases</u></p>
-									<p>Mongo, mySQL, SQL server, MS access.</p>
-								</div>
+										}}><u>Oracle Certified Associate</u></p>
+										<p>Java SE 8 Programmer</p>
+									</div>
+								}
+								{(data) &&
+									data.yourTraining?.cohort === 'Data Science-1' &&
+									<div className="badges" style={{ marginLeft: "0px", padding: "20px", marginBottom: "10px" }}>
 
-								<div className="badges" style={{ marginLeft: "0px", padding: "20px", marginTop: "0px" }}>
-									<img
-										src="../images/40752.jpg"
-										alt="programmer"
-										height="70px"
-										width="70px"
-										style={{ marginBottom: "0px" }}
-									/>
-									<p style={{
-										color: "#303030",
-										fontWeight: " 600"
-
-
-									}}><u>Computer networks</u></p>
-									<p>TCP/IP, riverbed, email server, web server.</p>
-								</div>
-								<div className="badges" style={{ padding: "20px", marginTop: "0px", marginLeft: "0" }}>
-									<img
-										src="../images/40752.jpg"
-										alt="programmer"
-										height="70px"
-										width="70px"
-										style={{ marginBottom: "0px" }}
-									/>
-									<p style={{
-										color: "#303030",
-										fontWeight: " 600"
+										<img id="python"
+											src={pythonImg}
+											alt="programmer"
+											height="70px"
+											width="70px"
+											style={{ marginBottom: "0px" }}
+										/>
 
 
-									}}><u>Media</u></p>
-									<p>Flash, python,microsoft expression web.</p>
-								</div>
+										<p style={{
+											color: "#303030",
+											fontWeight: " 600"
+										}}><u>Certified Associate in Python Programming</u></p>
+										<p>Accredited Python Programmer</p>
+									</div>
+								}
 							</div>
 						</div>
 
