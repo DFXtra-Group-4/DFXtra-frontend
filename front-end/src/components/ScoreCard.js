@@ -6,12 +6,14 @@ export default function ScoreCard({ setIsOpen, profileData, navigateTo }) {
 		console.log(e.target);
 		setIsOpen(false);
 		e.target.parentNode.style.display = "none";
-		const title = document.querySelector(".title");
-		title.style.opacity = "100%";
-		const spotlightInfo = document.querySelector(".spotlightInfo");
-		spotlightInfo.style.opacity = "100%";
-		const container = document.querySelector(".container");
-		container.style.opacity = "100%";
+		const page = document.querySelector("#allTalent");
+		page.style.opacity = "100%";
+		// const title = document.querySelector(".title");
+		// title.style.opacity = "100%";
+		// const spotlightInfo = document.querySelector(".spotlightInformation");
+		// spotlightInfo.style.opacity = "100%";
+		// const container = document.querySelector(".container");
+		// container.style.opacity = "100%";
 	};
 
 	return (

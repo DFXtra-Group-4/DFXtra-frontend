@@ -17,12 +17,14 @@ function Card({ allProfileData, navigateTo }) {
 	};
 
 	const setOpacity = () => {
-		const title = document.querySelector(".title");
-		title.style.opacity = "50%";
-		const spotlightInfo = document.querySelector(".spotlightInfo");
-		spotlightInfo.style.opacity = "50%";
-		const container = document.querySelector(".container");
-		container.style.opacity = "50%";
+		const page = document.querySelector("#allTalent");
+		page.style.opacity = "50%";
+		// const title = document.querySelector(".title");
+		// title.style.opacity = "50%";
+		// const spotlightInfo = document.querySelector(".spotlightInfo");
+		// spotlightInfo.style.opacity = "50%";
+		// const container = document.querySelector(".container");
+		// container.style.opacity = "50%";
 		return true;
 	};
 
@@ -56,7 +58,7 @@ function Card({ allProfileData, navigateTo }) {
 	const talentCard = (courseType) => {
 		console.log("dataFilter is...", dataFilter);
 		return (
-			<div className="talentPage">
+			<>
 				{allProfileData
 					.filter((subData) => subData.yourTraining.trainingPath === courseType)
 					.map((data) => (
@@ -78,19 +80,19 @@ function Card({ allProfileData, navigateTo }) {
 
 								<p> {data.personalDetails.profileHeadline}</p>
 							</div>
-							<p className="btn">
+							<p >
 								<button
 									onClick={() => {
 										togglePopup();
 										setProfileData(data);
-									}}
+									}} style={{ backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }}
 								>
 									View Profile
 								</button>
 							</p>
 						</div>
 					))}
-			</div>
+			</>
 		);
 	};
 
@@ -100,55 +102,51 @@ function Card({ allProfileData, navigateTo }) {
 			{isOpen && setOpacity() && (
 				<ScoreCard setIsOpen={setIsOpen} profileData={profileData} />
 			)}
+			<div id='allTalent'>
+				<div id='headingSection'>
+					<div className="title">
+						<h2
+							style={{
+								marginLeft: "0px",
+								marginBottom: "20px",
+								paddingBottom: "20px",
+							}}
+						>
+							Talent Spotlight
+						</h2>
+					</div>
+					<div className="spotlightInformation">
+						<p style={{ marginTop: "20px" }}>
+							{" "}
+							Here are all of the software engineers and data science graduates from
+							the Digital Futures academy. Click on the view profile button to see
+							more information about them.
+						</p>
+					</div>
+					<div style={{ marginBottom: "20px", textAlign: "left" }}>
+						Search : <input
+							class="searchbar" type="text"
+							placeholder="Search for a graduate by discipline"
 
-			<div className="title">
-				<h2
-					style={{
-						marginLeft: "0px",
-						marginBottom: "20px",
-						paddingBottom: "20px",
-					}}
-				>
-					Talent Spotlight
-				</h2>
-			</div>
-			<div className="spotlightInfo">
-				<p style={{ marginTop: "20px" }}>
-					{" "}
-					Here are all of the software engineers and data science graduates from
-					the Digital Futures academy. Click on the view profile button to see
-					more information about them.
-				</p>
-			</div>
-			<div style={{ marginBottom: "20px" }}>
-				<input
-					type="text"
-					placeholder="Search for a graduate by discipline"
-					style={{ width: "1050px" }}
-					value={searchBarValue}
-					onChange={(e) => {
-						setSearchBarValue(e.target.value);
-					}}
-				/>
-				{/* 
-        <button style={{ marginLeft: "20px" }} onClick={searchStudents}>
-          Search
-        </button> */}
-			</div>
-
-			<div className="container">
-				<div className="flex-container">
-					<h2 className="flex-containerh1">Software Engineering</h2>
-
-					{softwareFilter && talentCard("Software Engineering")}
+							value={searchBarValue}
+							onChange={(e) => {
+								setSearchBarValue(e.target.value);
+							}}
+						/>
+					</div>
 				</div>
+				<div className="container">
+					<div className="flex-container">
+						<h2 className="flex-containerh1">Graduates</h2>
 
-				<div className="flex-container">
-					<h2 className="flex-containerh1">Data science</h2>
+						{softwareFilter && talentCard("Software Engineering")}
+						{dataFilter && talentCard("Data Science")}
+					</div>
 
-					{dataFilter && talentCard("Data Science")}
+
 				</div>
 			</div>
+
 		</>
 	);
 }
