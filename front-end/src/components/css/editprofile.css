@@ -1,18 +1,5 @@
-#myProgress {
-  width: 50%;
-  height: 30px;
-  /* background-color: #d4d4d4; */
-  background-color: #ffffff;
-}
 
-#myBar {
-  width: 30%;
-  height: 30px;
-  /* background-color: rgb(6, 20, 80); */
-  background-color: rgb(255, 255, 255);
-}
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: #111;
 }
@@ -32,16 +19,11 @@ li a:hover {
 }
 
 .column {
-  float: left;
-  /* width: 33.33%; */
+	float: left;
+	
 }
 
-/* Clear floats after the columns */
-/* .row:after {
-	content: "";
-	display: table;
-	clear: both;
-} */
+
 td,
 th {
   text-align: left;
@@ -49,17 +31,16 @@ th {
 }
 
 .editRow {
-  border-style: solid;
-  border-width: 1px;
-  padding: 1.5rem;
-  border-radius: 0.625rem;
-  margin-bottom: 3rem;
-  border: 0px #d4d4d4 solid;
-  background-color: #fff;
-  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
-    rgb(0 0 0 / 5%) 0px 4px 6px -2px;
-  display: grid;
-  grid-template-columns: 300px 300px auto 200px;
+	border-style: solid;
+	border-width: 1px;
+	padding: 1.5rem;
+	border-radius: 0.625rem;
+	margin-bottom: 3rem;
+	border: 0px #d4d4d4 solid;
+	background-color: #fff;
+	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+
+
 }
 
 .profileLabelSpan {
@@ -131,7 +112,12 @@ th {
 }
 
 .saveBtn {
-  padding: 15px;
+	padding: 15px;
+	text-align: right;
+	background-color: #d4d4d4;
+	color:#000;
+	border-color:#d4d4d4;
+	
 }
 
 .ggText {
@@ -154,3 +140,4 @@ th {
   box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
     rgb(0 0 0 / 5%) 0px 4px 6px -2px;
 }
+

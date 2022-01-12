@@ -42,7 +42,6 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
 
   const onSubmit = e => {
     e.preventDefault();
-    // console.log("data sent..", dataObject);
     updateData(dataObject);
     navigate(`/trainee/${profileData._id}`, { replace: true });
   };
@@ -60,7 +59,6 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
           [e.target.name]: e.target.value
         }
       }))
-    // console.log(schoolQs)
   }
 
   const onSubmit2 = e => {
@@ -71,7 +69,6 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
         ...prevState,
         schoolQualifications: dataObject2.schoolQualifications
       }))
-    // console.log(schoolQs);
   };
 
   const onClick = e => {
@@ -92,22 +89,20 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
 
 
   const yourProfile = () => {
-    return (
-      <div className="editRow">
-        <h2>
-          <h3>Your profile</h3>
-        </h2>
-        <h2></h2>
-        <div id="myProgress">
-          <div id="myBar"></div>
-        </div>
+		return (
+			<div className="editRow">
+				<h2 style={{ marginLeft: "0px", display: "inline" }}>
+					Your profile
+				</h2>
 
-        <button className="saveBtn" type="submit">
-          Save profile
-        </button>
-      </div>
-    );
-  };
+				<div style={{ textAlign: "right", display: "inline", marginLeft: "880px" }}>
+					<button className="saveBtn" type="submit" >
+						Save profile
+					</button>
+				</div>
+			</div>
+		);
+	};
 
   const mapOptionsGeneral = (optionType) => {
     return (
@@ -118,7 +113,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
     return (
       <div className="personalInformationDiv">
         <div className="personalInfoH3">
-          <h2> Personal information </h2>
+          <h2 style={{ marginLeft: "0px" }}> Personal information </h2>
         </div>
         <div id="personalInfoInputs">
           <span className="profileLabelSpan">
@@ -129,7 +124,6 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
               name="firstName"
               onChange={onChange}
               defaultValue={dataObject.firstName}
-              validations={[validateInputs.required]}
             ></input>
           </span>
           <span className="profileLabelSpan">
@@ -296,7 +290,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
             <p style={{ fontSize: "10pt" }}>{x.description}</p>
 
           </td>
-          <td><button type="submit" style={{ width: "54px" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td>
+          <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td>
         </tr>)
       ));
   }
@@ -432,10 +426,9 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
                 ></input>
               </td>
               {isEnabled() ?
-                <td><button type="submit" style={{ width: "54px" }} name="update" >Add</button></td> :
-                <td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
+                <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name="update" >Add</button></td> :
+								<td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
               }
-              {/* <td><button type="submit" style={{ width: "54px" }} name="update" >Add</button></td> */}
             </tr>
             {schoolQualificationsTableRows()}
           </tbody>

@@ -1,9 +1,8 @@
 import "./css/vacancies.css";
-//import './utils/vacancies.js'
-import { Link } from "react-router-dom";
+
+
 import React, { useEffect, useState } from "react";
-import Company from "./company.json";
-import axios from 'axios';
+
 
 const Popup = props => {
 	return (
@@ -21,44 +20,19 @@ const Popup = props => {
 function Vacancies({ allCompanyData, navigateTo }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [popupData, setPopupData] = useState({});
-	// const [allCompanyData, setAllCompanyData] = useState({});
 	const [pageLoading, setPageLoading] = useState(true);
 	const togglePopup = () => {
 		setIsOpen(!isOpen);
 	};
 
-	// const getCompanyData = async () => {
-	// 	try {
-	// 		console.log("making GET request...");
-	// 		const res = await axios.get(
-	// 			`http://127.0.0.1:4000/vacancies`
-	// 		);
-	// 		console.log('company data is...', res.data);
-	// 		return res.data;
-	// 	} catch (e) {
-	// 		console.log(e);
-	// 	}
-	// }
+
 
 	useEffect(() => {
-		// const getData = async () => {
-		// 	setAllCompanyData(await getCompanyData());
-		// };
-		// getData();
+
 		setPageLoading(false);
 	}, []);
 
-	// may need similar function for company profile data load
-	// const filtered = () => {
-	// 	Company.companyDetails.forEach(object => {
-	// 		if (object.vacancies.some(vacancy => vacancy === vacancyObject)) {
-	// 			console.log(object);
-	// 			setPopupData(object);
-	// 			console.log(popupData)
-	// 			return object
-	// 		}
-	// 	})
-	// }
+
 
 	const VacanciesCardRow = (data, number) => {
 		let vacancies = [];
@@ -121,7 +95,8 @@ function Vacancies({ allCompanyData, navigateTo }) {
 	const VacanciesPopUp = () => {
 		return (
 			<>
-				{!pageLoading &&
+				{
+					!pageLoading &&
 					<>
 						<div class="rowVacancy" style={{ marginBottom: "20px" }}>
 							<div style={{ width: "60%" }}>

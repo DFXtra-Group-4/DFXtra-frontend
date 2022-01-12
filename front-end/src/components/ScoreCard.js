@@ -55,7 +55,7 @@ export default function ScoreCard({ setIsOpen, profileData, navigateTo }) {
 						</tr>
 						<tr>
 							<th>Training Finish Date:</th>
-							<td>{profileData.yourTraining.trainingFinishDate}</td>
+							<td>14/1/21</td>
 						</tr>
 					</table>
 				</div>
