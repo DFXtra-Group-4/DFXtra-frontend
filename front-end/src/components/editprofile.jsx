@@ -89,20 +89,21 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
 
 
   const yourProfile = () => {
-		return (
-			<div className="editRow">
-				<h2 style={{ marginLeft: "0px", display: "inline" }}>
-					Your profile
-				</h2>
+    return (
+      <div className="editRow">
+        <h2 style={{ marginLeft: "0px", display: "inline" }}>
+          Your profile
+        </h2>
 
-				<div style={{ textAlign: "right", display: "inline", marginLeft: "880px" }}>
-					<button className="saveBtn" type="submit" >
-						Save profile
-					</button>
-				</div>
-			</div>
-		);
-	};
+        {/* <div style={{ textAlign: "right", display: "inline", marginLeft: "880px" }}> */}
+        <div>
+          <button className="saveBtn" type="submit" >
+            Save profile
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   const mapOptionsGeneral = (optionType) => {
     return (
@@ -290,7 +291,8 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
             <p style={{ fontSize: "10pt" }}>{x.description}</p>
 
           </td>
-          <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td>
+          {/* <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td> */}
+          <td><button type="submit" name={index} class="tableDeleteBtn" onClick={onClick} key={"tr_" + index} >Delete</button></td>
         </tr>)
       ));
   }
@@ -426,8 +428,10 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
                 ></input>
               </td>
               {isEnabled() ?
-                <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name="update" >Add</button></td> :
-								<td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
+                // <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name="update" >Add</button></td> :
+                // <td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
+                <td><button type="submit" class="tableSaveBtn" name="update" >Add</button></td> :
+                <td><button type="submit" class="tableSaveBtn" style={{ backgroundColor: "#2c3147" }} name="update" disabled >Add</button></td>
               }
             </tr>
             {schoolQualificationsTableRows()}

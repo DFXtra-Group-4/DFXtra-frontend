@@ -1,5 +1,3 @@
-
-
 li a:hover {
   background-color: #111;
 }
@@ -19,10 +17,8 @@ li a:hover {
 }
 
 .column {
-	float: left;
-	
+  float: left;
 }
-
 
 td,
 th {
@@ -31,16 +27,19 @@ th {
 }
 
 .editRow {
-	border-style: solid;
-	border-width: 1px;
-	padding: 1.5rem;
-	border-radius: 0.625rem;
-	margin-bottom: 3rem;
-	border: 0px #d4d4d4 solid;
-	background-color: #fff;
-	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
-
-
+  border-style: solid;
+  border-width: 1px;
+  padding: 1.5rem;
+  border-radius: 0.625rem;
+  margin-bottom: 3rem;
+  border: 0px #d4d4d4 solid;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
+    rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+  /*Changes that (I) nik made*/
+  display: flex;
+  justify-content: space-between;
+  /*EoC*/
 }
 
 .profileLabelSpan {
@@ -111,14 +110,59 @@ th {
   padding: 5px;
 }
 
+/* nik made more changes */
 .saveBtn {
-	padding: 15px;
-	text-align: right;
-	background-color: #d4d4d4;
-	color:#000;
-	border-color:#d4d4d4;
-	
+  /* padding: 15px;
+  text-align: right;
+  background-color: #d4d4d4;
+  color: #000;
+  border-color: #d4d4d4; */
+
+  /*nik - moved button styling from login*/
+  /* background-color: #007aff; */
+  background-color: #061450;
+  width: 150px;
+  height: 50px;
+  border-radius: 40px;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  /*EoC*/
 }
+
+.saveBtn:hover {
+  /* background-color: #1100ff; */
+  background-color: #007aff;
+}
+
+.tableDeleteBtn {
+  background-color: #061450;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 40px;
+  border: none;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.tableDeleteBtn:hover {
+  background-color: #500606;
+}
+
+.tableSaveBtn {
+  background-color: #061450;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 40px;
+  border: none;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.tableSaveBtn:hover {
+  background-color: #007aff;
+}
+/* more changes ends*/
 
 .ggText {
   color: #303030;
@@ -140,4 +184,3 @@ th {
   box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
     rgb(0 0 0 / 5%) 0px 4px 6px -2px;
 }
-
