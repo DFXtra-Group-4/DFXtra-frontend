@@ -1,5 +1,5 @@
 import "./css/registration.css";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -7,7 +7,7 @@ import CheckButton from "react-validation/build/button";
 import axios from "axios";
 import validateInputs from "./utils/inputValidations";
 
-const Login = ({ setLogin, allProfileData }) => {
+const Login = ({ setLogin, allProfileData, loginState }) => {
   const form = useRef();
   const checkBtn = useRef();
 
@@ -40,9 +40,12 @@ const Login = ({ setLogin, allProfileData }) => {
   };
 
   const filterProfile = data => {
+    console.log('login filter data input', data.email);
+    console.log('allprofiles', allProfileData)
     const filtered = allProfileData.filter(
-      profiles => profiles.personalDetails.contact.email.workEmail === data.user.email
+      profiles => profiles.personalDetails.contact.email.workEmail === data.email
     );
+    console.log('fitlered is ', filtered);
     return filtered[0]._id;
   };
 
@@ -67,11 +70,12 @@ const Login = ({ setLogin, allProfileData }) => {
 
     if (checkBtn.current.context._errors.length === 0) {
       const loggedInUser = await login(user);
+      const loggedInUserParam = loggedInUser.user
       if (localStorage.getItem("user") && loggedInUser.user.roles[0] === "Graduate") {
         setLogin(loggedInUser.user);
         setMessage(loggedInUser.message);
         // alert(loggedInUser.message); // Just for testing purpose
-        navigate(`/trainee/${filterProfile(loggedInUser)}`);
+        navigate(`/trainee/${filterProfile(loggedInUserParam)}`);
       }
       else if (localStorage.getItem("user") && loggedInUser.user.roles[0] === "Industry") {
         setLogin(loggedInUser.user);
@@ -88,8 +92,14 @@ const Login = ({ setLogin, allProfileData }) => {
     }
   };
 
+  // useEffect(() => {
+  //   filterProfile(JSON.parse(localStorage.getItem("user")));
+  // }, [])
+
   return (
     <>
+      {/* {localStorage.getItem("user") &&
+        navigate(`/trainee/${filterProfile(JSON.parse(localStorage.getItem("user")).email)}`)} */}
       <div id="nav">
         <p className="DFX" style={{ color: "#fff" }}>
           {"DFX"}
@@ -113,7 +123,10 @@ const Login = ({ setLogin, allProfileData }) => {
                 name="email"
                 value={user.email}
                 onChange={onChangeEmail}
-                validations={[validateInputs.required, validateInputs.validEmail]}
+                validations={[
+                  validateInputs.required,
+                  validateInputs.validEmail,
+                ]}
               />
             </div>
             <div className="form-group">

@@ -88,9 +88,13 @@ const Navbar = ({ data, navigateTo }) => {
                     <a href={`/company/${role.name}`}>My profile</a>
                   )}
 
-                  {data && <a href={`/trainee/${data._id}`}>My profile</a> && (
-                    <a href={`/trainee/${data._id}/edit`}>Edit profile</a>
-                  )}
+                  {data && (
+                    <>
+                      <a href={`/trainee/${data._id}`}>My profile</a>
+                      <a href={`/trainee/${data._id}/edit`}>Edit profile</a>
+                    </>
+                  )
+                  }
                   <a href="/" onClick={handleLogout}>
                     Log out
                   </a>

@@ -67,6 +67,7 @@ function App() {
       setAllCompanyData(await getCompanyData());
     };
     getData();
+    console.log("login is..", login);
   }, [login]);
 
   const updateData = async (data) => {
@@ -165,7 +166,11 @@ function App() {
           path="/"
           exact
           element={
-            <Login setLogin={setLogin} allProfileData={allProfileData} />
+            <Login
+              setLogin={setLogin}
+              allProfileData={allProfileData}
+              loginState={login}
+            />
           }
         />
       </Routes>
