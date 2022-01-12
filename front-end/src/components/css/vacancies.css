@@ -145,4 +145,43 @@ li a:hover {
 
 .vacanciesTitle {
 	font-size: 3rem;
+	/* font-weight: bolder; */
+}
+
+.jobTitle {
+	font-size: 1.2rem;
+	white-space: nowrap;
+	
+}
+.companyName {
+	font-weight: bold;
+	white-space: nowrap;
+	font-size: 0.9rem;
+	
+}
+.buttonVacancy {
+	display: flex;  
+	justify-content: center;  
+	align-items: center; 
+	color: red;
+	/* color: rgb(6, 20, 80); 	 */
+	
+}
+
+.vacLocation {
+	display: flex;  
+	justify-content: right;  
+	align-items: right;
+	 
+}
+.vacLocation button {
+	background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+	
 }
