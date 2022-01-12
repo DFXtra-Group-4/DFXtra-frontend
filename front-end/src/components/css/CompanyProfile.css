@@ -37,6 +37,10 @@
 	
 }
 
+#companyProfile {
+	width: 90%;
+}
+
 .compField {
 	font-style: italic;
 	color:dimgray
