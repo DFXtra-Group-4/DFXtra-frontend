@@ -76,6 +76,7 @@
 .box1 {
 	grid-row: 5/6;
 	grid-column: 1/2;
+	width:400px
 }
 
 .box1 {
@@ -83,23 +84,42 @@
 	grid-column: 1/2;
 	border: 3px solid black;
 	margin-right: 2rem;
+	width:400px
 }
 
 .box2 {
 	grid-row: 4/5;
 	grid-column: 2/3;
 	border: 3px solid black;
+	width:380px
 }
 
 .box3 {
 	grid-row: 5/6;
 	grid-column: 2/3;
 	border: 3px solid black;
+	height:130px
+}
+.box1 th, .box2 th{
+	width: 180px;
+}
+.box1 td, .box2 td{
+	width: 210px;
+}
+.box1 h2, .box2 h2, .box3 h2{
+    font-style: italic;
+    text-decoration: underline;
+	margin: 10px;
+	font-weight: bolder;
+}
+.box1 table, .box2 table, .box3 table{
+	margin-left: 6px;
 }
 
 .ptags {
 	grid-row: 3/4;
 	grid-column: 1/3;
+	
 	
 }
 
@@ -131,4 +151,175 @@
 h2{
 	margin-left: 10px;
 	margin-top:10px
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.scoreCard{
+		width:200px;
+		height:1200px;
+	
+	border-radius: 5px}
+	.cardImg {
+	
+	width: 70px;
+	height: 70px;
+	
+}
+.fullnameHead {
+	font-weight: bolder;
+	text-align: center;
+	font-size: 14px;
+	position: absolute;
+	left: 12rem;
+	top: 13rem;
+}
+.box1 {
+    width:200px;
+	height:200px;
+	margin-bottom:0px;
+	grid-row:4/4;
+	grid-column:1/3
+
+}
+.box2 {
+	grid-row: 5/5;
+	grid-column: 1/3;
+	border: 3px solid black;
+	width:200px
+}
+.box3 {
+	grid-row: 6/6;
+	grid-column: 1/3;
+
+	height:130px;
+	width:200px
+
+}
+
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+		.scoreCard{
+		width:600px;
+		height:1200px;
+	
+	border-radius: 5px}
+	.cardImg {
+	
+	width: 70px;
+	height: 70px;
+	
+}
+.fullnameHead {
+	font-weight: bolder;
+	text-align: center;
+	font-size: 18px;
+	position: absolute;
+	left: 12rem;
+	top: 13rem;
+}
+.box1 {
+    width:400px;
+	height:200px;
+	margin-bottom:0px;
+	grid-row:4/4;
+	grid-column:1/3
+
+}
+.box2 {
+	grid-row: 5/5;
+	grid-column: 1/3;
+	border: 3px solid black;
+	width:400px
+}
+.box3 {
+	grid-row: 6/6;
+	grid-column: 1/3;
+
+	height:130px;
+	width:400px
+
+}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+.fullnameHead {
+	font-weight: bolder;
+	text-align: center;
+	font-size: 35px;
+	position: absolute;
+	left: 15rem;
+	top: 11rem;
+}
+
+.fullnameHead > h3 {
+	font-size: 1rem;
+}
+
+
+.scoreCard {
+	display: grid;
+	grid-template-columns: 3fr 1fr 1fr;
+	grid-template-rows: 2fr 2fr 4fr 4fr 2fr 1fr;
+	grid-gap: 10px;
+	flex-wrap: wrap;
+	box-shadow: 0px 0px 5px 0px black;
+	width: 800px;
+	height: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	padding: 3rem;
+	border-radius: 5%;
+	position: absolute;
+  z-index: 1;
+  top: 10rem;
+}
+
+
+
+.cardImg {
+	grid-row: 2/3;
+	grid-column: 1/2;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	border: 5px black solid;
+	margin-bottom: 2rem;
+}
+
+
+
+.box1 {
+	grid-row: 5/6;
+	grid-column: 1/2;
+	width:400px
+}
+
+.box1 {
+	grid-row: 4/5;
+	grid-column: 1/2;
+	border: 3px solid black;
+	margin-right: 2rem;
+	width:400px
+}
+
+.box2 {
+	grid-row: 4/5;
+	grid-column: 2/3;
+	border: 3px solid black;
+	width:380px
+}
+
+.box3 {
+	grid-row: 5/6;
+	grid-column: 2/3;
+	border: 3px solid black;
+	height:130px;
+	width:380px
+}
 }

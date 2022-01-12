@@ -61,30 +61,31 @@ function Card({ allProfileData }) {
 	const talentCard = (courseType) => {
 		console.log('dataFilter is...', dataFilter)
 		return (
-			<div className="talentPage">
-				{allProfileData.filter(subData => subData.yourTraining.trainingPath === courseType).map(data => (
-					< div className="topCard" key={data._id} >
+			<div className="talent">
+				<div className="talentPage">
+					{allProfileData.filter(subData => subData.yourTraining.trainingPath === courseType).map(data => (
+						< div className="topCard" key={data._id} >
 
-						< div className="sub-topCard" >
-							<img
-								className="image"
-								src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-								alt=""
-								height="100px"
-								width="100px"
-							/>
-							<h3> {`${data.personalDetails.name.firstName}` + " " + `${data.personalDetails.name.lastName}`}</h3>
+							< div className="sub-topCard" >
+								<img
+									className="image"
+									src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+									alt=""
+									height="100px"
+									width="100px"
+								/>
+								<h3> {`${data.personalDetails.name.firstName}` + " " + `${data.personalDetails.name.lastName}`}</h3>
 
-							< p > {data.personalDetails.profileHeadline}</p>
+								< p > {data.personalDetails.profileHeadline}</p>
+							</div >
+							<p className="btn"><button onClick={() => {
+								togglePopup(); setProfileData(data);
+							}} style={{ backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }}>View Profile</button></p>
 						</div >
-						<p className="btn"><button onClick={() => {
-							togglePopup(); setProfileData(data);
-						}}>View Profile</button></p>
-					</div >
-				))
-				}
+					))
+					}
+				</div>
 			</div>
-
 		);
 
 	};
@@ -92,30 +93,36 @@ function Card({ allProfileData }) {
 	return (
 		<>
 			{isOpen && setOpacity() && <ScoreCard setIsOpen={setIsOpen} profileData={profileData} />}
-			<div className="title">
-				<h2 style={{ marginLeft: "0px", marginBottom: "20px", paddingBottom: "20px" }}>Talent Spotlight</h2>
-			</div>
-			<div className="spotlightInfo">
-				<p style={{ marginTop: "20px" }}>
-					{" "}
-					Here are all of the software engineers and data science graduates from the Digital Futures academy. Click on the view profile button to see more information about them.
-				</p>
+			<div className="container">
+				<div className="flex-container">
+					<div className="title">
+						<h2 style={{ marginLeft: "0px", marginBottom: "20px", paddingBottom: "20px" }}>Talent Spotlight</h2>
+					</div>
+
+					<div className="spotlightInfo" style={{ paddingRight: "0" }}>
+						<p style={{ marginLeft: "0px", marginTop: "20px", marginBottom: "20px" }}>
+
+							Here are all of the software engineers and data science graduates from the Digital Futures academy. Click on the view profile button to see more information about them.
+						</p>
 
 
-			</div>
-			<div style={{ marginBottom: "20px" }} >
+					</div>
+					<div style={{ marginBottom: "20px", marginLeft: "5%" }} >
 
-				<input
-					type="text"
-					placeholder="Search for a graduate"
-					style={{ width: "1050px" }}
-					value={searchBarValue}
-					onChange={(e) => { setSearchBarValue(e.target.value); }}
-				/>
+						<input className="searchbar"
+							type="text"
+							placeholder="Search for a graduate"
 
-				<button style={{ marginLeft: "20px" }} onClick={searchStudents}>Search</button>
-			</div>
+							value={searchBarValue}
+							onChange={(e) => { setSearchBarValue(e.target.value); }}
+						/>
 
+						<button className="searchbutton" style={{
+
+							backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4"
+						}} onClick={searchStudents}>Search</button>
+					</div>
+				</div></div>
 			<div className="container">
 				<div className="flex-container">
 					<h2 className="flex-containerh1">Software Engineering</h2>

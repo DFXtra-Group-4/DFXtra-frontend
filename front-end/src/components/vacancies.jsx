@@ -1,5 +1,5 @@
 import "./css/vacancies.css";
-//import './utils/vacancies.js'
+
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 const Popup = props => {
@@ -37,7 +37,7 @@ function Vacancies() {
 						placeholder="Search for a job"
 						style={{ width: "100%" }}
 					></input>
-					<button style={{ display: "inline" }}>Search</button>
+					<button style={{ display: "inline", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }}>Search</button>
 				</div>
 			</>
 		);
@@ -71,7 +71,7 @@ function Vacancies() {
 					<div style={{ marginTop: "20px", width: "100%" }}>
 						<p style={{ marginTop: "0px", lineHeight: "16pt" }}>Summary, Location </p>
 					</div>
-					<button style={{ marginTop: "30px" }} id="myBtn" onClick={togglePopup}>
+					<button style={{ marginTop: "30px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} id="myBtn" onClick={togglePopup}>
 						Find out more
 					</button>
 				</div>
@@ -101,7 +101,7 @@ function Vacancies() {
 						<h3 style={{ marginTop: "10px" }}>Company name</h3>
 						<p style={{ marginTop: "10px" }}>Location</p>
 					</div>
-					<div c style={{ textAlign: "right" }}>
+					<div style={{ textAlign: "right" }}>
 						<img
 							src="images/40752.jpg"
 							alt="programmer"
@@ -109,6 +109,7 @@ function Vacancies() {
 							width="100px"
 							style={{ marginBottom: "0px" }}
 						></img>
+
 					</div>
 				</div>
 				<div style={{ marginTop: "20px", width: "100%" }}>

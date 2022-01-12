@@ -38,7 +38,7 @@ export default function ScoreCard({ setIsOpen, profileData }) {
 
 			</div>
 			<div className="box1">
-				<h2>Course Details:</h2>
+				<h2><u>Course Details:</u></h2>
 				<table>
 					<tr>
 						<th>Cohort:</th>
@@ -50,12 +50,12 @@ export default function ScoreCard({ setIsOpen, profileData }) {
 					</tr>
 					<tr>
 						<th>Training Finish Date:</th>
-						<td>{profileData.yourTraining.trainingFinishDate}</td>
+						<td>14/1/21</td>
 					</tr>
 				</table>
 			</div>
 			<div className="box2">
-				<h2>Modules:</h2>
+				<h2><u>Modules:</u></h2>
 				<table>
 					<tr>
 						<th>Module Name:</th>
@@ -70,7 +70,7 @@ export default function ScoreCard({ setIsOpen, profileData }) {
 				</table>
 			</div>
 			<div className="box3">
-				<h2>Scores:</h2>
+				<h2><u>Scores:</u></h2>
 				<table>
 					<tr>
 						<th>Score Name:</th>

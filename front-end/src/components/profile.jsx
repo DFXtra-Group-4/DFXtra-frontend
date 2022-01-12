@@ -10,9 +10,9 @@ const Profile = ({ data }, { loading }) => {
 				<h2> Data is loading...</h2>
 			) : (
 				<div id="profile">
-					<div className="row">
+					<div className="personalstoryrow">
 						<div className="column">
-							<h2>
+							<h2 style={{ marginLeft: "0" }}>
 								<b>
 									<u>
 										<i>Your profile</i>
@@ -58,7 +58,7 @@ const Profile = ({ data }, { loading }) => {
 							</table>
 						</div>
 						<div className="column">
-							<div className="column1">
+							<div className="personalstorycolumn1">
 								<span className="gText">
 									<u>Personal story summary</u>
 								</span>
@@ -71,16 +71,14 @@ const Profile = ({ data }, { loading }) => {
 									{data.personalStory?.schoolQualifications.length} school
 									qualifications
 								</p>
-								<p>{data.personalStory?.workExperience.length} work experiences</p>
-								<p>
-									{data.personalStory?.achievements.length} personal achievements
-								</p>
+								<p>{data.personalDetails?.profileHeadline}</p>
+
 							</div>
 						</div>
 					</div>
 					<div className="row">
 						<div className="column">
-							<h2>
+							<h2 style={{ marginLeft: "0" }}>
 								<u>Your training</u>
 							</h2>
 							<table>
@@ -98,7 +96,7 @@ const Profile = ({ data }, { loading }) => {
 								</tr>
 								<tr>
 									<span className="gText">Trainer finish date:</span>
-									<td>{data.yourTraining?.trainingFinishDate}</td>
+									<td>14/1/22</td>
 								</tr>
 							</table>
 						</div>
@@ -119,38 +117,89 @@ const Profile = ({ data }, { loading }) => {
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<h2>
+					<div class="informationrow" >
+						<h2 style={{ marginLeft: "0" }}>
 							<u>Your information</u>
 						</h2>
-						<div class="column">
-							<span className="gText">
+						<div class="column" >
+							<span className="gText" >
 								<u>Badges</u>
 							</span>
 							<div class="column2">
-								<div className="badges">
-									<p>{data.yourInfo?.badges[0].badgeName}</p>
-									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
+								<div className="badges" style={{ marginLeft: "0px", padding: "20px", marginBottom: "10px" }}>
+
+									<img
+										src="../images/40752.jpg"
+										alt="programmer"
+										height="70px"
+										width="70px"
+										style={{ marginBottom: "0px" }}
+									/>
+
+
+									<p style={{
+										color: "#303030",
+										fontWeight: " 600"
+
+
+									}}><u>Programming</u></p>
+									<p>Java, javascript, html, css, react, node js.</p>
 								</div>
-								<div className="badges">
-									<p>{data.yourInfo?.badges[0].badgeName}</p>
-									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
+								<div className="badges" style={{ padding: "20px", marginBottom: "10px", marginLeft: "0" }}>
+									<img
+										src="../images/40752.jpg"
+										alt="programmer"
+										height="70px"
+										width="70px"
+										style={{ marginBottom: "0px" }}
+									/>
+									<p style={{
+										color: "#303030",
+										fontWeight: " 600"
+
+
+									}}><u>Databases</u></p>
+									<p>Mongo, mySQL, SQL server, MS access.</p>
 								</div>
 
-								<div className="badges">
-									<p>{data.yourInfo?.badges[0].badgeName}</p>
-									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
+								<div className="badges" style={{ marginLeft: "0px", padding: "20px", marginTop: "0px" }}>
+									<img
+										src="../images/40752.jpg"
+										alt="programmer"
+										height="70px"
+										width="70px"
+										style={{ marginBottom: "0px" }}
+									/>
+									<p style={{
+										color: "#303030",
+										fontWeight: " 600"
+
+
+									}}><u>Computer networks</u></p>
+									<p>TCP/IP, riverbed, email server, web server.</p>
 								</div>
-								<div className="badges">
-									<p>{data.yourInfo?.badges[0].badgeName}</p>
-									<p>{data.yourInfo?.badges[0].badgeDescp}</p>
+								<div className="badges" style={{ padding: "20px", marginTop: "0px", marginLeft: "0" }}>
+									<img
+										src="../images/40752.jpg"
+										alt="programmer"
+										height="70px"
+										width="70px"
+										style={{ marginBottom: "0px" }}
+									/>
+									<p style={{
+										color: "#303030",
+										fontWeight: " 600"
+
+
+									}}><u>Media</u></p>
+									<p>Flash, python,microsoft expression web.</p>
 								</div>
 							</div>
 						</div>
 
-						<div className="column">
-							<div className="column1">
-								<div className="score">
+						<div className="column" style={{ marginTop: "20px", height: "300px" }}>
+							<div className="informationcolumn1" >
+								<div className="score" >
 									<span className="gText">
 										<u>Scores</u>
 									</span>
@@ -163,7 +212,8 @@ const Profile = ({ data }, { loading }) => {
 						</div>
 					</div>
 				</div>
-			)}
+			)
+			}
 		</>
 	);
 };

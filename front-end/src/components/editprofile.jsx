@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { options } from "./utils/dropDownOptions.json";
 
-function EditProfile({ profileData, updateData }) {
+function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
 	let navigate = useNavigate();
 
 	const dataObject = {
@@ -18,7 +18,6 @@ function EditProfile({ profileData, updateData }) {
 		gender: profileData.personalDetails?.gender,
 		personalityType: profileData.personalDetails?.personalityType,
 		nationality: profileData.personalDetails?.nationality,
-
 	};
 
 	const dataObject2 = {
@@ -32,119 +31,74 @@ function EditProfile({ profileData, updateData }) {
 			priority: "",
 			description: ""
 		}
-
 	};
-	function senddata() {
-		let information = {
-			"school": this.state.school,
-			"examType": this.state.examType,
-			"subject": this.state.subject,
-			"grade": this.state.grade,
-			"year": this.state.year,
-			"weight": this.state.weight,
-			"priority": this.state.priority,
-			"description": this.state.description
 
-		}
 
-		return fetch('http://localhost:27017/dfx.trainees', {
-			method: 'POST',
-			body: JSON.stringify(information),
-			headers: {
-				'Content-Type': 'application/json'
-			},
-		})
-			.then(res => res.json())
-			.then(data => console.log(data));
-	}
 	const onChange = e => {
-		console.log(e.target);
 		dataObject[e.target.name] = e.target.value;
-		console.log(e.target.value);
-	};
-	const onChange2 = e => {
-		console.log(e.target);
-		dataObject2[e.target.name] = e.target.value;
-		console.log("On change 2" + e.target.value);
 	};
 
 	const onSubmit = e => {
 		e.preventDefault();
-		console.log("data sent..", dataObject);
 		updateData(dataObject);
 		navigate(`/trainee/${profileData._id}`, { replace: true });
 	};
+
+	const [schoolQs, setSchoolQs] = useState(dataObject2);
+
+	useEffect(() => { }, [profileData, schoolQs]);
+
+	const onChange2 = e => {
+		setSchoolQs((prevState) => (
+			{
+				...prevState,
+				schoolQualifications: {
+					...prevState.schoolQualifications,
+					[e.target.name]: e.target.value
+				}
+			}))
+
+	}
+
 	const onSubmit2 = e => {
 		e.preventDefault();
-		console.log("School Qual updated", dataObject2);
-
-		updateData(dataObject2);
-		// navigate(`/trainee/${profileData._id}`, { replace: true });
+		updateData(schoolQs);
+		setSchoolQs((prevState) => (
+			{
+				...prevState,
+				schoolQualifications: dataObject2.schoolQualifications
+			}))
 	};
 
-	useEffect(() => { }, [profileData]);
-
-	const schoolQualificationsTableRows = () => {
-		return (
-			profileData.personalStory?.schoolQualifications.map(x => (
-				<tr>
-					<td>
-						<p style={{ fontSize: "10pt" }}>{x.school}</p>
-
-					</td>
-					<td>
-
-						<p style={{ fontSize: "10pt" }}>{x.examType}</p>
-					</td>
-					<td>
-
-						<p style={{ fontSize: "10pt" }}>{x.subject}</p>
-
-					</td>
-					<td>
-
-						<p style={{ fontSize: "10pt" }}>{x.grade}</p>
-
-					</td>
-					<td>
-
-						<p style={{ fontSize: "10pt" }}>{x.year}</p>
-
-					</td>
-					<td>
-
-						<p style={{ fontSize: "10pt" }}>{x.weight}</p>
-
-					</td>
-					<td>
-
-						<p style={{ fontSize: "10pt" }}>{x.priority}</p>
-
-					</td>
-					<td>
-
-						<p style={{ fontSize: "10pt" }}>{x.description}</p>
-
-					</td>
-					<td><button style={{ width: "54px" }}>Delete</button></td>
-				</tr>)
-			));
+	const onClick = e => {
+		e.preventDefault();
+		const id = profileData.personalStory.schoolQualifications[e.target.name]._id;
+		sendDelRequest({ id: id });
 	}
+
+	const isEnabled = () => {
+		for (const prop in schoolQs.schoolQualifications) {
+			if (schoolQs.schoolQualifications[prop] === "") {
+				return false;
+			}
+		}
+		return true;
+	}
+
+
 
 	const yourProfile = () => {
 		return (
 			<div className="editRow">
-				<h2>
-					<h3>Your profile</h3>
+				<h2 style={{ marginLeft: "0px", display: "inline" }}>
+					Your profile
 				</h2>
-				<h2>Profile completion</h2>
-				<div id="myProgress">
-					<div id="myBar"></div>
-				</div>
 
-				<button className="saveBtn" type="submit">
-					Save profile
-				</button>
+				<div style={{ textAlign: "right", display: "inline", marginLeft: "880px" }}>
+					<button className="saveBtn" type="submit" >
+						Save profile
+					</button>
+				</div>
 			</div>
 		);
 	};
@@ -158,7 +112,7 @@ function EditProfile({ profileData, updateData }) {
 		return (
 			<div className="personalInformationDiv">
 				<div className="personalInfoH3">
-					<h2> Personal information </h2>
+					<h2 style={{ marginLeft: "0px" }}> Personal information </h2>
 				</div>
 				<div id="personalInfoInputs">
 					<span className="profileLabelSpan">
@@ -274,596 +228,215 @@ function EditProfile({ profileData, updateData }) {
 						</select>
 					</span>
 				</div>
-				{/* <img id="selfieUpload"></img>  /*USER STORY LOWER PRIORITY*/}
+
 			</div>
 		);
 	};
 
+	const schoolQualificationsTableRows = () => {
+		return (
+			profileData.personalStory?.schoolQualifications.map((x, index) => (
+				<tr>
+					<td>
+						<p style={{ fontSize: "10pt" }}>{x.school}</p>
 
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.examType}</p>
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.subject}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.grade}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.year}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.weight}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.priority}</p>
+
+					</td>
+					<td>
+
+						<p style={{ fontSize: "10pt" }}>{x.description}</p>
+
+					</td>
+					<td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td>
+				</tr>)
+			));
+	}
+
+	const schoolQualificationsTable = () => {
+		return (
+			<>
+				<p className="ggText">
+					<u>School qualifications</u>
+				</p>
+				<table style={{ border: "1px solid black" }}>
+					<thead>
+						<tr>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								School
+							</th>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								Exam type
+							</th>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								Subject
+							</th>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								Grade
+							</th>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								Year
+							</th>
+
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								Weight
+							</th>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								Priority
+							</th>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+								Description
+							</th>
+							<th style={{ backgroundColor: "#061450", color: "#fff" }}>
+
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input
+									type="text"
+									placeholder="School name"
+									name="school"
+									id="id"
+									style={{ width: "110px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.school}
+								></input>
+							</td>
+							<td>
+								<input
+									type="text"
+									placeholder="Exam type"
+									name="examType"
+									id="examType"
+									style={{ width: "110px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.examType}
+								></input>
+							</td>
+							<td>
+								<input
+									type="text"
+									name="subject"
+									id="subject"
+									placeholder="Subject"
+									style={{ width: "110px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.subject}
+								></input>
+							</td>
+							<td>
+								<input
+									type="text"
+									placeholder="Grade"
+									name="grade"
+									id="grade"
+									style={{ width: "108px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.grade}
+								></input>
+							</td>
+							<td>
+								<input
+									type="text"
+									placeholder="Year"
+									name="year"
+									id="year"
+									style={{ width: "110px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.year}
+								></input>
+							</td>
+
+							<td>
+								<input
+									type="text"
+									placeholder="Weight"
+									name="weight"
+									id="weight"
+									style={{ width: "110px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.weight}
+								></input>
+							</td>
+							<td>
+								<input
+									type="text"
+									placeholder="Priority"
+									name="priority"
+									id="priority"
+									style={{ width: "110px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.priority}
+								></input>
+							</td>
+							<td>
+								<input
+									type="text"
+									placeholder="Description"
+									name="description"
+									id="description"
+									style={{ width: "129px" }}
+									onChange={onChange2}
+									value={schoolQs.schoolQualifications.description}
+								></input>
+							</td>
+							{isEnabled() ?
+								<td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name="update" >Add</button></td> :
+								<td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
+							}
+
+						</tr>
+						{schoolQualificationsTableRows()}
+					</tbody>
+				</table>
+			</>
+		);
+	}
 
 	return (
-		<form onSubmit={onSubmit} className="myForm">
-			{yourProfile()}
-			{personalInformation()}
+		<>
+			{!(localStorage.getItem('user')) && navigateTo('/')}
+			<form onSubmit={onSubmit} className="myForm">
+				{yourProfile()}
+				{personalInformation()}
+			</form>
 
-			<div>
+			<form onSubmit={onSubmit2} className="myForm">
 				<div className="personalStory">
-					<h2>
-						<u>Personal story</u>
-					</h2>
-					<p className="ggText">
-						<u>Degrees</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										University
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Subject
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Level
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Grade
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										From
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										To
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											name="university"
-											id="university"
-											placeholder="University name"
-											style={{ width: "120px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Subject"
-											name="subject"
-											id="subject"
-											style={{ width: "120px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											name="level"
-											id="level"
-											placeholder="Level"
-											style={{ width: "100px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											name="grade"
-											id="grade"
-											placeholder="Grade"
-											style={{ width: "70px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="date"
-											name="from"
-											id="from"
-											placeholder="From"
-											style={{ width: "110px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="date"
-											name="to"
-											id="to"
-											placeholder="To"
-											style={{ width: "110px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											name="weight"
-											id="weight"
-											placeholder="Weight"
-											style={{ width: "90px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											id="priority"
-											name="priority"
-											placeholder="Priority"
-											style={{ width: "90px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											name="description"
-											id="description"
-											placeholder="Description"
-											style={{ width: "137px" }}
-											onChange={onChange}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-					<p className="ggText">
-						<u>School qualifications</u>
-					</p>
-					<form className="myForm">
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										School
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Exam type
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Subject
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Grade
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Year
-									</th>
-
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="School name"
-											name="school"
-											id="school"
-
-											onChange={onChange2}
-											style={{ width: "110px" }}
-
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Exam type"
-											name="examType"
-
-											onChange={onChange2}
-											id="examType"
-											style={{ width: "110px" }}
-
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											name="subject"
-
-											onChange={onChange2}
-											id="subject"
-											placeholder="Subject"
-											style={{ width: "110px" }}
-
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Grade"
-											name="grade"
-
-											onChange={onChange2}
-											id="grade"
-											style={{ width: "108px" }}
-
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Year"
-											name="year"
-
-											onChange={onChange2}
-											id="year"
-											style={{ width: "110px" }}
-
-										></input>
-									</td>
-
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											name="weight"
-
-											onChange={onChange2}
-											id="weight"
-											style={{ width: "110px" }}
-
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											name="priority"
-
-											onChange={onChange2}
-											id="priority"
-											style={{ width: "110px" }}
-
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											name="description"
-
-											onChange={onChange2}
-											id="description"
-											style={{ width: "129px" }}
-
-										></input>
-									</td>
-									<td><button onSubmit={onSubmit2} type="submit" style={{ width: "54px" }}>Add</button></td>
-								</tr>
-								{schoolQualificationsTableRows()}
-
-							</tbody>
-						</table>
-					</form>
-
-					<p className="ggText">
-						<u>Work experience</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Type{" "}
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Company name
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Position
-									</th>
-
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										From
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										To
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="Type"
-											style={{ width: "130px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Company name"
-											style={{ width: "130px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Position"
-											style={{ width: "128px" }}
-											onChange={onChange}
-										></input>
-									</td>
-
-									<td>
-										<input
-											type="date"
-											placeholder="From"
-											style={{ width: "110px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="date"
-											placeholder="To"
-											style={{ width: "110px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "120px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "120px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "121px" }}
-											onChange={onChange}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-					<p className="ggText">
-						<u>Certificates and awards</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Type{" "}
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Issuer
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Award
-									</th>
-
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Grade
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Year
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="Type"
-											style={{ width: "124px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Issuer"
-											style={{ width: "130px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Award"
-											style={{ width: "128px" }}
-											onChange={onChange}
-										></input>
-									</td>
-
-									<td>
-										<input
-											type="text"
-											placeholder="Grade"
-											style={{ width: "110px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Year"
-											style={{ width: "110px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "120px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "120px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "121px" }}
-											onChange={onChange}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-					<p className="ggText">
-						<u>Portfolio</u>
-					</p>
-					<form>
-						<table style={{ border: "1px solid black" }}>
-							<thead>
-								<tr>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Title{" "}
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										URL
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Year
-									</th>
-
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Weight
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Priority
-									</th>
-									<th style={{ backgroundColor: "#061450", color: "#fff" }}>
-										Description
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<input
-											type="text"
-											placeholder="Title"
-											style={{ width: "207px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="URL"
-											style={{ width: "200px" }}
-											onChange={onChange}
-										></input>
-									</td>
-
-									<td>
-										<input
-											type="text"
-											placeholder="Year"
-											style={{ width: "125px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Weight"
-											style={{ width: "125px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Priority"
-											style={{ width: "125px" }}
-											onChange={onChange}
-										></input>
-									</td>
-									<td>
-										<input
-											type="text"
-											placeholder="Description"
-											style={{ width: "221px" }}
-											onChange={onChange}
-										></input>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
+					{schoolQualificationsTable()}
 				</div>
-			</div>
-		</form >
+			</form>
+		</>
 	);
 }
-
 export default EditProfile;
