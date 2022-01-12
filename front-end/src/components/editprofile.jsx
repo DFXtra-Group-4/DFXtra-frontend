@@ -9,17 +9,17 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
   let navigate = useNavigate();
 
   const dataObject = {
-    firstName: profileData.personalDetails?.name.firstName,
-    lastName: profileData.personalDetails?.name.lastName,
-    personalEmail: profileData.personalDetails?.contact?.email.email,
-    workEmail: profileData.personalDetails?.contact?.email.workEmail,
-    gitHub: profileData.personalDetails?.gitHub,
-    linkedIn: profileData.personalDetails?.linkedIn,
-    telNo: profileData.personalDetails?.contact?.telNo,
-    gender: profileData.personalDetails?.gender,
-    personalityType: profileData.personalDetails?.personalityType,
-    nationality: profileData.personalDetails?.nationality,
-    profileHeadline: profileData.personalDetails?.profileHeadline,
+    firstName: profileData?.personalDetails?.name.firstName,
+    lastName: profileData?.personalDetails?.name.lastName,
+    personalEmail: profileData?.personalDetails?.contact?.email.email,
+    workEmail: profileData?.personalDetails?.contact?.email.workEmail,
+    gitHub: profileData?.personalDetails?.gitHub,
+    linkedIn: profileData?.personalDetails?.linkedIn,
+    telNo: profileData?.personalDetails?.contact?.telNo,
+    gender: profileData?.personalDetails?.gender,
+    personalityType: profileData?.personalDetails?.personalityType,
+    nationality: profileData?.personalDetails?.nationality,
+    profileHeadline: profileData?.personalDetails?.profileHeadline,
   };
 
   const dataObject2 = {

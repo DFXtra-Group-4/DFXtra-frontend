@@ -53,6 +53,7 @@ const Login = ({ setLogin, allProfileData }) => {
       localStorage.setItem(`user`, JSON.stringify(res.data.user));
       return data;
     } catch (error) {
+      console.log('error is', error);
       return { error: error.response.data.message };
     }
   };
@@ -71,7 +72,13 @@ const Login = ({ setLogin, allProfileData }) => {
         setMessage(loggedInUser.message);
         // alert(loggedInUser.message); // Just for testing purpose
         navigate(`/trainee/${filterProfile(loggedInUser)}`);
-      } else {
+      }
+      else if (localStorage.getItem("user") && loggedInUser.user.roles[0] === "Industry") {
+        setLogin(loggedInUser.user);
+        setMessage(loggedInUser.message);
+        navigate(`/company/${loggedInUser.user.name}`)
+      }
+      else {
         setMessage(loggedInUser.error);
         setLoading(false);
         // alert(loggedInUser.error); // Just for testing purpose
