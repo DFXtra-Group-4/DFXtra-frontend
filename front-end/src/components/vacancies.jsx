@@ -37,7 +37,9 @@ function Vacancies({ allCompanyData, navigateTo }) {
 	const VacanciesCardRow = (data, number) => {
 		let vacancies = [];
 		if (number === 1) {
+
 			vacancies = [data[0]?.vacancies[0], data[0]?.vacancies[1], data[1]?.vacancies[0], data[1]?.vacancies[1]];
+			
 		}
 		if (number === 2) {
 			vacancies = [data[2]?.vacancies[0], data[2]?.vacancies[1], data[3]?.vacancies[0], data[3]?.vacancies[1]]
@@ -67,12 +69,19 @@ function Vacancies({ allCompanyData, navigateTo }) {
 					>
 						<div class="rowVacancy" style={{ marginBottom: "20px" }}>
 							<div style={{ width: "60%" }}>
+								<div className="jobTitle">
 								<h3 style={{ marginTop: "10px" }}>{vacancyObject.jobTitle}</h3>
-								<a style={{ marginTop: "10px" }} onClick={() => { navigateTo(`/company/${vacancyObject.companyName}`) }}>{vacancyObject.companyName}</a>
+								</div>
+								<div className="companyName">
+								<h3 style={{ marginTop: "10px" }}>{vacancyObject.companyName}</h3>
+								</div>
+								<div className="salary">
+									<h3>Salary: {vacancyObject.salary}</h3>
+								</div>
 							</div>
 							<div style={{ textAlign: "right" }}>
 								<img
-									src="images/40752.jpg"
+									src={vacancyObject.logo}
 									alt="programmer"
 									height="70px"
 									width="70px"
@@ -80,12 +89,16 @@ function Vacancies({ allCompanyData, navigateTo }) {
 								></img>
 							</div>
 						</div>
+						<div className="vacLocation">
 						<div style={{ marginTop: "20px", width: "100%" }}>
 							<p style={{ marginTop: "0px", lineHeight: "16pt" }}>{vacancyObject.location} </p>
+							</div>
 						</div>
+						<div className="buttonVacancy">
 						<button style={{ marginTop: "30px" }} id="myBtn" onClick={() => { togglePopup(); setPopupData(vacancyObject); }}>
 							Find out more
 						</button>
+						</div>
 					</div>
 				}
 			</>
@@ -102,7 +115,9 @@ function Vacancies({ allCompanyData, navigateTo }) {
 							<div style={{ width: "60%" }}>
 								<h3 style={{ marginTop: "10px" }}>{popupData.jobTitle}</h3>
 								<h3 style={{ marginTop: "10px" }}>{popupData.companyName}</h3>
+								
 								<p style={{ marginTop: "10px" }}>{popupData.location}</p>
+								
 							</div>
 							<div c style={{ textAlign: "right" }}>
 								<img
@@ -134,9 +149,9 @@ function Vacancies({ allCompanyData, navigateTo }) {
 				<div className="vacanciesPage">
 					<h2
 						className="vacanciesTitle"
-						style={{ textAlign: "center", fontWeight: "bold", fontStyle: "italic" }}
+						style={{ textAlign: "center", fontWeight: "bold"}}
 					>
-						<u>Vacancies</u>
+						<h1>Vacancies</h1>
 					</h2>
 					{VacanciesCardRow(allCompanyData, 1)}
 					{VacanciesCardRow(allCompanyData, 2)}
