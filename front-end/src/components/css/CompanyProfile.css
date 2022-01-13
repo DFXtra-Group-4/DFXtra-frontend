@@ -1,22 +1,4 @@
-/* .companyProfile.compRow {
-	border-style: solid;
-	border-width: 1px;
-	padding: 1.5rem;
-	border-radius: 0.625rem;
-	margin-bottom: 3rem;
-	border: 0px #d4d4d4 solid;
-	background-color: #fff;
-	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
-}
 
-.compColumn {
-	float: left;
-	width: 46%;
-	height: 300px;
-	text-align: left;
-} 
-
- */
 
 .logo {
 	width: 300px;
@@ -27,9 +9,11 @@
 
 }
 .companyHeader {
-	font-size: xx-large;
-	left: 0px;
+	font-size: "28px";
+	left: 20px;
 	position: relative;
+	
+	
 	
 	
 	
@@ -39,11 +23,14 @@
 
 #companyProfile {
 	width: 90%;
+	
 }
 
 .compField {
 	font-style: italic;
-	color:dimgray
+	color:dimgray;
+    left: 20px;
+	position: relative;
 }
 
 .image {
@@ -59,10 +46,13 @@
 	border: 0px #d4d4d4 solid;
 	background-color: #fff;
 	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+	
 }
 
 #companyProfile .row:nth-of-type(3){
-	display: flex;
+	display:flex;
+	padding-top: 5rem;
+    position: relative;
 }
 
 .badges {
@@ -74,12 +64,12 @@
 	text-align: center;
 }
 
-.column {
+.companycolumn {
 	float: left;
-	width: 46%;
+	width: 60%;
 	height: 300px;
 	text-align: left;
-	/* padding-left: 10px; */
+	
 }
 
 .roleCards {
@@ -103,40 +93,39 @@
 .rowVacancy {
 	flex-direction: row;
 	flex-direction: right;
-/* border-style: solid;
-border-radius: 0.625rem;
-border: 0px #d4d4d4 solid; */
-background-color: #fff;
-/* box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px; */
+    background-color: #fff;
+
 }
 
 
 .compLeft {
-		flex-direction: row;
+		
+		border-style: solid;
+		border-radius: 0.625rem;
+		border: 0px #d4d4d4 solid;
+		background-color: #fff;
+		box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+		
+		
+	}
+
+	.compRight {
+		
 		border-style: solid;
 		border-radius: 0.625rem;
 		border: 0px #d4d4d4 solid;
 		background-color: #fff;
 		box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
 		margin-left: 4rem;
-	}
-
-	.compRight {
-		flex-direction: row;
-		border-style: solid;
-		border-radius: 0.625rem;
-		border: 0px #d4d4d4 solid;
-		background-color: #fff;
-		box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
-				margin-left: 4rem;
+		
 
 	}
 
 .flexComp {
 	flex-direction: right;
 	width: 140%;
-        margin: 0 auto;
-        padding: 20px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .row3 {
@@ -152,7 +141,6 @@ background-color: #fff;
 
 .column3 {
 	float: left;
-	
 	width: 46%;
 	height: 300px;
 	text-align: left;
