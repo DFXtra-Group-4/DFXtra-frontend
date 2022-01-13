@@ -1,171 +1,185 @@
 .body {
-	font-family: "Clear Sans", sans-serif;
-	margin: 0;
-	padding: 0;
+  font-family: "Clear Sans", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 #allTalent {
-	width: 90%;
+  width: 90%;
 }
 
 #talent {
-	width: 90%;
+  width: 90%;
 }
 
 #headingSection {
-		width: 100%;
-		padding: 1 rem;
-		border-style: solid;
-	border-width: 1px;
-	padding: 1.5rem;
-	border-radius: 0.625rem;
-	margin-bottom: 3rem;
-	border: 0px #d4d4d4 solid;
-	background-color: #fff;
-	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+  width: 100%;
+  padding: 1 rem;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1.5rem;
+  border-radius: 0.625rem;
+  margin-bottom: 3rem;
+  border: 0px #d4d4d4 solid;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
+    rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+    /* height: 10rem; */
 }
 
 .talentCard {
-	flex-direction: row;
+  flex-direction: row;
 }
 .container {
-	width: 100%;
-	margin-bottom: 3rem;
+  width: calc(100%);
+  margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
+    rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+  border-style: solid;
+  border-radius: 0.625rem;
+  border: 0px #d4d4d4 solid;
+  background-color: #fff;
+  padding: 1.5rem;
+  position: relative;
 }
 .spotlightInformation {
-	height: 6rem;
-	margin-bottom: 5rem;
-	margin-top: 2rem;
+  margin-bottom: 1rem;
 }
-
 
 .title > h2 {
-	/* position: absolute;
+  /* position: absolute;
 	left: 2.4rem; */
 }
-.flex-container{
-    /* padding-top: 25px;
+.flex-container {
+  /* padding-top: 25px;
 	padding-left: 30px;
 	padding-bottom: 25px; */
-	position: relative;
-	margin-bottom: 3rem;
-	box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
-	border-style: solid;
-	border-radius: 0.625rem;
-	border: 0px #d4d4d4 solid;
-	background-color: #fff;
-		width: 100%;
-	display: flex;
-	padding-top: 4rem;
-	flex-wrap: wrap;
-	justify-content: center;
+  position: relative;
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 5rem;
 }
 
 .flex-containerh1 {
-	position: absolute;
-	top: 1rem;
-	left: 1rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
 }
 
 .talentPage {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	flex-shrink: 2;
-	justify-content: flex-start;
-	align-items: center;
-	width: 800px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 2;
+  justify-content: flex-start;
+  align-items: center;
+  width: 800px;
 }
 
-
 .flex2 {
-	display: flex;
-	padding: 30px;
-	flex-direction: row;
-	justify-content: center;
-	grid-gap: 10px;
-	flex-wrap: wrap;
-	box-shadow: 0px 0px 5px 0px black;
-	width: 90%;
-	height: auto;
-	background-color: #ededed;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: row;
-	justify-content: center;
-	flex-wrap: nowrap;
-	box-shadow: 0px 1px 5px 0px black;
-	width: 90%;
-	background-color: #ededed;
-	margin-bottom: 3rem;
+  display: flex;
+  padding: 30px;
+  flex-direction: row;
+  justify-content: center;
+  grid-gap: 10px;
+  flex-wrap: wrap;
+  box-shadow: 0px 0px 5px 0px black;
+  width: 90%;
+  height: auto;
+  background-color: #ededed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  box-shadow: 0px 1px 5px 0px black;
+  width: 90%;
+  background-color: #ededed;
+  margin-bottom: 3rem;
 }
 
 .topCard {
-	width: 200px;
-	height: 400px;
-	background: white;
-	border-radius: 10px;
-	box-shadow: 0px 1px 10px black;
-	margin-right: 20px;
-	margin-bottom: 20px;
-	position: relative;
+  width: 205px;
+  height: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px rgb(88, 88, 88);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  position: relative;
 }
- .sub-topCard{
-	height: 320px;
-} 
-.topCard .btn{
-	text-align: center;	
+
+.topCard:hover {
+    box-shadow: 0px 1px 10px rgb(4, 2, 155);
+
 }
+.sub-topCard {
+  height: 320px;
+}
+.topCard .btn {
+  text-align: center;
+}
+
+
 
 .topCard p {
-	text-align: center;
-	font-size: 12px;
-	padding: 15px 10px 10px 20px;
-	text-align: center;
+  text-align: center;
+  font-size: 12px;
+  /* padding: 15px 10px 10px 20px; */
+  text-align: center;
 }
-
 
 .topCard image {
-	justify-content: center;
+  justify-content: center;
 }
 .topCard h3 {
-	font-weight: bold;
-	text-align: center;
-	font-size: 20px;
-	padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
 }
 
 .topCard h4 {
-	text-align: center;
+  text-align: center;
 
-	color: #2465d4;
-	font-style: italic;
+  color: #2465d4;
+  font-style: italic;
 }
 
 .image {
-	border-radius: 50%;
-	align-items: center;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 10px;
+  border-radius: 50%;
+  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
 }
 
-.flexContainerh1 {
-	position: absolute;
-	top: 0rem;
-	height: 1rem;
-} */
-
-.searchbar{
-	width:200px
-	
+.talentSearchBar {
+  width: 600px ;
 }
 .searchbutton {
-margin-left: 10px;
-margin-top:0px
-	}
+  margin-left: 10px;
+  margin-top: 0px;
+}
+.spotlightBtn {
+  background-color: #061450;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 40px;
+  border: none;
+  font-size: 0.8rem;
+  margin-top: 20px;
+  color: white;
+}
+.spotlightBtn:hover {
+  background-color: #007aff;
+}
 /* Extra small devices (phones, 600px and down) */
 /* @media only screen and (max-width: 600px) {
 .searchbar
@@ -235,5 +249,3 @@ margin-top:0px
 	margin-left:0px
 
 } */
-	
-
