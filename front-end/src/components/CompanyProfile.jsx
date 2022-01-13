@@ -65,12 +65,12 @@ export default function CompanyPage({ allCompanyData }) {
               <h3 style={{
                 marginLeft: "20px", left: "20px",
                 position: "relative", top: "-15px"
-              }}><u>Company size: </u>{filterFunction().companySize}</h3>
+              }}><u>Company size:</u> {filterFunction().companySize}</h3>
 
               <h3 style={{
                 marginLeft: "20px", left: "20px",
                 position: "relative", top: "-11px"
-              }}><u>Salary: </u>{filterFunction().salary}</h3>
+              }}><u>Salary:</u> {filterFunction().salary}</h3>
 
               <h3 style={{
                 marginLeft: "20px", left: "20px",

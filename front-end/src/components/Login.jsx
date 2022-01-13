@@ -152,7 +152,11 @@ const Login = ({ setLogin, allProfileData, loginState }) => {
 
             {message && (
               <div className="form-group fg1">
-                <div className="alert alert-danger" role="alert">
+                <div
+                  className="alert alert-danger"
+                  role="alert"
+                  style={{ marginTop: "20px", color: "red" }}
+                >
                   {message}
                 </div>
               </div>
