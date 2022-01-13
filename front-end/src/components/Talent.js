@@ -37,13 +37,13 @@ function Card({ allProfileData, navigateTo }) {
       setDataFilter(true);
       setSoftwareFilter(true);
     } else if (
-      "software Engineering".includes(searchBarValue) &&
+      "software Engineering".includes(searchBarValue.toLowerCase()) &&
       searchBarValue.length > 0
     ) {
       setDataFilter(false);
       setSoftwareFilter(true);
     } else if (
-      "data science".includes(searchBarValue) &&
+      "data science".includes(searchBarValue.toLowerCase()) &&
       searchBarValue.length > 0
     ) {
       setDataFilter(true);
