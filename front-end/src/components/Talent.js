@@ -37,13 +37,13 @@ function Card({ allProfileData, navigateTo }) {
       setDataFilter(true);
       setSoftwareFilter(true);
     } else if (
-      "software Engineering".includes(searchBarValue) &&
+      "software Engineering".includes(searchBarValue.toLowerCase()) &&
       searchBarValue.length > 0
     ) {
       setDataFilter(false);
       setSoftwareFilter(true);
     } else if (
-      "data science".includes(searchBarValue) &&
+      "data science".includes(searchBarValue.toLowerCase()) &&
       searchBarValue.length > 0
     ) {
       setDataFilter(true);
@@ -127,7 +127,7 @@ function Card({ allProfileData, navigateTo }) {
           <div style={{ marginBottom: "20px", textAlign: "left" }}>
             Search :{" "}
             <input
-              class="searchbar"
+              class="talentSearchBar"
               type="text"
               placeholder="Search for a graduate by discipline"
               value={searchBarValue}
@@ -138,9 +138,8 @@ function Card({ allProfileData, navigateTo }) {
           </div>
         </div>
         <div className="container">
+          <h2 className="flex-containerh1">Graduates</h2>
           <div className="flex-container">
-            <h2 className="flex-containerh1">Graduates</h2>
-
             {softwareFilter && talentCard("Software Engineering")}
             {dataFilter && talentCard("Data Science")}
           </div>
