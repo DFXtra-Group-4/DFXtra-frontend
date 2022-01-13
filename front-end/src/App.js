@@ -147,7 +147,9 @@ function App() {
 				<Route
 					path="/company/:companyName"
 					exact
-					element={<CompanyProfile allCompanyData={allCompanyData} />}
+					element={
+						<CompanyProfile allCompanyData={allCompanyData} navigateTo={navigateTo} />
+					}
 				/>
 
 				<Route
