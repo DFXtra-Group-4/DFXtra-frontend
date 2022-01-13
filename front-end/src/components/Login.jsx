@@ -155,7 +155,7 @@ const Login = ({ setLogin, allProfileData, loginState }) => {
                 <div
                   className="alert alert-danger"
                   role="alert"
-                  style={{ marginTop: "20px", color: "red" }}
+                  style={{ marginTop: "20px", color: "red", textAlign: "center" }}
                 >
                   {message}
                 </div>
