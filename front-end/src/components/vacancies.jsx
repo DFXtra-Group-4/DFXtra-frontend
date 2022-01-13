@@ -76,24 +76,22 @@ function Vacancies({ allCompanyData, navigateTo }) {
                   <h3 style={{ marginTop: "10px" }}>{vacancyObject.companyName}</h3>
                 </div>
                 <div className="salary">
-                  <h3>Salary: {vacancyObject.salary}</h3>
+                  <h3 style={{marginTop: "10px"}}>Salary: {vacancyObject.salary}</h3>
                 </div>
+                <p style={{ marginTop: "10px" }}>{vacancyObject.location} </p>
               </div>
-              <div style={{ textAlign: "right" }}>
+              <div style={{ textAlign: "center", marginTop: "20px"}}>
                 <img
                   src={vacancyObject.logo}
                   alt="programmer"
-                  height="70px"
-                  width="70px"
-                  style={{ marginLeft: "10px" }}
+                  height="100px"
+                  width="100px"
+                  style={{}}
                 ></img>
               </div>
             </div>
-            <div className="vacLocation">
-              <div style={{ marginTop: "20px", width: "100%" }}>
-                <p style={{ marginTop: "0px", lineHeight: "16pt" }}>{vacancyObject.location} </p>
-              </div>
-            </div>
+           
+              
             <div className="buttonVacancy">
               {/* <button style={{ marginTop: "30px" }} id="myBtn" onClick={() => { togglePopup(); setPopupData(vacancyObject); }}>
                 Find out more
@@ -116,23 +114,30 @@ function Vacancies({ allCompanyData, navigateTo }) {
           <>
             <div class="rowVacancy" style={{ marginBottom: "20px" }}>
               <div style={{ width: "60%" }}>
-                <h3 style={{ marginTop: "10px" }}>{popupData.jobTitle}</h3>
-                <h3 style={{ marginTop: "10px" }}>{popupData.companyName}</h3>
-
-                <p style={{ marginTop: "10px" }}>{popupData.location}</p>
+              <div className="jobTitle">
+	                <h3 style={{ marginTop: "10px", lineHeight: "1" }}>{popupData.jobTitle}</h3>
+                  </div>
+                  <div className="companyName">
+                <h3 style={{ marginTop: "10px", fontWeight: "bold" , lineHeight: "1"}}>{popupData.companyName}</h3>
+                </div>
+                <p style={{ marginTop: "10px", fontWeight: "light",lineHeight: "1"}}>{popupData.location}</p>
+                <div className="salary">
+                  {/* <h3>Salary: {popupData.salary}</h3> */}
+                  <h3 style={{ marginTop: "10px", fontWeight: "light", lineHeight: "1"}}>{popupData.salary}</h3>
+                </div>
 
               </div>
-              <div c style={{ textAlign: "right" }}>
+              <div style={{ textAlign: "right", position: "absolute", top: "30px", right: "30px"}}>
                 <img
                   src={popupData.logo}
                   alt="programmer"
                   height="100px"
                   width="100px"
-                  style={{ marginBottom: "0px" }}
+                  style={{ marginBottom: "0px", marginBottom: "20px"}}
                 ></img>
               </div>
             </div>
-            <div style={{ marginTop: "20px", width: "100%" }}>
+            <div style={{ marginBottom: "20px", width: "100%" }}>
               <p style={{ marginTop: "0px", lineHeight: "16pt" }}>
                 {popupData.jobDescription}{" "}
               </p>
