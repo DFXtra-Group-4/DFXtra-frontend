@@ -28,7 +28,7 @@ function App() {
 		try {
 			const res = await axios.get(
 				//`${process.env.REACT_APP_URL}/trainees`
-				"http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainees"
+				"https://cors-anywhere.herokuapp.com/http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainees"
 			);
 			return res.data;
 		} catch (e) {
@@ -39,7 +39,7 @@ function App() {
 	const getProfileData = async () => {
 		try {
 			const res = await axios.get(
-				`http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainee/${login.email}`
+				`https://cors-anywhere.herokuapp.com/http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainee/${login.email}`
 			);
 			return res.data;
 		} catch (e) {
@@ -51,7 +51,7 @@ function App() {
 		try {
 			console.log("making GET request...");
 			const res = await axios.get(
-				`http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/vacancies`
+				`https://cors-anywhere.herokuapp.com/http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/vacancies`
 			);
 			console.log("company data is...", res.data);
 			return res.data;
@@ -73,7 +73,7 @@ function App() {
 	const updateData = async data => {
 		try {
 			await axios.put(
-				`http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainee/${login.email}/edit`,
+				`https://cors-anywhere.herokuapp.com/http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainee/${login.email}/edit`,
 				data
 			);
 		} catch (e) {
@@ -87,7 +87,7 @@ function App() {
 	const sendDelRequest = async id => {
 		try {
 			await axios.put(
-				`http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainee/${login.email}/edit/delete`,
+				`https://cors-anywhere.herokuapp.com/http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/trainee/${login.email}/edit/delete`,
 				id
 			);
 		} catch (e) {
