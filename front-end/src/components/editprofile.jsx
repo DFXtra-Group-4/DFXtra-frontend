@@ -89,20 +89,21 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
 
 
   const yourProfile = () => {
-		return (
-			<div className="editRow">
-				<h2 style={{ marginLeft: "0px", display: "inline" }}>
-					Your profile
-				</h2>
+    return (
+      <div className="editRow">
+        <h2 style={{ marginLeft: "0px", display: "inline" }}>
+          Your profile
+        </h2>
 
-				<div style={{ textAlign: "right", display: "inline", marginLeft: "880px" }}>
-					<button className="saveBtn" type="submit" >
-						Save profile
-					</button>
-				</div>
-			</div>
-		);
-	};
+        {/* <div style={{ textAlign: "right", display: "inline", marginLeft: "880px" }}> */}
+        <div>
+          <button className="saveBtn" type="submit" >
+            Save profile
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   const mapOptionsGeneral = (optionType) => {
     return (
@@ -115,133 +116,135 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
         <div className="personalInfoH3">
           <h2 style={{ marginLeft: "0px" }}> Personal information </h2>
         </div>
-        <div id="personalInfoInputs">
-          <span className="profileLabelSpan">
-            <label className="ggText">First Name:</label>
-            <input
-              type="text"
-              placeholder="Your name"
-              name="firstName"
-              onChange={onChange}
-              defaultValue={dataObject.firstName}
-            ></input>
-          </span>
-          <span className="profileLabelSpan">
-            <label className="ggText">Last Name:</label>
-            <input
-              type="text"
-              placeholder="Your name"
-              name="lastName"
-              onChange={onChange}
-              defaultValue={dataObject.lastName}
-            ></input>
-          </span>
-          <span className="profileLabelSpan">
-            <label className="ggText">Personal Email:</label>
-            <input
-              type="email"
-              placeholder="Your personal email"
-              name="personalEmail"
-              onChange={onChange}
-              defaultValue={dataObject.personalEmail}
-              disabled
-            ></input>
-          </span>
-          <span className="profileLabelSpan">
-            <label className="ggText">Digital Futures Email:</label>
-            <input
-              type="text"
-              placeholder="Your work email"
-              name="workEmail"
-              onChange={onChange}
-              defaultValue={dataObject.workEmail}
-              disabled
-            ></input>
-          </span>
-          <span className="profileLabelSpan">
-            <label className="ggText">Github</label>
-            <input
-              type="text"
-              placeholder="Your github link"
-              name="gitHub"
-              onChange={onChange}
-              defaultValue={dataObject.gitHub}
-            ></input>
-          </span>
-          <span className="profileLabelSpan">
-            <label className="ggText">LinkedIn</label>
-            <input
-              type="text"
-              placeholder="Your linked in"
-              name="linkedIn"
-              onChange={onChange}
-              defaultValue={dataObject.linkedIn}
-            ></input>
-          </span>
-          <span className="profileLabelSpan">
-            <label className="ggText">Telephone Number:</label>
-            <input
-              type="text"
-              placeholder="Your phone number"
-              name="telNo"
-              onChange={onChange}
-              defaultValue={dataObject.telNo}
-            ></input>
-          </span>
-          <span className="profileLabelSpan">
-            <label className="ggText" style={{ position: "absolute" }}>Profile Headline:</label>
-            <textarea
-              style={{ marginLeft: "12rem", marginTop: "1.2rem", width: "15rem" }}
-              type="text"
-              placeholder="Enter profile headline description"
-              name="profileHeadline"
-              onChange={onChange}
-              defaultValue={dataObject.profileHeadline}
-            ></textarea>
-          </span>
-        </div>
-        <div id="selectDiv">
-          <span className="selectSpan">
-            <label className="ggText">Gender:</label>
-            <select
-              style={{ width: "208px" }}
-              name="gender"
-              onChange={onChange}
-              id="gender"
-            >
-              <option value="" disabled selected>
-                {dataObject.gender?.slice(0, 1).toUpperCase() + dataObject.gender?.slice(1)} </option>
-              {mapOptionsGeneral("gender")}
-            </select>
-          </span>
-          <span className="selectSpan">
-            <label className="ggText">Nationality:</label>
-            <select
-              style={{ width: "208px" }}
-              name="nationality"
-              onChange={onChange}
-              id="nationality"
-            >
-              <option value="" disabled selected>
-                {dataObject.nationality?.slice(0, 1).toUpperCase() + dataObject.nationality?.slice(1)}
-              </option>
-              {mapOptionsGeneral("nationality")}
-            </select>
-          </span>
-          <span className="selectSpan">
-            <label className="ggText">Personality Type:</label>
-            <select
-              name="personalityType"
-              id="personalityType"
-              onChange={onChange}
-              style={{ width: "208px" }}
-            >
-              <option value="" disabled selected>
-                {dataObject.personalityType?.slice(0, 1).toUpperCase() + dataObject.personalityType?.slice(1)}
-              </option>
-              {mapOptionsGeneral("personalityType")}
-            </select>
-          </span>
+        <div class="pInfoDiv">
+          <div id="personalInfoInputs">
+            <span className="profileLabelSpan">
+              <label className="ggText">First Name:</label>
+              <input
+                type="text"
+                placeholder="Your name"
+                name="firstName"
+                onChange={onChange}
+                defaultValue={dataObject.firstName}
+              ></input>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText">Last Name:</label>
+              <input
+                type="text"
+                placeholder="Your name"
+                name="lastName"
+                onChange={onChange}
+                defaultValue={dataObject.lastName}
+              ></input>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText">Personal Email:</label>
+              <input
+                type="email"
+                placeholder="Your personal email"
+                name="personalEmail"
+                onChange={onChange}
+                defaultValue={dataObject.personalEmail}
+                disabled
+              ></input>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText">Digital Futures Email:</label>
+              <input
+                type="text"
+                placeholder="Your work email"
+                name="workEmail"
+                onChange={onChange}
+                defaultValue={dataObject.workEmail}
+                disabled
+              ></input>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText">Github</label>
+              <input
+                type="text"
+                placeholder="Your github link"
+                name="gitHub"
+                onChange={onChange}
+                defaultValue={dataObject.gitHub}
+              ></input>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText">LinkedIn</label>
+              <input
+                type="text"
+                placeholder="Your linked in"
+                name="linkedIn"
+                onChange={onChange}
+                defaultValue={dataObject.linkedIn}
+              ></input>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText">Telephone Number:</label>
+              <input
+                type="text"
+                placeholder="Your phone number"
+                name="telNo"
+                onChange={onChange}
+                defaultValue={dataObject.telNo}
+              ></input>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText" style={{ position: "absolute" }}>Profile Headline:</label>
+              <textarea
+                style={{ marginLeft: "12rem", marginTop: "1.2rem", width: "15rem" }}
+                type="text"
+                placeholder="Enter profile headline description"
+                name="profileHeadline"
+                onChange={onChange}
+                defaultValue={dataObject.profileHeadline}
+              ></textarea>
+            </span>
+          </div>
+          <div id="selectDiv">
+            <span className="selectSpan">
+              <label className="ggText">Gender:</label>
+              <select
+                style={{ width: "208px" }}
+                name="gender"
+                onChange={onChange}
+                id="gender"
+              >
+                <option value="" disabled selected>
+                  {dataObject.gender?.slice(0, 1).toUpperCase() + dataObject.gender?.slice(1)} </option>
+                {mapOptionsGeneral("gender")}
+              </select>
+            </span>
+            <span className="selectSpan">
+              <label className="ggText">Nationality:</label>
+              <select
+                style={{ width: "208px" }}
+                name="nationality"
+                onChange={onChange}
+                id="nationality"
+              >
+                <option value="" disabled selected>
+                  {dataObject.nationality?.slice(0, 1).toUpperCase() + dataObject.nationality?.slice(1)}
+                </option>
+                {mapOptionsGeneral("nationality")}
+              </select>
+            </span>
+            <span className="selectSpan">
+              <label className="ggText">Personality Type:</label>
+              <select
+                name="personalityType"
+                id="personalityType"
+                onChange={onChange}
+                style={{ width: "208px" }}
+              >
+                <option value="" disabled selected>
+                  {dataObject.personalityType?.slice(0, 1).toUpperCase() + dataObject.personalityType?.slice(1)}
+                </option>
+                {mapOptionsGeneral("personalityType")}
+              </select>
+            </span>
+          </div>
         </div>
         {/* <img id="selfieUpload"></img>  /*USER STORY LOWER PRIORITY*/}
       </div>
@@ -290,7 +293,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
             <p style={{ fontSize: "10pt" }}>{x.description}</p>
 
           </td>
-          <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name={index} onClick={onClick} key={"tr_" + index} >Delete</button></td>
+          <td><button type="submit" name={index} class="tableDeleteBtn" onClick={onClick} key={"tr_" + index} >Delete</button></td>
         </tr>)
       ));
   }
@@ -301,138 +304,140 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
         <p className="ggText">
           <u>School qualifications</u>
         </p>
-        <table style={{ border: "1px solid black" }}>
-          <thead>
-            <tr>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                School
-              </th>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                Exam type
-              </th>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                Subject
-              </th>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                Grade
-              </th>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                Year
-              </th>
+        <div class="tableWrap">
+          <table style={{ border: "1px solid black" }}>
+            <thead>
+              <tr>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  School
+                </th>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  Exam type
+                </th>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  Subject
+                </th>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  Grade
+                </th>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  Year
+                </th>
 
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                Weight
-              </th>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                Priority
-              </th>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
-                Description
-              </th>
-              <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  Weight
+                </th>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  Priority
+                </th>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
+                  Description
+                </th>
+                <th style={{ backgroundColor: "#061450", color: "#fff" }}>
 
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <input
-                  type="text"
-                  placeholder="School name"
-                  name="school"
-                  id="id"
-                  style={{ width: "110px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.school}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  placeholder="Exam type"
-                  name="examType"
-                  id="examType"
-                  style={{ width: "110px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.examType}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  placeholder="Subject"
-                  style={{ width: "110px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.subject}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  placeholder="Grade"
-                  name="grade"
-                  id="grade"
-                  style={{ width: "108px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.grade}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  placeholder="Year"
-                  name="year"
-                  id="year"
-                  style={{ width: "110px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.year}
-                ></input>
-              </td>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="School name"
+                    name="school"
+                    id="id"
+                    style={{ width: "110px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.school}
+                  ></input>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Exam type"
+                    name="examType"
+                    id="examType"
+                    style={{ width: "110px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.examType}
+                  ></input>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                    style={{ width: "110px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.subject}
+                  ></input>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Grade"
+                    name="grade"
+                    id="grade"
+                    style={{ width: "108px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.grade}
+                  ></input>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Year"
+                    name="year"
+                    id="year"
+                    style={{ width: "110px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.year}
+                  ></input>
+                </td>
 
-              <td>
-                <input
-                  type="text"
-                  placeholder="Weight"
-                  name="weight"
-                  id="weight"
-                  style={{ width: "110px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.weight}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  placeholder="Priority"
-                  name="priority"
-                  id="priority"
-                  style={{ width: "110px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.priority}
-                ></input>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  placeholder="Description"
-                  name="description"
-                  id="description"
-                  style={{ width: "129px" }}
-                  onChange={onChange2}
-                  value={schoolQs.schoolQualifications.description}
-                ></input>
-              </td>
-              {isEnabled() ?
-                <td><button type="submit" style={{ width: "54px", backgroundColor: "#d4d4d4", color: "#000", borderColor: "#d4d4d4" }} name="update" >Add</button></td> :
-								<td><button type="submit" style={{ width: "54px" }} name="update" disabled >Add</button></td>
-              }
-            </tr>
-            {schoolQualificationsTableRows()}
-          </tbody>
-        </table>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Weight"
+                    name="weight"
+                    id="weight"
+                    style={{ width: "110px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.weight}
+                  ></input>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Priority"
+                    name="priority"
+                    id="priority"
+                    style={{ width: "110px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.priority}
+                  ></input>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Description"
+                    name="description"
+                    id="description"
+                    style={{ width: "129px" }}
+                    onChange={onChange2}
+                    value={schoolQs.schoolQualifications.description}
+                  ></input>
+                </td>
+                {isEnabled() ?
+                  <td><button type="submit" class="tableSaveBtn" name="update" >Add</button></td> :
+                  <td><button type="submit" class="tableSaveBtn" style={{ backgroundColor: "#2c3147" }} name="update" disabled >Add</button></td>
+                }
+              </tr>
+              {schoolQualificationsTableRows()}
+            </tbody>
+          </table>
+        </div>
       </>
     );
   }
