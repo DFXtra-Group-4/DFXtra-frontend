@@ -36,10 +36,8 @@ th {
   background-color: #fff;
   box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px,
     rgb(0 0 0 / 5%) 0px 4px 6px -2px;
-  /*Changes that (I) nik made*/
   display: flex;
   justify-content: space-between;
-  /*EoC*/
 }
 
 .profileLabelSpan {
@@ -50,6 +48,12 @@ th {
 
 .profileLabelSpan > label {
   width: 10rem;
+}
+
+.profileLabelSpan > textarea {
+  margin-top: 2.2rem;
+  font-family: "MS Shell Dlg 2";
+  font-size: 13.3333px;
 }
 
 .personalInformationDiv {
@@ -74,7 +78,6 @@ th {
 #personalInfoInputs {
   height: 30rem;
   width: 40%;
-  margin-top: 3rem;
 }
 
 .myForm {
@@ -85,7 +88,6 @@ th {
 #selectDiv {
   height: 30rem;
   width: 40%;
-  margin-top: 3rem;
   margin-left: 100px;
 }
 
@@ -107,20 +109,11 @@ th {
 }
 
 .selectSpan > select {
-  background-color: #d4d4d4;
   padding: 5px;
+  width: 14.5rem;
 }
 
-/* nik made more changes */
 .saveBtn {
-  /* padding: 15px;
-  text-align: right;
-  background-color: #d4d4d4;
-  color: #000;
-  border-color: #d4d4d4; */
-
-  /*nik - moved button styling from login*/
-  /* background-color: #007aff; */
   background-color: #061450;
   width: 150px;
   height: 50px;
@@ -128,11 +121,9 @@ th {
   border: none;
   font-size: 1rem;
   color: white;
-  /*EoC*/
 }
 
 .saveBtn:hover {
-  /* background-color: #1100ff; */
   background-color: #007aff;
 }
 
@@ -163,7 +154,6 @@ th {
 .tableSaveBtn:hover {
   background-color: #007aff;
 }
-/* more changes ends*/
 
 .ggText {
   color: #303030;
@@ -196,4 +186,5 @@ th {
   display: flex;
   justify-content: space-between;
   width: 90%;
+  margin: 0.5rem 0rem 2rem 0rem;
 }

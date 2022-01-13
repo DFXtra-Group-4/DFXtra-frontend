@@ -190,23 +190,12 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
                 defaultValue={dataObject.telNo}
               ></input>
             </span>
-            <span className="profileLabelSpan">
-              <label className="ggText" style={{ position: "absolute" }}>Profile Headline:</label>
-              <textarea
-                style={{ marginLeft: "12rem", marginTop: "1.2rem", width: "15rem" }}
-                type="text"
-                placeholder="Enter profile headline description"
-                name="profileHeadline"
-                onChange={onChange}
-                defaultValue={dataObject.profileHeadline}
-              ></textarea>
-            </span>
           </div>
           <div id="selectDiv">
             <span className="selectSpan">
               <label className="ggText">Gender:</label>
               <select
-                style={{ width: "208px" }}
+
                 name="gender"
                 onChange={onChange}
                 id="gender"
@@ -219,7 +208,7 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
             <span className="selectSpan">
               <label className="ggText">Nationality:</label>
               <select
-                style={{ width: "208px" }}
+
                 name="nationality"
                 onChange={onChange}
                 id="nationality"
@@ -236,13 +225,24 @@ function EditProfile({ profileData, updateData, navigateTo, sendDelRequest }) {
                 name="personalityType"
                 id="personalityType"
                 onChange={onChange}
-                style={{ width: "208px" }}
+
               >
                 <option value="" disabled selected>
                   {dataObject.personalityType?.slice(0, 1).toUpperCase() + dataObject.personalityType?.slice(1)}
                 </option>
                 {mapOptionsGeneral("personalityType")}
               </select>
+            </span>
+            <span className="profileLabelSpan">
+              <label className="ggText" style={{ position: "absolute" }}>Profile Headline:</label>
+              <textarea
+                style={{ marginLeft: "12rem", width: "14rem" }}
+                type="text"
+                placeholder="Enter profile headline description"
+                name="profileHeadline"
+                onChange={onChange}
+                defaultValue={dataObject.profileHeadline}
+              ></textarea>
             </span>
           </div>
         </div>
