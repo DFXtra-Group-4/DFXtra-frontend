@@ -52,7 +52,7 @@ const Login = ({ setLogin, allProfileData, loginState }) => {
 	const login = async user => {
 		try {
 			const res = await axios.post(
-				`https://cors-anywhere.herokuapp.com/http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/login`,
+				`http://ec2-54-204-116-186.compute-1.amazonaws.com:4000/login`,
 				user
 			);
 			const data = await res.data;
